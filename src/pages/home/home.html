@@ -1,16 +1,174 @@
-<ion-header>
+<ion-header class="navbar">
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <!-- <ion-buttons left>
+      <button class="btn-back" ion-button (click)="doYourStuff()">
+        <ion-icon class="customIcon" name="arrow-back"> Back</ion-icon>
+      </button>
+    </ion-buttons> -->
+    <div class="logo-header">
+      <img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/MockUI/24go%20check.png" alt="" height="200px">
+    </div>
+    <!--<ion-buttons right>-->
+      <!--<button class="btn-back" ion-button (click)="doYourStuff()">-->
+        <!--<ion-icon class="ion-ios-search" name=""></ion-icon>-->
+      <!--</button>-->
+    <!--</ion-buttons>-->
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
 
-  <page-products></page-products>
+  <front-slider></front-slider>
+    <ion-scroll scrollX="true" style="white-space: nowrap; height: 150px; margin-bottom: 10px;">
+      <ul class="row home-category-grid-icons" id="iconSlide">
+        <li>
+          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
+            <div class="parent-background">
+              <div class="background-opacity">
+                <div class="cat-name">
+                  <span>Du Lịch</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
+            <div class="parent-background">
+              <div class="background-opacity">
+                <div class="cat-name">
+                  <span>Du Lịch</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
+            <div class="parent-background">
+              <div class="background-opacity">
+                <div class="cat-name">
+                  <span>Du Lịch</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
+            <div class="parent-background">
+              <div class="background-opacity">
+                <div class="cat-name">
+                  <span>Du Lịch</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
+            <div class="parent-background">
+              <div class="background-opacity">
+                <div class="cat-name">
+                  <span>Du Lịch</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
+            <div class="parent-background">
+              <div class="background-opacity">
+                <div class="cat-name">
+                  <span>Du Lịch</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
+            <div class="parent-background">
+              <div class="background-opacity">
+                <div class="cat-name">
+                  <span>Du Lịch</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
+            <div class="parent-background">
+              <div class="background-opacity">
+                <div class="cat-name">
+                  <span>Du Lịch</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </ion-scroll>
+  <!-- <ion-list style="margin: 0 0 32px;">
+    <h1>Gian Hàng</h1>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <img (click)="onGoToDetailUser()" src="../../assets/imgs/bag.jpg" height="150"/>
+          <ion-row>
+            <ion-col col-9 style="border-right:1px solid #82603c">
+              <ion-title><h2 class="title-product">Jacket Men Leather</h2></ion-title>
+              <span>{{"169 Nguyễn Ngọc Vũ - Trung Hòa - Cầu Giấy - Hà Nội".slice(0,15).concat("...")}}</span>
+              <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
+            </ion-col>
+            <ion-col col-3><p>1<span style="color: red">SP</span></p></ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-6>
+          <img src="../../assets/imgs/bag2.jpg" height="150"/>
+          <ion-row>
+            <ion-col col-9 style="border-right:1px solid #82603c">
+              <ion-title><h2 class="title-product">Jacket Men Leather</h2></ion-title>
+              <span>{{"169 Nguyễn Ngọc Vũ - Trung Hòa - Cầu Giấy - Hà Nội".slice(0,15).concat("...")}}</span>
+              <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
+            </ion-col>
+            <ion-col col-3><p>1<span style="color: red">SP</span></p></ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-6>
+          <img src="../../assets/imgs/bag2.jpg" height="150"/>
+          <ion-row>
+            <ion-col col-9 style="border-right:1px solid #82603c">
+              <ion-title><h2 class="title-product">Jacket Men Leather</h2></ion-title>
+              <span>{{"169 Nguyễn Ngọc Vũ - Trung Hòa - Cầu Giấy - Hà Nội".slice(0,15).concat("...")}}</span>
+              <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
+            </ion-col>
+            <ion-col col-3><p>1<span style="color: red">SP</span></p></ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-6>
+          <img src="../../assets/imgs/bag.jpg" height="150"/>
+          <ion-row>
+            <ion-col col-9 style="border-right:1px solid #82603c">
+              <ion-title><h2 class="title-product">Jacket Men Leather</h2></ion-title>
+              <span>{{"169 Nguyễn Ngọc Vũ - Trung Hòa - Cầu Giấy - Hà Nội".slice(0,15).concat("...")}}</span>
+              <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
+            </ion-col>
+            <ion-col col-3><p>1<span style="color: red">SP</span></p></ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list> -->
+
+  <ion-list style="margin: 0 0 32px;">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 *ngFor="let shop of shopList">
+          <img [navPush]="shopDetailsPage" [navParams]="shop" src="{{shop.user_image || '../../assets/imgs/bag.jpg'}}" height="150"/>
+          <ion-row>
+            <ion-col col-9 style="border-right:1px solid #82603c">
+              <ion-title><h2 class="title-product">{{shop.company || shop.fullname}}</h2></ion-title>
+              <span>{{shop.adderss}}</span>
+              <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
+            </ion-col>
+            <ion-col col-3><p>{{shop.product_count}}<span style="color: red">SP</span></p></ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- <ion-item *ngFor="let shop of shopList">{{shop.company || shop.fullname}}</ion-item> -->
+  </ion-list>
+ 
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
