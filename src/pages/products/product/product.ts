@@ -20,7 +20,11 @@ export class ProductPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private productService: ProductsProvider) {
     
-    // this.productDetails = productService.getProductById(navParams.get('product_id'));
+    productService.getProductById(navParams.get('product_id'))
+      .subscribe(data => {
+        console.log('product data: ', data);
+        this.productDetails = data;
+      });
   }
 
   ionViewDidLoad() {

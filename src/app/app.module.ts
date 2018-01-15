@@ -1,4 +1,5 @@
 import { CartPage } from './../pages/cart/cart';
+import { ProductManagementPage } from './../pages/accounts/product-management/product-management';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,8 +30,8 @@ import { TabsPage } from './../pages/tabs/tabs';
 import { MyApp } from './app.component';
 import { ProductsProvider } from '../providers/products/products';
 import { NotificationsPage } from '../pages/notifications/notifications';
-
 import { Geolocation } from '@ionic-native/geolocation';
+import { CategoriesProvider } from '../providers/categories/categories';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     FrontSliderComponent,
     TabsPage,
     CartPage,
-    NotificationsPage
+    NotificationsPage,
+    ProductManagementPage
   ],
   imports: [
     HttpClientModule,
@@ -82,7 +84,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     SearchPage,
     TabsPage,
     CartPage,
-    NotificationsPage
+    NotificationsPage,
+    ProductManagementPage
   ],
   providers: [
     StatusBar,
@@ -91,8 +94,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     TestProvider,
     ShopsProvider,
     Geolocation,
-    ProductsProvider
-
+    ProductsProvider,
+    CategoriesProvider
   ]
 })
 export class AppModule {}

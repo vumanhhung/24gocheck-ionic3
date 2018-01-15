@@ -4,6 +4,7 @@ import { SearchPage } from './../search/search';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
+import { CategoriesProvider } from '../../providers/categories/categories';
 
 @Component({
   selector: 'page-home',
@@ -13,16 +14,28 @@ export class HomePage {
 
   shopList = [];
   currentPage = 0;
-
+  categoryList = [];
   shika = SearchPage;
   shopDetailsPage = ShopPage;
 
-  constructor(public navCtrl: NavController, private shopService: ShopsProvider) {
+  constructor(public navCtrl: NavController, private shopService: ShopsProvider, private categoryService: CategoriesProvider) {
     shopService.getShopList(this.currentPage)
       .subscribe(data => {
         console.log('my data: ', data);
         this.shopList = data['shops'];
-      })
+      });
+
+      this.categoryService.getCategoryList()
+        .subscribe(data => {
+          this.categoryList = data['categories'] || [];
+          console.log('Cate list is ', this.categoryList);
+        });
+    
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad HomePage');
+    
   }
 
   doInfinite(infiniteScroll) {
@@ -44,5 +57,8 @@ export class HomePage {
       infiniteScroll.complete();
     }, 500);
   }
+
+
+
 
 }
