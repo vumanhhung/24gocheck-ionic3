@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProfilesPage } from './profiles/profiles';
+import { ProductManagementPage } from './product-management/product-management';
+import { FeedbackPage } from './feedback/feedback';
+import { FavoritesPage } from './favorites/favorites';
 
 /**
  * Generated class for the AccountsPage page.
@@ -14,6 +18,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'accounts.html',
 })
 export class AccountsPage {
+
+  profilePage = ProfilesPage;
+  productManagementPage = ProductManagementPage;
+  feedbackPage = FeedbackPage;
+  favoritesPage = FavoritesPage;
+  
+
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

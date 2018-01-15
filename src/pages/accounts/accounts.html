@@ -14,5 +14,36 @@
 
 
 <ion-content padding>
+  <ion-list >
+    <button ion-item clear icon-left style="background-color: #ffffff; width: 100%;" [navPush]="profilePage">
+      <ion-icon name="ios-person-outline" style="color: #000000; font-size: 30px;" ></ion-icon>
+      Thông tin tài khoản
+    </button>
+    <button ion-item clear full style="background-color: #ffffff" [navPush]="productManagementPage">
+      <ion-icon name="ios-create-outline" style="color: #000000; font-size: 30px"></ion-icon>
+      Quản lý gian hàng
+    </button>
+    <button ion-item clear full style="background-color: #ffffff" [navPush]="favoritesPage">
+      <ion-icon name="ios-star-outline" style="color: #000000; font-size: 30px"></ion-icon>
+      Yêu thích
+    </button>
+    <button ion-item clear full style="background-color: #ffffff">
+      <ion-icon name="ios-pricetags-outline" style="color: #000000; font-size: 30px"></ion-icon>
+      Lịch sử giao dịch
+    </button>
+    <button ion-item clear full style="background-color: #ffffff" [navPush]="feedbackPage">
+      <ion-icon name="ios-flag-outline" style="color: #000000; font-size: 30px"></ion-icon>
+      Phản hồi
+    </button>
+    <button ion-item clear full style="background-color: #ffffff">
+      <ion-icon name="ios-help-circle-outline" style="color: #000000; font-size: 30px"></ion-icon>
+      Hướng dẫn sử dụng
+    </button>
+    <button ion-item clear full style="background-color: #ffffff">
+      <ion-icon name="ios-information-circle-outline" style="color: #000000; font-size: 30px"></ion-icon>
+      Về chúng tôi
+    </button>
+    <button ion-item full >Log out</button>
 
+  </ion-list>
 </ion-content>

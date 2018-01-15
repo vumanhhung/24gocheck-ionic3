@@ -22,78 +22,16 @@
     <ion-scroll scrollX="true" style="white-space: nowrap; height: 150px; margin-bottom: 10px;">
       <ul class="row home-category-grid-icons" id="iconSlide">
         <li>
-          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
+          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col" *ngFor="let category of categoryList">
             <div class="parent-background">
               <div class="background-opacity">
                 <div class="cat-name">
-                  <span>Du Lịch</span>
+                  <span>{{category.name}}</span>
                 </div>
               </div>
             </div>
           </a>
-          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
-            <div class="parent-background">
-              <div class="background-opacity">
-                <div class="cat-name">
-                  <span>Du Lịch</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
-            <div class="parent-background">
-              <div class="background-opacity">
-                <div class="cat-name">
-                  <span>Du Lịch</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
-            <div class="parent-background">
-              <div class="background-opacity">
-                <div class="cat-name">
-                  <span>Du Lịch</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
-            <div class="parent-background">
-              <div class="background-opacity">
-                <div class="cat-name">
-                  <span>Du Lịch</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
-            <div class="parent-background">
-              <div class="background-opacity">
-                <div class="cat-name">
-                  <span>Du Lịch</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
-            <div class="parent-background">
-              <div class="background-opacity">
-                <div class="cat-name">
-                  <span>Du Lịch</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col">
-            <div class="parent-background">
-              <div class="background-opacity">
-                <div class="cat-name">
-                  <span>Du Lịch</span>
-                </div>
-              </div>
-            </div>
-          </a>
+          
         </li>
       </ul>
     </ion-scroll>
