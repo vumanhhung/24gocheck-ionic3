@@ -1,3 +1,4 @@
+import { CartPage } from './../pages/cart/cart';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,6 +28,9 @@ import { ShopsPage } from './../pages/shops/shops';
 import { TabsPage } from './../pages/tabs/tabs';
 import { MyApp } from './app.component';
 import { ProductsProvider } from '../providers/products/products';
+import { NotificationsPage } from '../pages/notifications/notifications';
+
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,9 @@ import { ProductsProvider } from '../providers/products/products';
     CategoryPage,
     SearchPage,
     FrontSliderComponent,
-    TabsPage
+    TabsPage,
+    CartPage,
+    NotificationsPage
   ],
   imports: [
     HttpClientModule,
@@ -74,7 +80,9 @@ import { ProductsProvider } from '../providers/products/products';
     CategoriesPage,
     CategoryPage,
     SearchPage,
-    TabsPage
+    TabsPage,
+    CartPage,
+    NotificationsPage
   ],
   providers: [
     StatusBar,
@@ -82,7 +90,9 @@ import { ProductsProvider } from '../providers/products/products';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TestProvider,
     ShopsProvider,
+    Geolocation,
     ProductsProvider
+
   ]
 })
 export class AppModule {}

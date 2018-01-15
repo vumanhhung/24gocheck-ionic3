@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Notification
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div padding>
+      <ion-segment [(ngModel)]="noti">
+        <ion-segment-button value="event">
+          Event
+        </ion-segment-button>
+        <ion-segment-button value="own">
+          Own
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="noti">
+      <ion-list *ngSwitchCase="'event'">
+          <div style="font-size: 16px;">
+            <div style="margin: 20% 20% 0 20%">
+              <img style="background: transparent; width: 150%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/bell.png"/>
+            </div>
+            <p class="list-none">You don't have Notification</p>
+          </div>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'own'">
+        <div style="font-size: 16px;">
+          <div style="margin: 20% 20% 0 20%">
+            <img style="background: transparent; width: 150%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/bell.png"/>
+          </div>
+          <p class="list-none">You don't have Notification</p>
+        </div>
+      </ion-list>
+    </div>
+  </ion-list>
+</ion-content>
