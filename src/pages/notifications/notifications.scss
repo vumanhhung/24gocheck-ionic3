@@ -1,0 +1,43 @@
+page-noti {
+
+}
+
+.segment-md{
+  .segment-button {
+    border-color: #03c320;
+    color: #03c320;
+    line-height: 3rem;
+    height: 3rem;
+  }
+  .segment-activated{
+    background-color: #03c320 !important;
+    color: white;
+  }
+}
+
+
+.segment-ios{
+  .segment-button {
+    border-color: #03c320;
+    color: #03c320;
+    line-height: 3rem;
+    height: 3rem;
+  }
+  .segment-activated{
+    background-color: #03c320 !important;
+    color: white;
+  }
+}
+
+.list-none{
+  font-size: 16px;
+  @media screen and (max-width: 370px) {
+    font-size: 14px;
+  }
+  color: #45e11b;
+  margin-left: 23%;
+  margin-right: 23%;
+}
+
+
+

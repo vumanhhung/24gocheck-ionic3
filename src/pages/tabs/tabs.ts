@@ -1,7 +1,9 @@
+import { CartPage } from './../cart/cart';
 import { Component } from '@angular/core';
 import { HomePage } from '../home/home';
 import { SearchPage } from '../search/search';
 import { AccountsPage } from '../accounts/accounts';
+import { NotificationsPage } from '../notifications/notifications';
 
 
 @Component({
@@ -11,8 +13,8 @@ export class TabsPage {
 
   homeRoot = HomePage;
   searchRoot = SearchPage;
-  // notificationRoot = NotiPage;
-  // cartRoot = CartPage;
+  notificationRoot = NotificationsPage;
+  cartRoot = CartPage;
   accountRoot = AccountsPage;
 
   constructor() {
