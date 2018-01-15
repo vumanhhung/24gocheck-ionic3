@@ -22,7 +22,7 @@
     <ion-scroll scrollX="true" style="white-space: nowrap; height: 150px; margin-bottom: 10px;">
       <ul class="row home-category-grid-icons" id="iconSlide">
         <li>
-          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col" *ngFor="let category of categoryList">
+          <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col" *ngFor="let category of categoryList" [navPush]="categoryPage">
             <div class="parent-background">
               <div class="background-opacity">
                 <div class="cat-name">
@@ -31,7 +31,7 @@
               </div>
             </div>
           </a>
-          
+
         </li>
       </ul>
     </ion-scroll>
@@ -105,7 +105,7 @@
     </ion-grid>
     <!-- <ion-item *ngFor="let shop of shopList">{{shop.company || shop.fullname}}</ion-item> -->
   </ion-list>
- 
+
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>

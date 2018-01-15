@@ -1,3 +1,47 @@
 page-product {
 
 }
+.toolbar-title-ios{
+  color: white !important;
+}
+.toolbar-title-md{
+  color: white !important;
+}
+.title-user{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.img-slide{
+  height: 43%;
+}
+.slide-banner{
+  height: inherit;
+}
+.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default{
+  color:white;
+}
+.price-product{
+  color: red;
+  font-size: 21px;
+}
+.info-product{
+  margin-top: 0px;
+  margin-left: 15px;
+  font-size: 17px;
+}
+.btn-detail{
+  width: 115px;
+  height: 45px;
+}
+.btn-span{
+  font-size: 22px;
+  margin-left: 5px;
+  color: white;
+  text-decoration: none;
+}
+
