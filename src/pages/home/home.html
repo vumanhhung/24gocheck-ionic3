@@ -19,14 +19,14 @@
 <ion-content>
 
   <front-slider></front-slider>
-    <ion-scroll scrollX="true" style="white-space: nowrap; height: 150px; margin-bottom: 10px;">
+    <ion-scroll scrollX="true" style="height: 150px; margin-bottom: 10px;">
       <ul class="row home-category-grid-icons" id="iconSlide">
         <li>
           <a style="min-height: 60px; margin-left: 0; margin-right: 0;" class="col" *ngFor="let category of categoryList" [navPush]="categoryPage">
             <div class="parent-background">
               <div class="background-opacity">
                 <div class="cat-name">
-                  <span>{{category.name}}</span>
+                  <span class="white-space" >{{category.name}}</span>
                 </div>
               </div>
             </div>
@@ -35,75 +35,22 @@
         </li>
       </ul>
     </ion-scroll>
-  <!-- <ion-list style="margin: 0 0 32px;">
-    <h1>Gian Hàng</h1>
-    <ion-grid>
-      <ion-row>
-        <ion-col col-6>
-          <img (click)="onGoToDetailUser()" src="../../assets/imgs/bag.jpg" height="150"/>
-          <ion-row>
-            <ion-col col-9 style="border-right:1px solid #82603c">
-              <ion-title><h2 class="title-product">Jacket Men Leather</h2></ion-title>
-              <span>{{"169 Nguyễn Ngọc Vũ - Trung Hòa - Cầu Giấy - Hà Nội".slice(0,15).concat("...")}}</span>
-              <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
-            </ion-col>
-            <ion-col col-3><p>1<span style="color: red">SP</span></p></ion-col>
-          </ion-row>
-        </ion-col>
-        <ion-col col-6>
-          <img src="../../assets/imgs/bag2.jpg" height="150"/>
-          <ion-row>
-            <ion-col col-9 style="border-right:1px solid #82603c">
-              <ion-title><h2 class="title-product">Jacket Men Leather</h2></ion-title>
-              <span>{{"169 Nguyễn Ngọc Vũ - Trung Hòa - Cầu Giấy - Hà Nội".slice(0,15).concat("...")}}</span>
-              <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
-            </ion-col>
-            <ion-col col-3><p>1<span style="color: red">SP</span></p></ion-col>
-          </ion-row>
-        </ion-col>
-        <ion-col col-6>
-          <img src="../../assets/imgs/bag2.jpg" height="150"/>
-          <ion-row>
-            <ion-col col-9 style="border-right:1px solid #82603c">
-              <ion-title><h2 class="title-product">Jacket Men Leather</h2></ion-title>
-              <span>{{"169 Nguyễn Ngọc Vũ - Trung Hòa - Cầu Giấy - Hà Nội".slice(0,15).concat("...")}}</span>
-              <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
-            </ion-col>
-            <ion-col col-3><p>1<span style="color: red">SP</span></p></ion-col>
-          </ion-row>
-        </ion-col>
-        <ion-col col-6>
-          <img src="../../assets/imgs/bag.jpg" height="150"/>
-          <ion-row>
-            <ion-col col-9 style="border-right:1px solid #82603c">
-              <ion-title><h2 class="title-product">Jacket Men Leather</h2></ion-title>
-              <span>{{"169 Nguyễn Ngọc Vũ - Trung Hòa - Cầu Giấy - Hà Nội".slice(0,15).concat("...")}}</span>
-              <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
-            </ion-col>
-            <ion-col col-3><p>1<span style="color: red">SP</span></p></ion-col>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-list> -->
-
   <ion-list style="margin: 0 0 32px;">
     <ion-grid>
       <ion-row>
         <ion-col col-6 *ngFor="let shop of shopList">
-          <img [navPush]="shopDetailsPage" [navParams]="shop" src="{{shop.user_image || '../../assets/imgs/bag.jpg'}}" height="150"/>
+          <img [navPush]="shopDetailsPage" [navParams]="shop" src="{{shop.user_image || '../../assets/imgs/placeholder.png'}}" height="150"/>
           <ion-row>
             <ion-col col-9 style="border-right:1px solid #82603c">
-              <ion-title><h2 class="title-product">{{shop.company || shop.fullname}}</h2></ion-title>
+              <ion-title><h2 class="title-product white-space">{{shop.company || shop.fullname}}</h2></ion-title>
               <span>{{shop.adderss}}</span>
               <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
             </ion-col>
-            <ion-col col-3><p>{{shop.product_count}}<span style="color: red">SP</span></p></ion-col>
+            <ion-col col-3><p>{{shop.product_count}}<span style="color: red"> SP</span></p></ion-col>
           </ion-row>
         </ion-col>
       </ion-row>
     </ion-grid>
-    <!-- <ion-item *ngFor="let shop of shopList">{{shop.company || shop.fullname}}</ion-item> -->
   </ion-list>
 
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
