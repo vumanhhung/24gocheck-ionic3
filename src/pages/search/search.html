@@ -1,14 +1,33 @@
 <ion-header>
+
   <ion-navbar>
     <ion-title>
       Search
     </ion-title>
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
-  <div #map id="map" style="height: 300px;"></div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div #map id="map" style="height: 300px;"></div>
+      </ion-col>
+    </ion-row>
+
+    <!--<ion-row>-->
+      <!--<ion-col>-->
+        <!--<button ion-button outline block color="secondary" (click)="onLocate()">-->
+          <!--<ion-icon name="locate">Locate me</ion-icon>-->
+        <!--</button>-->
+      <!--</ion-col>-->
+    <!--</ion-row>-->
+  </ion-grid>
+
 </ion-content>
+
 
 
 <!-- <ion-content padding>

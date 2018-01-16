@@ -11,7 +11,6 @@ import { Injectable } from '@angular/core';
 export class CategoriesProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello CategoriesProvider Provider');
   }
 
   config = {

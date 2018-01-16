@@ -11,7 +11,6 @@ import { Injectable } from '@angular/core';
 export class ProductsProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello ProductsProvider Provider');
   }
 
   config = {
@@ -22,23 +21,20 @@ export class ProductsProvider {
 
   getProductListByShopId(shop_id: number, page: number) {
     const limit = 10;
-    
+
     console.log('all shops are here' + page);
 
-    
+
 
     let requestBody = 'search=&user_id='+ shop_id +'limit=' + limit + '&page=' + page;
     // let requestBody = 'search=&user_id='+ 739 +'limit=' + 1 + '&page=' + 1;
-
 
     return this.http.post('http://24gocheck.com/index.php?route=api2/product/search', requestBody, this.config);
   }
 
 
   getProductById(product_id: number) {
-
     let requestBody = 'product_id=' + product_id;
-
     return this.http.post('http://24gocheck.com/index.php?route=api2/product', requestBody, this.config);
   }
 

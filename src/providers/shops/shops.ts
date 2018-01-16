@@ -9,12 +9,8 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class ShopsProvider {
-  
 
-  constructor(public http: HttpClient) {
-    console.log('Hello TestProvider Provider');
-  }
-
+  constructor(public http: HttpClient) {}
 
   config = {
     headers: {
@@ -25,26 +21,23 @@ export class ShopsProvider {
 
   getShopList(start: number) {
     const limit = 10;
-    
     console.log('all shops are here' + start);
-
-    
-
     let requestBody = 'limit=' + limit + '&start=' + start;
-
-
     return this.http.post('http://24gocheck.com/index.php?route=api2/shops',requestBody, this.config);
   }
 
 
   getShopDetails(shop: any, start: number) {
     const limit = 10;
-
     let shop_id = shop.user_id;
-
     let requestBody = 'search=&limit=' + limit + '&start=' + start + '&user_id=' + shop_id + '&order=DESC';
-
     return this.http.post('http://24gocheck.com/index.php?route=api2/shops',requestBody, this.config);
   }
+
+  getUserLists(lat: number, long: number) {
+    let requestBody = 'latitude='+ lat + '&longitude=' + long;
+    return this.http.post('http://24gocheck.com/index.php?route=api2/user_list', requestBody, this.config);
+  }
+
 
 }

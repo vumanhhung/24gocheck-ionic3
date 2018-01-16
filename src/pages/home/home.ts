@@ -20,7 +20,10 @@ export class HomePage {
   shopDetailsPage = ShopPage;
   categoryPage = CategoryPage;
 
-  constructor(public navCtrl: NavController, private shopService: ShopsProvider, private categoryService: CategoriesProvider) {
+  constructor(
+              public navCtrl: NavController,
+              private shopService: ShopsProvider,
+              private categoryService: CategoriesProvider) {
     shopService.getShopList(this.currentPage)
       .subscribe(data => {
         console.log('my data: ', data);
