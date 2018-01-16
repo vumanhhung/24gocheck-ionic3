@@ -18,7 +18,10 @@ export class HomePage {
   shika = SearchPage;
   shopDetailsPage = ShopPage;
 
-  constructor(public navCtrl: NavController, private shopService: ShopsProvider, private categoryService: CategoriesProvider) {
+  constructor(
+              public navCtrl: NavController,
+              private shopService: ShopsProvider,
+              private categoryService: CategoriesProvider) {
     shopService.getShopList(this.currentPage)
       .subscribe(data => {
         console.log('my data: ', data);
@@ -30,12 +33,12 @@ export class HomePage {
           this.categoryList = data['categories'] || [];
           console.log('Cate list is ', this.categoryList);
         });
-    
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
-    
+
   }
 
   doInfinite(infiniteScroll) {

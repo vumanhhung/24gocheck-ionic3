@@ -1,10 +1,10 @@
 <ion-header class="navbar">
   <ion-navbar>
-    <!-- <ion-buttons left>
+    <ion-buttons start>
       <button class="btn-back" ion-button (click)="doYourStuff()">
         <ion-icon class="customIcon" name="arrow-back"> Back</ion-icon>
       </button>
-    </ion-buttons> -->
+    </ion-buttons>
     <div class="logo-header">
       <img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/MockUI/24go%20check.png" alt="" height="200px">
     </div>
@@ -31,7 +31,7 @@
               </div>
             </div>
           </a>
-          
+
         </li>
       </ul>
     </ion-scroll>
@@ -105,7 +105,7 @@
     </ion-grid>
     <!-- <ion-item *ngFor="let shop of shopList">{{shop.company || shop.fullname}}</ion-item> -->
   </ion-list>
- 
+
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
