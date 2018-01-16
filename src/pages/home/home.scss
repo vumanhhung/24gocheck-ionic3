@@ -2,126 +2,140 @@ page-home {
 
 }
 
+
 .btn-back{
-    color: white;
-  }
-  .logo-header{
-    position: relative;
-  }
-  .logo-header img{
-    display: inline-block;
-    width: 110px;
-    height: 25px;
-    position: absolute;
-    left: 25%;
-    top:-14px;
-  }
-  .toolbar-background {
-  
-    background-color: #03c320;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .img-slide{
-    height: 200px;
-  }
-  .slide-banner{
-    height: inherit;
-  }
-  #iconSlide {
-    display: flex;
-    white-space: nowrap;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: inherit;
-  }
-  #iconSlide li {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 120px;
-  }
-  
-  #iconSlide li a span {
-    display: block;
-    color: #ffffff;
-    font-size: 13px;
-    position: relative;
-    bottom: -16px;
-    margin: 0 auto;
-  
-  }
-  #iconSlide li a .cat-name {
-    width: 80px;
-    margin: 0 auto;
-  }
-  
-  #iconSlide li a {
-    text-align: center;
-    height:60px;
-    background: #f7f7f7;
-  }
-  #iconSlide img {
-    height: 50px;
-    width: 120px;
-    border-radius: 7%;
-    padding-left: 5px;
-    padding-right:5px;
-  }
-  
-  
-  .parent-background {
-    background-size: cover;
-    height: 50px;
-    width: 120px;
-    border-radius: 7px;
-    margin-left: 3px;
-    margin-right: 5px;
-  }
-  .background-opacity {
-    height: 50px;
-    background: #82603c;
-    opacity: .8;
-    border-radius: 7px;
-  }
-  #iconSlide {
-    display: flex;
-    white-space: nowrap;
-  }
-  #iconSlide li {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 120px;
-  }
-  #iconSlide li a span {
-    display: block;
-    font-size: 13px;
-  }
-  
-  #iconSlide li a {
-    text-align: center;
-  }
-  .title-product{
-    color: #222222;
-    text-align: left;
-    font-size: 14px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-  
-  .content-ios hr {
-    height: 1px;
-  }
-  .price-product{
-    color: red;
-    font-size: 13px;
-  }
-  .order-product{
-    color: #099636;
-    font-size: 13px;
-    text-decoration: none;
-  }
-  
-  
-  
+  color: white;
+}
+.logo-header{
+  position: relative;
+}
+.logo-header img{
+  display: inline-block;
+  width: 110px;
+  height: 25px;
+  position: absolute;
+  left: 35%;
+  top:-14px;
+}
+.toolbar-background {
+
+  background-color: #03c320;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.img-slide{
+  height: 200px;
+}
+.slide-banner{
+  height: inherit;
+}
+#iconSlide {
+  display: flex;
+  white-space: nowrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: inherit;
+}
+#iconSlide li {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 120px;
+}
+
+#iconSlide li a span {
+  display: block;
+  color: #ffffff;
+  font-size: 13px;
+  position: relative;
+  bottom: -16px;
+  margin: 0 auto;
+
+}
+#iconSlide li a .cat-name {
+  width: 80px;
+  margin: 0 auto;
+}
+
+#iconSlide li a {
+  text-align: center;
+  height:60px;
+  background: #f7f7f7;
+}
+#iconSlide img {
+  height: 50px;
+  width: 120px;
+  border-radius: 7%;
+  padding-left: 5px;
+  padding-right:5px;
+}
+
+
+.parent-background {
+  background-size: cover;
+  height: 50px;
+  width: 120px;
+  border-radius: 7px;
+  margin-left: 3px;
+  margin-right: 5px;
+}
+.background-opacity {
+  height: 50px;
+  background: #82603c;
+  opacity: .8;
+  border-radius: 7px;
+}
+#iconSlide {
+  display: flex;
+  white-space: nowrap;
+}
+#iconSlide li {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 120px;
+}
+#iconSlide li a span {
+  display: block;
+  font-size: 13px;
+}
+
+#iconSlide li a {
+  text-align: center;
+}
+.title-product{
+  color: #222222;
+  text-align: left;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.content-ios hr {
+  height: 1px;
+}
+.price-product{
+  color: red;
+  font-size: 13px;
+}
+.order-product{
+  color: #099636;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+  color: white;
+  background-color: transparent;
+}
+
+.bar-button-default-ios, .bar-button-clear-ios-default, .bar-button-ios-default{
+  color: white;
+  background-color: transparent;
+}
+
+img{
+  width: 100%;
+}
+
+

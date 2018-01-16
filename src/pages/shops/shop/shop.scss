@@ -24,11 +24,11 @@ page-shop {
     height: inherit;
   }
   .btn-detail{
-    width: 115px;
-    height: 45px;
-  }
+    width: 95%;
+    height: 30px;
+}
   .btn-span{
-    font-size: 22px;
+    font-size: 1em;
     margin-left: 5px;
     color: white;
     text-decoration: none;
@@ -54,3 +54,14 @@ page-shop {
     text-decoration: none;
   }
   
+  .button-md{
+    font-size: 100%;
+  }
+
+  .button-ios{
+    font-size: 100%;
+  }
+
+  ion-icon{
+    font-size: 1em;
+  }
