@@ -26,7 +26,7 @@ export class ProductsProvider {
 
 
 
-    let requestBody = 'search=&user_id='+ shop_id +'limit=' + limit + '&page=' + page;
+    let requestBody = 'search=&user_id='+ shop_id +'&limit=' + limit + '&page=' + page;
     // let requestBody = 'search=&user_id='+ 739 +'limit=' + 1 + '&page=' + 1;
 
     return this.http.post('http://24gocheck.com/index.php?route=api2/product/search', requestBody, this.config);
@@ -36,6 +36,20 @@ export class ProductsProvider {
   getProductById(product_id: number) {
     let requestBody = 'product_id=' + product_id;
     return this.http.post('http://24gocheck.com/index.php?route=api2/product', requestBody, this.config);
+  }
+
+
+  searchProductByName(name: string, page: number) {
+    const limit = 10;
+
+    console.log('all shops are here' + page);
+
+
+
+    let requestBody = 'search='+ name +'&limit=' + limit + '&page=' + page;
+    // let requestBody = 'search=&user_id='+ 739 +'limit=' + 1 + '&page=' + 1;
+
+    return this.http.post('http://24gocheck.com/index.php?route=api2/product/search', requestBody, this.config);
   }
 
 }

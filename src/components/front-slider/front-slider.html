@@ -1,5 +1,7 @@
+<div *ngIf="imageArray.length > 0">
 <ion-slides class="slide-banner" autoplay="5000" loop="true" speed="3000" style="margin-top: 1px;">
   <ion-slide class="img-slide" *ngFor="let image of imageArray" style="height: 150px">
     <img src="{{image.image}}" alt="" height="150px">
   </ion-slide>
 </ion-slides>
+</div>

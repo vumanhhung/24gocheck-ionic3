@@ -1,3 +1,4 @@
+import { TestPage } from './../test/test';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfilesPage } from './profiles/profiles';
@@ -24,6 +25,7 @@ export class AccountsPage {
   feedbackPage = FeedbackPage;
   favoritesPage = FavoritesPage;
   
+  testPage = TestPage;
 
 
 

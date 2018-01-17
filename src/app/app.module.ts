@@ -1,3 +1,5 @@
+import { AddProductPage } from './../pages/accounts/product-management/add-product/add-product';
+import { TestPage } from './../pages/test/test';
 import { CartPage } from './../pages/cart/cart';
 import { ProductManagementPage } from './../pages/accounts/product-management/product-management';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,6 +39,9 @@ import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { LocationsProvider } from '../providers/locations/locations';
 import {MapPage} from "../pages/map/map";
+import {FileUploadOptions, FileTransfer, FileTransferObject} from "@ionic-native/file-transfer";
+import {Camera, CameraOptions} from "@ionic-native/camera";
+
 
 @NgModule({
   declarations: [
@@ -62,7 +67,9 @@ import {MapPage} from "../pages/map/map";
     CartPage,
     NotificationsPage,
     ProductManagementPage,
-    MapPage
+    MapPage,
+    TestPage,
+    AddProductPage
   ],
   imports: [
     HttpClientModule,
@@ -92,7 +99,9 @@ import {MapPage} from "../pages/map/map";
     CartPage,
     NotificationsPage,
     ProductManagementPage,
-    MapPage
+    MapPage,
+    TestPage,
+    AddProductPage
   ],
   providers: [
     StatusBar,
@@ -106,7 +115,10 @@ import {MapPage} from "../pages/map/map";
     CategoriesProvider,
     ConnectivityProvider,
     GoogleMapsProvider,
-    LocationsProvider
+    LocationsProvider,
+    FileTransfer,
+    FileTransferObject,
+    Camera
   ]
 })
 export class AppModule {}
