@@ -31,7 +31,6 @@ export class SearchPage {
               ) {
     shopService.getUserLists(21.01362700000001, 105.80603339999993).subscribe(users => {
       this.user$ = users['users'];
-      console.log(this.user$);
     });
 
   }
@@ -57,7 +56,6 @@ export class SearchPage {
     });
 
   }
-
 
 
   addMarker(position, content) {
