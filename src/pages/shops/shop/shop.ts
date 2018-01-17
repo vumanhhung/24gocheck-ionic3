@@ -30,22 +30,15 @@ export class ShopPage {
 
       productService.getProductListByShopId(this.shopDetails['user_id'], 1)
         .subscribe(data => {
-          console.log('product data: ', data);
           this.shopProducts = data['products'];
         })
 
-    
+
     console.log('THe id is '+ JSON.stringify(this.shopDetails));
   }
 
-  
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShopPage');
-
-    // this.shopProducts = [];
   }
 
-
-  
 
 }

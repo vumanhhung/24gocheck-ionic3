@@ -19,7 +19,6 @@ export class ShopsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShopsPage');
   }
 
 }

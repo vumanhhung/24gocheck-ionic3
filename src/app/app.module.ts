@@ -5,6 +5,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Network } from '@ionic-native/network';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { AccountsPage } from '../pages/accounts/accounts';
@@ -32,6 +33,10 @@ import { ProductsProvider } from '../providers/products/products';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { Geolocation } from '@ionic-native/geolocation';
 import { CategoriesProvider } from '../providers/categories/categories';
+import { ConnectivityProvider } from '../providers/connectivity/connectivity';
+import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
+import { LocationsProvider } from '../providers/locations/locations';
+import {MapPage} from "../pages/map/map";
 
 @NgModule({
   declarations: [
@@ -56,7 +61,8 @@ import { CategoriesProvider } from '../providers/categories/categories';
     TabsPage,
     CartPage,
     NotificationsPage,
-    ProductManagementPage
+    ProductManagementPage,
+    MapPage
   ],
   imports: [
     HttpClientModule,
@@ -85,7 +91,8 @@ import { CategoriesProvider } from '../providers/categories/categories';
     TabsPage,
     CartPage,
     NotificationsPage,
-    ProductManagementPage
+    ProductManagementPage,
+    MapPage
   ],
   providers: [
     StatusBar,
@@ -94,8 +101,12 @@ import { CategoriesProvider } from '../providers/categories/categories';
     TestProvider,
     ShopsProvider,
     Geolocation,
+    Network,
     ProductsProvider,
-    CategoriesProvider
+    CategoriesProvider,
+    ConnectivityProvider,
+    GoogleMapsProvider,
+    LocationsProvider
   ]
 })
 export class AppModule {}
