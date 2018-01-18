@@ -1,25 +1,32 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+// import { NgModule } from '@angular/core';
+// import { IonicPageModule } from 'ionic-angular';
 
 /**
- * Generated class for the CartPage page.
+ * Generated class for the DetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
-@IonicPage()
 @Component({
   selector: 'page-cart',
-  templateUrl: 'cart.html',
+  templateUrl: 'cart.html'
 })
+
 export class CartPage {
+  private currentNumber = 1;
+  constructor(){
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CartPage');
+  private increment(){
+    this.currentNumber ++;
   }
 
+  private decrement(){
+    this.currentNumber --;
+    if(this.currentNumber <= 0){
+      this.currentNumber = 0;
+    }
+  }
 }

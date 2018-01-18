@@ -1,54 +1,89 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>
       Search
     </ion-title>
   </ion-navbar>
-
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <div padding>
+      <ion-searchbar style="border-radius: 10px;" mode="ios" [(ngModel)]="searchingName" (ionInput)="getItems($event)"></ion-searchbar>
+      <div padding-bottom="2px" style="margin-top: 10px;">
+        <ion-segment [(ngModel)]="searchBy">
+          <ion-segment-button value="near">
+            Near By
+          </ion-segment-button>
+          <ion-segment-button value="category">
+            Category
+          </ion-segment-button>
+          <ion-segment-button value="city">
+            Cities
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+  </div>  
+  <ion-col padding col-12>
+    <div #map id="map" style="height: 300px;"></div>
+  </ion-col>
+  <!-- <div>
+      *ngIf="items.length > 0"
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-avatar item-start>
+          <img src="{{item.thumb}}">
+        </ion-avatar>
+        <h2>{{ item.name }}</h2>
+        <p ng-bind-html="item.description"></p>
+      </ion-item>
+    </ion-list>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <div #map id="map" style="height: 300px;"></div>
-      </ion-col>
-    </ion-row>
-
-    <!--<ion-row>-->
-      <!--<ion-col>-->
-        <!--<button ion-button outline block color="secondary" (click)="onLocate()">-->
-          <!--<ion-icon name="locate">Locate me</ion-icon>-->
-        <!--</button>-->
-      <!--</ion-col>-->
-    <!--</ion-row>-->
-  </ion-grid>
-
-</ion-content>
-
-
-
-<!-- <ion-content padding>
-  <ion-searchbar style="border-radius: 10px;" mode="ios"></ion-searchbar>
-
-  <div padding-top="10px" padding-bottom="2px">
-    <ion-segment [(ngModel)]="searchBy">
-      <ion-segment-button value="near">
-        Near By
-      </ion-segment-button>
-      <ion-segment-button value="category">
-        Category
-      </ion-segment-button>
-      <ion-segment-button value="city">
-        Cities
-      </ion-segment-button>
-    </ion-segment>
-  </div>
-  <div [ngSwitch]="searchBy">
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div> -->
+  <div [ngSwitch]="searchBy" >
+      <!-- *ngIf="items.length == 0"  -->
     <ion-list *ngSwitchCase="'near'">
-      <div id="map" style="height: 300px;"></div>
+        <ion-scroll scrollX="true" style="height: 50px; margin-bottom: 10px;">
+            <ul class="row home-category-grid-icons" id="iconSlide">
+              <li>
+                <a style="min-height: 60px; margin-left: 0; margin-right: 0; text-decoration: none;" class="col" *ngFor="let category of categoryList"
+                  [navPush]="categoryPage">
+                  <div class="parent-background">
+                    <div class="background-opacity">
+                      <div class="cat-name">
+                        <span class="white-space">{{category.name}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </ion-scroll>
+      <div class="list">
+        <div style="display: flex; border: 1px solid #03c320; border-radius: 5px;margin: 15px;">
+          <a style="border-right: solid 1px lightgrey;width: 75%; overflow: hidden;
+                                 text-overflow: ellipsis; white-space: nowrap;padding-top: 10px;">
+            <span>
+              <img style="width: 8%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png" />
+              <span></span>
+            </span>
+            <br>
+            <span>
+              <img style="width: 8%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/location_icon.png" />
+            </span>
+            <br>
+            <span>
+              <img style="width: 8%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/phone_icon.png" />
+            </span>
+            <br>
+          </a>
+          <div style="padding-top: 10%; padding-left: 4%;">
+            <span>10 km</span>
+          </div>
+        </div>
+      </div>
     </ion-list>
 
     <ion-list *ngSwitchCase="'category'">
@@ -92,4 +127,14 @@
       </ion-item>
     </ion-list>
   </div>
-</ion-content> -->
+
+  <!--<ion-row>-->
+  <!--<ion-col>-->
+  <!--<button ion-button outline block color="secondary" (click)="onLocate()">-->
+  <!--<ion-icon name="locate">Locate me</ion-icon>-->
+  <!--</button>-->
+  <!--</ion-col>-->
+  <!--</ion-row>-->
+  <!-- </ion-grid> -->
+
+</ion-content>
