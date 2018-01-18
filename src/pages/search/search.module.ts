@@ -10,4 +10,5 @@ import { SearchPage } from './search';
     IonicPageModule.forChild(SearchPage),
   ],
 })
-export class SearchPageModule {}
+export class SearchPageModule {
+}

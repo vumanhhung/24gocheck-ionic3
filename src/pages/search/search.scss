@@ -15,6 +15,41 @@ page-search {
   #map {
     height: 100%;
   }
+  
+.background-opacity{
+  height: 20px;
+  background: #fff;
+  border-radius: 7px;
+  opacity: unset;
+  border: 1px solid #03c320;
+}
+
+.parent-background{
+  height: 30px;
+}
+#iconSlide li{
+  height: 30px;
+}
+
+#iconSlide li a{
+  background: none;
+}
+
+#iconSlide{
+  li{
+    a{
+      .cat-name{
+        width: 100px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+#iconSlide li a span{
+  color: #03c320;
+  bottom: -3px;
+}
 }
 
 .searchbar-ios{
@@ -85,4 +120,8 @@ ion-app.ios [padding-bottom]{
 
 ion-app.ios [padding-top]{
   padding-top: 10px;
+}
+
+ion-app.ios [padding]{
+  padding: 10px;
 }

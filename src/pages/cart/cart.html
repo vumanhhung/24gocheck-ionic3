@@ -1,18 +1,34 @@
-<!--
-  Generated template for the CartPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>cart</ion-title>
+    <ion-title>
+      Cart
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content>
+  <ion-item>
+    <img class="cart-image" src="">
+    <h3 class="cart-item-title">Tên sp</h3>
+    <h5 class="cart-item-title">Mã Sp</h5>
+    <ion-icon style="color: red;" name="remove-circle" (click)="decrement()"></ion-icon>
+    {{currentNumber}}
+    <ion-icon style="color: green;" name="add-circle" (click)="increment()"></ion-icon>
+  </ion-item>
 </ion-content>
+
+<ion-footer>
+  <div style="display: flex; max-height: 30px; padding-bottom: 2px">
+    <ion-input col-10 placeholder="Nhập mã khuyến mại"></ion-input>
+    <button col-2 style="text-align: center; padding-top: 10px;font-size: 1em; background-color: #03c320;">Nhập</button>
+  </div>
+  <ion-navbar>
+    <div style="float: left">
+      <!--<label style="color: white">Bắt đầu mua hàng</label>-->
+      <span>Tổng tiền: 66.000 đ</span>
+    </div>
+    <div style="float: right">
+      <a href=".../cart-payment-info" style="text-decoration: none;">Tiếp</a>
+    </div>
+  </ion-navbar>
+</ion-footer>
