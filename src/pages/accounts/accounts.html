@@ -15,34 +15,42 @@
 
 <ion-content>
   <ion-list >
-    <button ion-item clear icon-left style="background-color: #ffffff; width: 100%;" [navPush]="profilePage">
-      <ion-icon name="ios-person-outline" style="color: #000000; font-size: 30px;" ></ion-icon>
-      <label>Thông tin tài khoản</label>
-    </button>
-    <button ion-item clear full style="background-color: #ffffff" [navPush]="productManagementPage">
-      <ion-icon name="ios-create-outline" style="color: #000000; font-size: 30px"></ion-icon>
-      <label>Quản lý gian hàng</label>      
-    </button>
-    <button ion-item clear full style="background-color: #ffffff" [navPush]="favoritesPage">
-      <ion-icon name="ios-star-outline" style="color: #000000; font-size: 30px"></ion-icon>
-      <label>Yêu thích</label>
-    </button>
-    <button ion-item clear full style="background-color: #ffffff">
-      <ion-icon name="ios-pricetags-outline" style="color: #000000; font-size: 30px"></ion-icon>
-      <label>Lịch sử giao dịch</label> 
-    </button>
-    <button ion-item clear full style="background-color: #ffffff" [navPush]="feedbackPage">
-      <ion-icon name="ios-flag-outline" style="color: #000000; font-size: 30px"></ion-icon>
-      <label>Phản hồi</label>
-    </button>
-    <button ion-item clear full style="background-color: #ffffff">
-      <ion-icon name="ios-help-circle-outline" style="color: #000000; font-size: 30px"></ion-icon>
-      <label>Hướng dẫn sử dụng</label>
-    </button>
-    <button ion-item clear full style="background-color: #ffffff">
-      <ion-icon name="ios-information-circle-outline" style="color: #000000; font-size: 30px"></ion-icon>
-      <label>Về chúng tôi</label>>
-    </button>
+    <ion-item class="account-icon-view" [navPush]="profilePage">
+      <ion-icon name="contact" class="color-icon" item-start></ion-icon>
+      <span>Thông tin tài khoản</span>
+      <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
+    </ion-item><hr>
+    <ion-item class="account-icon-view" [navPush]="productManagementPage">
+      <ion-icon name="create" class="color-icon" item-start></ion-icon>
+      <span>Quản lý gian hàng</span>
+      <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
+    </ion-item><hr>
+    <ion-item class="account-icon-view" [navPush]="favoritesPage">
+      <ion-icon name="heart" class="color-icon" item-start></ion-icon>
+      <span>Yêu thích</span>
+      <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
+    </ion-item><hr>
+    <ion-item class="account-icon-view">
+      <ion-icon name="clipboard" class="color-icon" item-start></ion-icon>
+      <span>Lịch sử giao dịch</span>
+      <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
+    </ion-item><hr>
+    <ion-item class="account-icon-view" [navPush]="feedbackPage">
+      <ion-icon name="paper" class="color-icon" item-start></ion-icon>
+      <span>Phản hồi</span>
+      <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
+    </ion-item><hr>
+    <ion-item class="account-icon-view">
+      <ion-icon name="help-circle" class="color-icon" item-start></ion-icon>
+      <span>Hướng dẫn sử dụng</span>
+      <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
+    </ion-item><hr>
+    <ion-item class="account-icon-view">
+      <ion-icon name="information-circle" class="color-icon" item-start></ion-icon>
+      <span>Về chúng tôi</span>
+      <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
+    </ion-item><hr>
+
     <button ion-item full >Log out</button>
     <button ion-item full [navPush]="testPage">Test</button>
   </ion-list>
