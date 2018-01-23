@@ -1,15 +1,14 @@
 <ion-header>
     <ion-navbar>
-  
       <ion-title>
         {{"home.shop"|translate}}
       </ion-title>
     </ion-navbar>
   </ion-header>
-  
-  
+
+
   <ion-content >
-  
+
     <front-slider></front-slider>
     <ion-list>
       <ion-list-header><h2 style="font-weight: bold">{{"shop_info"|translate}}</h2></ion-list-header>
@@ -39,7 +38,7 @@
             </ion-col>
           <ion-col col-4>
             <button ion-button class="btn-detail" color="secondary"><ion-icon name="cart" style="color:white" item-start><span class="btn-span">{{"review"|translate}}</span></ion-icon></button>
-          </ion-col>          
+          </ion-col>
         </ion-row>
         <div padding>
           <div #map id="map" style="height: 300px;"></div>
@@ -54,17 +53,16 @@
             <span class="price-product">Price : {{product.price}}</span><hr>
             <a class="order-product" href="#">{{"order"|translate}} {{product.product_id}}</a>
           </ion-col>
-          
+
         </ion-row>
       </ion-grid>
-  
-  
-  
+
+
+
     </ion-list>
 
   </ion-content>
-  
+
   <ion-footer>
-  
+
   </ion-footer>
-  
