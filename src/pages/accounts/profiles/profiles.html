@@ -12,54 +12,48 @@
 
 
 <ion-content padding>
-  <ion-list>
+  <form [formGroup]="editform" (ngSubmit)="editUser()" #editForm="ngForm">
+    <ion-list>
 
-    <ion-item  style="background-color: #f4f4f4">
-      <ion-label >Thông tin tài khoản</ion-label>
-    </ion-item>
+      <ion-item  style="background-color: #f4f4f4">
+        <ion-label >Thông tin tài khoản</ion-label>
+      </ion-item>
 
-    <ion-item>
-      <ion-label style="font-size:15px; min-width: 30% !important; max-width: 30% !important;">Email</ion-label>
-      <!-- <ion-label style="font-size:15px">{{accountinfo.email}}</ion-label> -->
-      <ion-label style="font-size:15px"></ion-label>
-    </ion-item>
-    <hr>
-    <ion-item style="background-color: #f4f4f4">
-      <ion-label >Thông tin cá nhân</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label style="font-size:15px; min-width: 30% !important; max-width: 30% !important;">Tên</ion-label>
-      <!-- <ion-label style="font-size:15px">{{accountinfo.firstname}}</ion-label> -->
-      <ion-label style="font-size:15px"></ion-label>
+      <ion-item>
+        <ion-label style="font-size:15px; min-width: 30% !important; max-width: 30% !important;">Email</ion-label>
+        <ion-label style="font-size:15px">{{user_info.email}}</ion-label>
+      </ion-item>
+      <ion-item style="background-color: #f4f4f4">
+        <ion-label >Thông tin cá nhân</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label style="font-size:15px; min-width: 30% !important; max-width: 30% !important;">Tên</ion-label>
+        <ion-input type="text" formControlName="firstname" [ngModel]="user_info.firstname" style="font-size:15px"></ion-input>
 
-    </ion-item>
-    <hr>
-    <ion-item>
-      <ion-label style="font-size:15px; min-width: 30% !important; max-width: 30% !important;">Họ</ion-label>
-      <!-- <ion-label style="font-size:15px">{{accountinfo.lastname}}</ion-label> -->
-      <ion-label style="font-size:15px"></ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label style="font-size:15px; min-width: 30% !important; max-width: 30% !important;">Họ</ion-label>
+        <ion-input type="text" formControlName="lastname" [ngModel]="user_info.lastname" style="font-size:15px"></ion-input>
 
-    </ion-item>
-    <hr>
-    <ion-item>
-      <ion-label style="font-size:15px; min-width: 30% !important; max-width: 30% !important;">Phone</ion-label>
-      <!-- <ion-label style="font-size:15px">{{accountinfo.phone}}</ion-label> -->
-      <ion-label style="font-size:15px"></ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label style="font-size:15px; min-width: 30% !important; max-width: 30% !important;">Phone</ion-label>
+        <ion-input type="text" formControlName="phone" [ngModel]="user_info.telephone" style="font-size:15px"></ion-input>
 
-    </ion-item>
-    <hr>
-    <ion-item style="background-color: #f4f4f4">
-      <ion-label >Địa chỉ của bạn</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label style="font-size:15px; min-width: 30% !important; max-width: 30% !important;">Địa chỉ</ion-label>
-      <!-- <ion-label style="font-size:15px">{{accountinfo.address}}</ion-label> -->
-      <ion-label style="font-size:15px"></ion-label>
-    </ion-item>
-    <hr>
-  </ion-list>
+      </ion-item>
+      <ion-item style="background-color: #f4f4f4">
+        <ion-label >Địa chỉ của bạn</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label style="font-size:15px; min-width: 30% !important; max-width: 30% !important;">Địa chỉ 1</ion-label>
+        <ion-textarea type="text" formControlName="address_1" style="font-size:15px" [ngModel]="user_info.user_address.address_1"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label style="font-size:15px; min-width: 30% !important; max-width: 30% !important;">Địa chỉ 2</ion-label>
+        <ion-textarea type="text" formControlName="address_2" style="font-size:15px" [ngModel]="user_info.user_address.address_2"></ion-textarea>
+      </ion-item>
+    </ion-list>
 
-
-
-
+    <button ion-button block type="submit" [disabled]="!fullfill()">Edit</button>
+  </form>
 </ion-content>

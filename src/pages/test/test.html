@@ -14,18 +14,5 @@
 
 
 <ion-content padding>
-  <ion-searchbar [(ngModel)]="searchingName" (ionInput)="getItems($event)"></ion-searchbar>
-  <ion-list *ngIf="items.length > 0">
-    <ion-item *ngFor="let item of items">
-      <ion-avatar item-start>
-        <img src="{{item.thumb}}">
-      </ion-avatar>
-      <h2>{{ item.name }}</h2>
-      <p>{{item.description}}</p>
-    </ion-item>
-  </ion-list>
-
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-      <ion-infinite-scroll-content></ion-infinite-scroll-content>
-    </ion-infinite-scroll>
+  <button (click)="wishList()">Wish</button>
 </ion-content>
