@@ -38,9 +38,12 @@ import { CategoriesProvider } from '../providers/categories/categories';
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { LocationsProvider } from '../providers/locations/locations';
+import { CartPaymentInfoPage } from '../pages/cart/cart-payment-info/cart-payment-info';
+import {CartPaymentMethodPage} from '../pages/cart/cart-payment-method/cart-payment-method';
 import {MapPage} from "../pages/map/map";
 import {FileUploadOptions, FileTransfer, FileTransferObject} from "@ionic-native/file-transfer";
 import {Camera, CameraOptions} from "@ionic-native/camera";
+import { CartPaymentCheckoutPage } from '../pages/cart/cart-payment-checkout/cart-payment-checkout';
 
 
 @NgModule({
@@ -69,7 +72,10 @@ import {Camera, CameraOptions} from "@ionic-native/camera";
     ProductManagementPage,
     MapPage,
     TestPage,
-    AddProductPage
+    AddProductPage,
+    CartPaymentInfoPage,
+    CartPaymentMethodPage,
+    CartPaymentCheckoutPage
   ],
   imports: [
     HttpClientModule,
@@ -101,7 +107,10 @@ import {Camera, CameraOptions} from "@ionic-native/camera";
     ProductManagementPage,
     MapPage,
     TestPage,
-    AddProductPage
+    AddProductPage,
+    CartPaymentInfoPage,
+    CartPaymentMethodPage,
+    CartPaymentCheckoutPage
   ],
   providers: [
     StatusBar,

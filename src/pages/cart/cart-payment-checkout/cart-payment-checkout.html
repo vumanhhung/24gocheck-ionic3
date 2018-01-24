@@ -1,0 +1,42 @@
+<!--
+  Generated template for the CartPaymentCheckoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>cart-payment-checkout</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <div class="label-border">Phương thức thanh toán</div>
+    <p style="font-size: 1em;padding-left: 10px;">Thanh toán khi nhận hàng</p><!-- Lấy từ bên thanh toán -->
+  </div>
+  <div>
+    <div class="label-border">Thông tin Khách hàng</div>
+    <ion-list style="font-size: 14px;">
+      <ion-item>
+        <span style="float: left;">Phone</span>
+        <span style="float: right;">0978654321</span>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-footer style="font-size: 16px;">
+  <ion-navbar>
+    <div style="float: left; margin-left: 5px;">
+      <!--<label style="color: white">Bắt đầu mua hàng</label>-->
+      <span style="color: white;">Tổng tiền: 66.000 đ</span>
+    </div>
+    <div style="float: right; margin-right: 5px;">
+      <a (click)="onPaymentMethod()" style="text-decoration: none;color: white">Xác nhận</a>
+    </div>
+  </ion-navbar>
+</ion-footer>

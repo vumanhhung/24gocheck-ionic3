@@ -1,0 +1,46 @@
+<!--
+  Generated template for the CartPaymentMethodPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Phương thức thanh toán</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding-top>
+  <div>
+    <div class="label-border">Phương thức</div>
+    <ion-list radio-group [(ngModel)]="payment">
+      <ion-item>
+        <ion-label>Thanh toán bằng thẻ ngân hàng</ion-label>
+        <ion-radio value="ATM" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Thanh toán khi giao hàng</ion-label>
+        <ion-radio value="COD" [disabled]="isDisabled"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div>
+    <div class="label-border">Ghi chú</div>
+    <ion-textarea placeholder="Ghi chú"></ion-textarea>
+  </div>
+</ion-content>
+
+<ion-footer style="font-size: 16px;">
+  <ion-navbar>
+    <div style="float: left; margin-left: 5px;">
+      <!--<label style="color: white">Bắt đầu mua hàng</label>-->
+      <span style="color: white;">Tổng tiền: 66.000 đ</span>
+    </div>
+    <div style="float: right; margin-right: 5px;">
+      <a (click)="onMethodDone()" style="text-decoration: none;color: white">Tiếp</a>
+    </div>
+  </ion-navbar>
+</ion-footer>

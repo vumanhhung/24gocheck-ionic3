@@ -8,59 +8,57 @@
 
 <ion-content>
   <div padding>
-      <ion-searchbar style="border-radius: 10px;" mode="ios" [(ngModel)]="searchingName" (ionInput)="getItems($event)"></ion-searchbar>
-      <div padding-bottom="2px" style="margin-top: 10px;">
-        <ion-segment [(ngModel)]="searchBy">
-          <ion-segment-button value="near">
-            Near By
-          </ion-segment-button>
-          <ion-segment-button value="category">
-            Category
-          </ion-segment-button>
-          <ion-segment-button value="city">
-            Cities
-          </ion-segment-button>
-        </ion-segment>
-      </div>
-  </div>  
-  <ion-col padding col-12>
-    <div #map id="map" style="height: 300px;"></div>
-  </ion-col>
-  <!-- <div>
-      *ngIf="items.length > 0"
+    <ion-col padding col-12>
+      <div #map id="map" style="height: 300px;"></div>
+    </ion-col>
+    <ion-searchbar style="border-radius: 10px;" mode="ios" [(ngModel)]="searchingName" (ionInput)="getItems($event)"></ion-searchbar>
+    <div padding-bottom="2px" style="margin-top: 10px;" *ngIf="items.length == 0">
+      <ion-segment [(ngModel)]="searchBy">
+        <ion-segment-button value="near">
+          Near By
+        </ion-segment-button>
+        <ion-segment-button value="category">
+          Category
+        </ion-segment-button>
+        <ion-segment-button value="city">
+          Cities
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </div>
+  <div *ngIf="items.length > 0">
     <ion-list>
-      <ion-item *ngFor="let item of items">
+      <ion-item [navPush]="productDetail" [navParams]="{product_id: item.product_id}" *ngFor="let item of items">
         <ion-avatar item-start>
           <img src="{{item.thumb}}">
         </ion-avatar>
         <h2>{{ item.name }}</h2>
-        <p ng-bind-html="item.description"></p>
+        <p [innerHTML]="item.description"></p>
       </ion-item>
     </ion-list>
 
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
-  </div> -->
-  <div [ngSwitch]="searchBy" >
-      <!-- *ngIf="items.length == 0"  -->
+  </div>
+  <div *ngIf="items.length == 0" [ngSwitch]="searchBy">
     <ion-list *ngSwitchCase="'near'">
-        <ion-scroll scrollX="true" style="height: 50px; margin-bottom: 10px;">
-            <ul class="row home-category-grid-icons" id="iconSlide">
-              <li>
-                <a style="min-height: 60px; margin-left: 0; margin-right: 0; text-decoration: none;" class="col" *ngFor="let category of categoryList"
-                  [navPush]="categoryPage">
-                  <div class="parent-background">
-                    <div class="background-opacity">
-                      <div class="cat-name">
-                        <span class="white-space">{{category.name}}</span>
-                      </div>
-                    </div>
+      <ion-scroll scrollX="true" style="height: 50px; margin-bottom: 10px; margin-left: 10px; margin-right:10px;">
+        <ul class="row home-category-grid-icons" id="iconSlide">
+          <li>
+            <a style="min-height: 60px; margin-left: 0; margin-right: 0; text-decoration: none;" class="col" *ngFor="let category of categoryList"
+              [navPush]="categoryPage">
+              <div class="parent-background">
+                <div class="background-opacity">
+                  <div class="cat-name">
+                    <span class="white-space">{{category.name}}</span>
                   </div>
-                </a>
-              </li>
-            </ul>
-          </ion-scroll>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </ion-scroll>
       <div class="list">
         <div style="display: flex; border: 1px solid #03c320; border-radius: 5px;margin: 15px;">
           <a style="border-right: solid 1px lightgrey;width: 75%; overflow: hidden;
