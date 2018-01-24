@@ -9,26 +9,37 @@
 <ion-content>
   <ion-item>
     <img class="cart-image" src="">
-    <h3 class="cart-item-title">Tên sp</h3>
-    <h5 class="cart-item-title">Mã Sp</h5>
-    <ion-icon style="color: red;" name="remove-circle" (click)="decrement()"></ion-icon>
-    {{currentNumber}}
-    <ion-icon style="color: green;" name="add-circle" (click)="increment()"></ion-icon>
+    <div style="display: flex;">
+      <img src="assets/imgs/placeholder.png" style="width: 25%; height: 70px;" />
+      <div style="margin-left: 10px;">
+        <h2 class="cart-item-title">Tên sp</h2>
+        <div style="display: flex">
+            <ion-icon style="color: red;font-size: 1.2em; padding-right: 5px;" name="remove-circle" (click)="decrement()"></ion-icon>
+            <span style="font-size: 1.1em">{{currentNumber}}</span>
+            <ion-icon style="color: green;font-size: 1.2em; padding-left: 5px;" name="add-circle" (click)="increment()"></ion-icon>
+            <div style="padding-left: 15px;font-size: 1em;">
+                <span>65. 000 đ</span>
+                <span style="text-decoration: line-through;color:orange;">140.000 đ</span>
+            </div>
+        </div>        
+        <p>65.000 đ</p>        
+      </div>
+    </div>
   </ion-item>
 </ion-content>
 
 <ion-footer>
   <div style="display: flex; max-height: 30px; padding-bottom: 2px">
     <ion-input col-10 placeholder="Nhập mã khuyến mại"></ion-input>
-    <button col-2 style="text-align: center; padding-top: 10px;font-size: 1em; background-color: #03c320;">Nhập</button>
+    <button col-2 style="text-align: center; padding-top: 10px;font-size: 1em; background-color: #03c320; color: white">Nhập</button>
   </div>
   <ion-navbar>
-    <div style="float: left">
+    <div style="float: left; padding-left: 5px;">
       <!--<label style="color: white">Bắt đầu mua hàng</label>-->
-      <span>Tổng tiền: 66.000 đ</span>
+      <span style="color: white;">Tổng tiền: 66.000 đ</span>
     </div>
-    <div style="float: right">
-      <a href=".../cart-payment-info" style="text-decoration: none;">Tiếp</a>
+    <div style="float: right; padding-right: 5px;">
+      <a (click)="onPaymentInfo()" style="text-decoration: none;color: white">Tiếp</a>
     </div>
   </ion-navbar>
 </ion-footer>

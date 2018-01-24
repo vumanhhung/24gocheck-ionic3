@@ -5,7 +5,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { ShopsProvider} from "../../providers/shops/shops";
 import { ProductsProvider } from '../../providers/products/products';
 import { CategoriesProvider } from '../../providers/categories/categories';
-import {CategoryPage} from "../categories/category/category";
+import { CategoryPage } from "../categories/category/category";
+import { ProductPage } from '../products/product/product';
+import { ProfilesPage } from '../accounts/profiles/profiles';
 
 /**
  * Generated class for the SearchPage page.
@@ -31,6 +33,7 @@ export class SearchPage {
   items: any[];
   searchingName: string;
   flagEnd: boolean;
+  productDetail: any;
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
@@ -44,6 +47,7 @@ export class SearchPage {
     this.items = [];
     this.searchingName = '';
     this.flagEnd = false;
+    this.productDetail = ProductPage;
     shopService.getUserLists(21.01362700000001, 105.80603339999993).subscribe(users => {
       this.user$ = users['users'];
     });    

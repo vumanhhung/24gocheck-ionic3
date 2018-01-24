@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CartPaymentInfoPage } from './cart-payment-info/cart-payment-info';
+import { NavController } from 'ionic-angular/navigation/nav-controller';
 // import { NgModule } from '@angular/core';
 // import { IonicPageModule } from 'ionic-angular';
 
@@ -15,8 +17,12 @@ import { Component } from '@angular/core';
 
 export class CartPage {
   private currentNumber = 1;
-  constructor(){
+  constructor(public navCtrl: NavController){
 
+  }
+
+  onPaymentInfo() {
+    this.navCtrl.push(CartPaymentInfoPage);
   }
 
   private increment(){

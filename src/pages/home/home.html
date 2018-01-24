@@ -40,17 +40,17 @@
     <ion-grid>
       <ion-row>
         <ion-col col-6 *ngFor="let shop of shopList">
-          <img [navPush]="shopDetailsPage" [navParams]="shop" src="{{shop.user_image || '../../assets/imgs/placeholder.png'}}" height="150"
+          <img [navPush]="shopDetailsPage" [navParams]="shop" src="{{shop.user_image || 'assets/imgs/placeholder.png'}}" height="150"
           />
           <ion-row>
-            <ion-col col-9 style="border-right:1px solid #82603c">
+            <ion-col col-8 style="border-right:1px solid #82603c">
               <ion-title>
                 <h2 class="title-product white-space">{{shop.company || shop.fullname}}</h2>
               </ion-title>
               <span>{{shop.adderss}}</span>
               <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
             </ion-col>
-            <ion-col col-3>
+            <ion-col col-4>
               <p>{{shop.product_count}}
                 <span style="color: red"> SP</span>
               </p>

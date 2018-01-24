@@ -26,6 +26,7 @@ page-search {
 
 .parent-background{
   height: 30px;
+  width: 110px;
 }
 #iconSlide li{
   height: 30px;
@@ -39,7 +40,7 @@ page-search {
   li{
     a{
       .cat-name{
-        width: 100px;
+        width: 65px;
         margin: 0 auto;
       }
     }
@@ -50,11 +51,13 @@ page-search {
   color: #03c320;
   bottom: -3px;
 }
+
+
 }
 
 .searchbar-ios{
   padding: 0 8px;
-  min-height: 44px;
+  min-height: 20px;
   border-top: 0.55px solid transparent;
   border-bottom: 0.55px solid rgba(0, 0, 0, 0.05);
   background-color: #e6e6e6;
@@ -124,4 +127,24 @@ ion-app.ios [padding-top]{
 
 ion-app.ios [padding]{
   padding: 10px;
+}
+
+
+
+
+ion-app.md [padding-bottom]{
+  padding-bottom: 2px;
+}
+
+ion-app.md [padding-top]{
+  padding-top: 10px;
+}
+
+ion-app.md [padding]{
+  padding: 10px;
+}
+
+.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+  border-color: #03c320;
+  opacity: 1;
 }
