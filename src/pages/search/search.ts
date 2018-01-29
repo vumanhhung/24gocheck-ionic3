@@ -14,7 +14,6 @@ import { LocationsProvider } from '../../providers/locations/locations';
 
 declare var google;
 
-
 @IonicPage()
 @Component({
   selector: 'page-search',
@@ -22,13 +21,12 @@ declare var google;
 })
 export class SearchPage {
 
-  data = [];
+  users = [];
   @ViewChild('map') mapElement: ElementRef;
-  @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
   map: any;
 
-  MyLocation: any = '';
-  Destination: any;
+  start = 'chicago, il';
+  end = 'chicago, il';
 
   directionsService = new google.maps.DirectionsService;
   directionsDisplay = new google.maps.DirectionsRenderer;
@@ -52,9 +50,9 @@ export class SearchPage {
     public productService: ProductsProvider,
     public shopService: ShopsProvider, 
     public categoryService: CategoriesProvider,
-    public maps: GoogleMapsProvider,
     public platform: Platform,
-    public locations: LocationsProvider)
+    public locationProvider: LocationsProvider,
+    )
    {
 
     this.searchBy = 'near';
@@ -73,53 +71,45 @@ export class SearchPage {
 
   }
 
-  searchByCategory(categoryId: number) {
-    console.log(categoryId);
-    this.productService.getProductsByCategoryId(categoryId, 1).subscribe(data => {
-      this.productByCategoryId = data['products'];
-    });
-  }
-
   ionViewDidLoad() {
     this.loadMap();
   }
 
-  loadMap() {
-    this.platform.ready().then(() => {
-      this.map = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement);
-      let locationsLoaded = this.locations.load();
+  loadMap(){
 
-      locationsLoaded.then(data => {
-        let lists = this.data = data['users'];
-        for(let location of lists) {
-          this.maps.addMarker(location.latitude, location.longitude, "<b>" + location.company + "</b>");
-        }
-      })
+    //Get current position
+    this.geolocation.getCurrentPosition().then((position) => {
+
+      let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+      let mapOptions = {
+        center: pos,
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      let marker = new google.maps.Marker({
+        animation: google.maps.Animation.DROP,
+        position: pos,
+      });
+
+      let content = "<b>Vị trí của tôi</b>";          
+
+      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+      this.addInfoWindow(marker, content);
+      marker.setMap(this.map);
       this.directionsDisplay.setMap(this.map);
+
+    }, (err) => {
+      console.log(err);
     });
+
   }
 
   calculateAndDisplayRoute() {
-    
-    let that = this;
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        let pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        this.map.setCenter(pos);
-        that.MyLocation = new google.maps.LatLng(pos);
-      }, function() {
-
-      });
-    } else {
-    }
-
     this.directionsService.route({
-      origin: this.MyLocation,
-      destination: this.Destination,
+      origin: this.start,
+      destination: this.end,
       travelMode: 'DRIVING'
     }, (response, status) => {
       if (status === 'OK') {
@@ -128,9 +118,64 @@ export class SearchPage {
         window.alert('Directions request failed due to ' + status);
       }
     });
-
   }
 
+
+  addMarker(){
+    let locationsLoaded = this.locationProvider.load();
+  
+    locationsLoaded.then(data => {
+      let locations = this.users = data['users'];
+
+      console.log(locations);
+      
+      for (let i = 0; i < locations.length; i++) {  
+
+        let position = new google.maps.LatLng(parseFloat(locations[i]['latitude']), parseFloat(locations[i]['longitude']));
+
+        let marker = new google.maps.Marker({
+          animation: google.maps.Animation.DROP,
+          position: position,
+          map: this.map,
+        });
+
+        this.addInfoWindow(marker, "<b>" + locations[i]['email'] || locations[i]['company'] + "</b>");
+      }
+    });
+  }
+
+  addInfoWindow(marker, content){
+    let infoWindow = new google.maps.InfoWindow({
+      content: content
+    });
+    google.maps.event.addListener(marker, 'click', () => {
+      infoWindow.open(this.map, marker);
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  searchByCategory(categoryId: number) {
+    console.log(categoryId);
+    this.productService.getProductsByCategoryId(categoryId, 1).subscribe(data => {
+      this.productByCategoryId = data['products'];
+    });
+  }
   getItems(ev: any) {
 
     this.currentPage = 1;
@@ -147,7 +192,6 @@ export class SearchPage {
     }
     
   }
-
   doInfinite(infiniteScroll) {
     
     if(this.flagEnd === false) {
@@ -169,6 +213,5 @@ export class SearchPage {
       infiniteScroll.complete();
     }
   }
-
 
 }

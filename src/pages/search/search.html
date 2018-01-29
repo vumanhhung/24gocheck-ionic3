@@ -18,12 +18,42 @@
             <option *ngFor="let d of data">{{d.address}}</option>
           </select>
         </div> -->
-    <ion-col padding col-12>
-      <div #pleaseConnect id="please-connect">
-        <p>Please connect to the Internet...</p>
-      </div>
-      <div #map id="map" style="height: 300px;"></div>
 
+        <div id="floating-panel">
+          <b>Start: </b>
+          <select [(ngModel)]="start" id="start" (ionChange)="calculateAndDisplayRoute()">
+            <option value="chicago, il">Chicago</option>
+            <option value="st louis, mo">St Louis</option>
+            <option value="joplin, mo">Joplin, MO</option>
+            <option value="oklahoma city, ok">Oklahoma City</option>
+            <option value="amarillo, tx">Amarillo</option>
+            <option value="gallup, nm">Gallup, NM</option>
+            <option value="flagstaff, az">Flagstaff, AZ</option>
+            <option value="winona, az">Winona</option>
+            <option value="kingman, az">Kingman</option>
+            <option value="barstow, ca">Barstow</option>
+            <option value="san bernardino, ca">San Bernardino</option>
+            <option value="los angeles, ca">Los Angeles</option>
+          </select><br>
+          <b>End: </b>
+          <select [(ngModel)]="end" id="end" (ionChange)="calculateAndDisplayRoute()">
+            <option value="chicago, il">Chicago</option>
+            <option value="st louis, mo">St Louis</option>
+            <option value="joplin, mo">Joplin, MO</option>
+            <option value="oklahoma city, ok">Oklahoma City</option>
+            <option value="amarillo, tx">Amarillo</option>
+            <option value="gallup, nm">Gallup, NM</option>
+            <option value="flagstaff, az">Flagstaff, AZ</option>
+            <option value="winona, az">Winona</option>
+            <option value="kingman, az">Kingman</option>
+            <option value="barstow, ca">Barstow</option>
+            <option value="san bernardino, ca">San Bernardino</option>
+            <option value="los angeles, ca">Los Angeles</option>
+          </select>
+          </div>
+    <ion-col padding col-12>
+      <div #map id="map" style="height: 300px;"></div>
+      <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Nearby</button>
       <ion-item>
           <ion-label floating>Destination</ion-label>
           <ion-input type="text" [(ngModel)]="Destination"></ion-input>
