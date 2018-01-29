@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, Platform } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ShopsProvider} from "../../providers/shops/shops";
@@ -8,13 +8,9 @@ import { CategoriesProvider } from '../../providers/categories/categories';
 import { CategoryPage } from "../categories/category/category";
 import { ProductPage } from '../products/product/product';
 import { ProfilesPage } from '../accounts/profiles/profiles';
+import { GoogleMapsProvider } from '../../providers/google-maps/google-maps';
+import { LocationsProvider } from '../../providers/locations/locations';
 
-/**
- * Generated class for the SearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 declare var google;
 
@@ -25,8 +21,21 @@ declare var google;
 })
 export class SearchPage {
 
+  users = [];
+  @ViewChild('map') mapElement: ElementRef;
+  map: any;
+
+  start = 'chicago, il';
+  end = 'chicago, il';
+
+  directionsService = new google.maps.DirectionsService;
+  directionsDisplay = new google.maps.DirectionsRenderer;
+
+
+  categoryId: number;
   searchBy: string;
   currentPage: number;
+  productByCategoryId = [];
   catePage = 0;
   categoryList = [];
   searchQuery: string = '';
@@ -35,43 +44,61 @@ export class SearchPage {
   flagEnd: boolean;
   productDetail: any;
 
-  @ViewChild('map') mapElement: ElementRef;
-  map: any;
-  user$ = [];
-
-  constructor(public navCtrl: NavController, public geolocation: Geolocation,
-    public productService: ProductsProvider,public shopService: ShopsProvider, public categoryService: CategoriesProvider)
+  constructor(
+    public navCtrl: NavController, 
+    public geolocation: Geolocation,
+    public productService: ProductsProvider,
+    public shopService: ShopsProvider, 
+    public categoryService: CategoriesProvider,
+    public platform: Platform,
+    public locationProvider: LocationsProvider,
+    )
    {
+
     this.searchBy = 'near';
     this.currentPage = 1;
     this.items = [];
     this.searchingName = '';
     this.flagEnd = false;
     this.productDetail = ProductPage;
-    shopService.getUserLists(21.01362700000001, 105.80603339999993).subscribe(users => {
-      this.user$ = users['users'];
-    });    
+    this.categoryId = 1;
+
     this.categoryService.getCategoryList()
         .subscribe(data => {
           this.categoryList = data['categories'] || [];
+          console.log(data);
         });
+
   }
 
-  ionViewDidLoad(){
+  ionViewDidLoad() {
     this.loadMap();
   }
 
   loadMap(){
+
+    //Get current position
     this.geolocation.getCurrentPosition().then((position) => {
-      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+      let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
       let mapOptions = {
-        center: latLng,
+        center: pos,
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
+      let marker = new google.maps.Marker({
+        animation: google.maps.Animation.DROP,
+        position: pos,
+      });
+
+      let content = "<b>Vị trí của tôi</b>";          
+
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-      this.addMarker(latLng, "<b>My Location</b>");
+
+      this.addInfoWindow(marker, content);
+      marker.setMap(this.map);
+      this.directionsDisplay.setMap(this.map);
 
     }, (err) => {
       console.log(err);
@@ -79,18 +106,45 @@ export class SearchPage {
 
   }
 
-
-  addMarker(position, content) {
-    let marker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.DROP,
-      position: position
+  calculateAndDisplayRoute() {
+    this.directionsService.route({
+      origin: this.start,
+      destination: this.end,
+      travelMode: 'DRIVING'
+    }, (response, status) => {
+      if (status === 'OK') {
+        this.directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
     });
-    this.addInfoWindow(marker, content);
-    return marker;
   }
 
-  addInfoWindow(marker, content) {
+
+  addMarker(){
+    let locationsLoaded = this.locationProvider.load();
+  
+    locationsLoaded.then(data => {
+      let locations = this.users = data['users'];
+
+      console.log(locations);
+      
+      for (let i = 0; i < locations.length; i++) {  
+
+        let position = new google.maps.LatLng(parseFloat(locations[i]['latitude']), parseFloat(locations[i]['longitude']));
+
+        let marker = new google.maps.Marker({
+          animation: google.maps.Animation.DROP,
+          position: position,
+          map: this.map,
+        });
+
+        this.addInfoWindow(marker, "<b>" + locations[i]['email'] || locations[i]['company'] + "</b>");
+      }
+    });
+  }
+
+  addInfoWindow(marker, content){
     let infoWindow = new google.maps.InfoWindow({
       content: content
     });
@@ -99,6 +153,29 @@ export class SearchPage {
     });
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  searchByCategory(categoryId: number) {
+    console.log(categoryId);
+    this.productService.getProductsByCategoryId(categoryId, 1).subscribe(data => {
+      this.productByCategoryId = data['products'];
+    });
+  }
   getItems(ev: any) {
 
     this.currentPage = 1;
@@ -115,17 +192,13 @@ export class SearchPage {
     }
     
   }
-
   doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
     
     if(this.flagEnd === false) {
       setTimeout(() => {
         this.currentPage ++;
         this.productService.searchProductByName(this.searchingName,this.currentPage)
           .subscribe(data => {
-            console.log('searching name: ', this.searchingName);
-            console.log('data product is: ', data['products']);
             if(data['products'].length > 0) {
               this.items = this.items.concat(data['products']) ;
             } else {
@@ -140,4 +213,5 @@ export class SearchPage {
       infiniteScroll.complete();
     }
   }
+
 }
