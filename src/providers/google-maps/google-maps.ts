@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ConnectivityProvider} from "../connectivity/connectivity";
 import { Geolocation } from '@ionic-native/geolocation';
+
 declare var google;
 
 
@@ -17,9 +18,10 @@ export class GoogleMapsProvider {
   markers: any = [];
   apiKey: string = 'AIzaSyBABOvrABpLxkcQ5_aNIGSviMXOjakloeE';
 
-  constructor(public connectivityService: ConnectivityProvider,
-              public geolocation: Geolocation) {
-  }
+  constructor(
+    public connectivityService: ConnectivityProvider,
+    public geolocation: Geolocation
+  ) {}
 
   init(mapElement: any, pleaseConnect: any): Promise<any> {
     this.mapElement = mapElement;
@@ -66,7 +68,7 @@ export class GoogleMapsProvider {
     });
 
   }
-
+  
   initMap(): Promise<any> {
     this.mapInitialised = true;
     return new Promise((resolve) => {
@@ -78,22 +80,12 @@ export class GoogleMapsProvider {
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         this.map = new google.maps.Map(this.mapElement, mapOptions);
+        this.addMarker(position.coords.latitude, position.coords.longitude, "Vị trí của tôi");
         resolve(true);
       });
     });
   }
 
-  disableMap(): void {
-    if (this.pleaseConnect) {
-      this.pleaseConnect.style.display = "block";
-    }
-  }
-
-  enableMap(): void {
-    if (this.pleaseConnect) {
-      this.pleaseConnect.style.display = "none";
-    }
-  }
 
   addConnectivityListeners(): void {
     document.addEventListener('online', () => {
@@ -150,6 +142,18 @@ export class GoogleMapsProvider {
     google.maps.event.addListener(marker, 'click', () => {
       infoWindow.open(this.map, marker);
     });
+  }
+
+  disableMap(): void {
+    if (this.pleaseConnect) {
+      this.pleaseConnect.style.display = "block";
+    }
+  }
+
+  enableMap(): void {
+    if (this.pleaseConnect) {
+      this.pleaseConnect.style.display = "none";
+    }
   }
 
 }

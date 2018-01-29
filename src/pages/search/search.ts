@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, Platform } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ShopsProvider} from "../../providers/shops/shops";
@@ -8,15 +8,12 @@ import { CategoriesProvider } from '../../providers/categories/categories';
 import { CategoryPage } from "../categories/category/category";
 import { ProductPage } from '../products/product/product';
 import { ProfilesPage } from '../accounts/profiles/profiles';
+import { GoogleMapsProvider } from '../../providers/google-maps/google-maps';
+import { LocationsProvider } from '../../providers/locations/locations';
 
-/**
- * Generated class for the SearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 declare var google;
+
 
 @IonicPage()
 @Component({
@@ -25,8 +22,22 @@ declare var google;
 })
 export class SearchPage {
 
+  data = [];
+  @ViewChild('map') mapElement: ElementRef;
+  @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
+  map: any;
+
+  MyLocation: any = '';
+  Destination: any;
+
+  directionsService = new google.maps.DirectionsService;
+  directionsDisplay = new google.maps.DirectionsRenderer;
+
+
+  categoryId: number;
   searchBy: string;
   currentPage: number;
+  productByCategoryId = [];
   catePage = 0;
   categoryList = [];
   searchQuery: string = '';
@@ -35,68 +46,89 @@ export class SearchPage {
   flagEnd: boolean;
   productDetail: any;
 
-  @ViewChild('map') mapElement: ElementRef;
-  map: any;
-  user$ = [];
-
-  constructor(public navCtrl: NavController, public geolocation: Geolocation,
-    public productService: ProductsProvider,public shopService: ShopsProvider, public categoryService: CategoriesProvider)
+  constructor(
+    public navCtrl: NavController, 
+    public geolocation: Geolocation,
+    public productService: ProductsProvider,
+    public shopService: ShopsProvider, 
+    public categoryService: CategoriesProvider,
+    public maps: GoogleMapsProvider,
+    public platform: Platform,
+    public locations: LocationsProvider)
    {
+
     this.searchBy = 'near';
     this.currentPage = 1;
     this.items = [];
     this.searchingName = '';
     this.flagEnd = false;
     this.productDetail = ProductPage;
-    shopService.getUserLists(21.01362700000001, 105.80603339999993).subscribe(users => {
-      this.user$ = users['users'];
-    });    
+    this.categoryId = 1;
+
     this.categoryService.getCategoryList()
         .subscribe(data => {
           this.categoryList = data['categories'] || [];
+          console.log(data);
         });
+
   }
 
-  ionViewDidLoad(){
+  searchByCategory(categoryId: number) {
+    console.log(categoryId);
+    this.productService.getProductsByCategoryId(categoryId, 1).subscribe(data => {
+      this.productByCategoryId = data['products'];
+    });
+  }
+
+  ionViewDidLoad() {
     this.loadMap();
   }
 
-  loadMap(){
-    this.geolocation.getCurrentPosition().then((position) => {
-      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  loadMap() {
+    this.platform.ready().then(() => {
+      this.map = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement);
+      let locationsLoaded = this.locations.load();
 
-      let mapOptions = {
-        center: latLng,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+      locationsLoaded.then(data => {
+        let lists = this.data = data['users'];
+        for(let location of lists) {
+          this.maps.addMarker(location.latitude, location.longitude, "<b>" + location.company + "</b>");
+        }
+      })
+      this.directionsDisplay.setMap(this.map);
+    });
+  }
+
+  calculateAndDisplayRoute() {
+    
+    let that = this;
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        let pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        this.map.setCenter(pos);
+        that.MyLocation = new google.maps.LatLng(pos);
+      }, function() {
+
+      });
+    } else {
+    }
+
+    this.directionsService.route({
+      origin: this.MyLocation,
+      destination: this.Destination,
+      travelMode: 'DRIVING'
+    }, (response, status) => {
+      if (status === 'OK') {
+        this.directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
       }
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-      this.addMarker(latLng, "<b>My Location</b>");
-
-    }, (err) => {
-      console.log(err);
     });
 
-  }
-
-
-  addMarker(position, content) {
-    let marker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.DROP,
-      position: position
-    });
-    this.addInfoWindow(marker, content);
-    return marker;
-  }
-
-  addInfoWindow(marker, content) {
-    let infoWindow = new google.maps.InfoWindow({
-      content: content
-    });
-    google.maps.event.addListener(marker, 'click', () => {
-      infoWindow.open(this.map, marker);
-    });
   }
 
   getItems(ev: any) {
@@ -117,15 +149,12 @@ export class SearchPage {
   }
 
   doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
     
     if(this.flagEnd === false) {
       setTimeout(() => {
         this.currentPage ++;
         this.productService.searchProductByName(this.searchingName,this.currentPage)
           .subscribe(data => {
-            console.log('searching name: ', this.searchingName);
-            console.log('data product is: ', data['products']);
             if(data['products'].length > 0) {
               this.items = this.items.concat(data['products']) ;
             } else {
@@ -140,4 +169,6 @@ export class SearchPage {
       infiniteScroll.complete();
     }
   }
+
+
 }
