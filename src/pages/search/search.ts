@@ -84,12 +84,19 @@ export class SearchPage {
 
       let mapOptions = {
         center: pos,
-        zoom: 15,
+        zoom: 13,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
+
+      let image = {
+        url: 'http://24gocheck.com/image/catalog/24gocheck%20Icons/bluemarker.png', // image is 512 x 512
+        scaledSize: new google.maps.Size(36, 36)
+      };
+
       let marker = new google.maps.Marker({
         animation: google.maps.Animation.DROP,
         position: pos,
+        icon: image,
       });
 
       let content = "<b>Vị trí của tôi</b>";          
@@ -104,6 +111,10 @@ export class SearchPage {
       console.log(err);
     });
 
+  }
+
+  locate() {
+    this.loadMap();
   }
 
   calculateAndDisplayRoute() {
@@ -121,14 +132,17 @@ export class SearchPage {
   }
 
 
-  addMarker(){
+  nearBy(){
     let locationsLoaded = this.locationProvider.load();
-  
+
     locationsLoaded.then(data => {
       let locations = this.users = data['users'];
 
-      console.log(locations);
-      
+      let image = {
+        url: 'http://24gocheck.com/image/catalog/24gocheck%20Icons/greenmarker.png',
+        scaledSize: new google.maps.Size(40, 40)
+      };
+
       for (let i = 0; i < locations.length; i++) {  
 
         let position = new google.maps.LatLng(parseFloat(locations[i]['latitude']), parseFloat(locations[i]['longitude']));
@@ -136,10 +150,16 @@ export class SearchPage {
         let marker = new google.maps.Marker({
           animation: google.maps.Animation.DROP,
           position: position,
+          icon: image,
           map: this.map,
         });
 
-        this.addInfoWindow(marker, "<b>" + locations[i]['email'] || locations[i]['company'] + "</b>");
+        let content = '<div><strong>' + 'Place: ' + (locations[i]['company'] ? locations[i]['company'] : locations[i]['fullname']) + '</strong><br>' +
+        'User ID: ' + locations[i]['user_id'] + '<br>' +
+        'Phone: ' + locations[i]['phone'] + '<br>' + 
+        'Category: ' + locations[i]['category_name'] + '</div>';
+
+        this.addInfoWindow(marker, content);
       }
     });
   }
