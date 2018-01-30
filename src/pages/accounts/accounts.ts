@@ -5,6 +5,8 @@ import { ProfilesPage } from './profiles/profiles';
 import { ProductManagementPage } from './product-management/product-management';
 import { FeedbackPage } from './feedback/feedback';
 import { FavoritesPage } from './favorites/favorites';
+import { AccountsProvider } from '../../providers/accounts/accounts';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the AccountsPage page.
@@ -20,20 +22,35 @@ import { FavoritesPage } from './favorites/favorites';
 })
 export class AccountsPage {
 
-  profilePage = ProfilesPage;
-  productManagementPage = ProductManagementPage;
-  feedbackPage = FeedbackPage;
-  favoritesPage = FavoritesPage;
+  profilePage: any;
+  productManagementPage: any;
+  feedbackPage: any;
+  favoritesPage: any;
   
-  testPage = TestPage;
+  testPage: any;
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public accountsService: AccountsProvider) {
+    this.profilePage = ProfilesPage;
+    this.productManagementPage = ProductManagementPage;
+    this.feedbackPage = FeedbackPage;
+    this.favoritesPage = FavoritesPage;
+    
+    this.testPage = TestPage;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AccountsPage');
   }
+
+  onUserLogout() {
+    this.accountsService.userLogout();
+    this.navCtrl.parent.select(0);
+  }
+
+  
+
+  
 
 }

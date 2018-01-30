@@ -1,3 +1,4 @@
+import { IonicStorageModule } from '@ionic/storage';
 import { AddProductPage } from './../pages/accounts/product-management/add-product/add-product';
 import { TestPage } from './../pages/test/test';
 import { CartPage } from './../pages/cart/cart';
@@ -45,6 +46,9 @@ import { MapPage } from "../pages/map/map";
 import { FileUploadOptions, FileTransfer, FileTransferObject } from "@ionic-native/file-transfer";
 import { Camera, CameraOptions } from "@ionic-native/camera";
 import { CartPaymentCheckoutPage } from '../pages/cart/cart-payment-checkout/cart-payment-checkout';
+import { NotificationsProvider } from '../providers/notifications/notifications';
+import { AccountsProvider } from '../providers/accounts/accounts';
+
 
 
 @NgModule({
@@ -135,7 +139,9 @@ import { CartPaymentCheckoutPage } from '../pages/cart/cart-payment-checkout/car
     LocationsProvider,
     FileTransfer,
     FileTransferObject,
-    Camera
+    Camera,
+    NotificationsProvider,
+    AccountsProvider
   ]
 })
 export class AppModule {}
