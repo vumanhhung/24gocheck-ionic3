@@ -8,11 +8,30 @@
 
   <ion-navbar>
     <ion-title>Đăng Nhập</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list >
+    <form  [formGroup]="loginform" (ngSubmit)="login()" #registerForm="ngForm">
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" formControlName="username"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <button ion-button block style="width : 100%" [disabled]="!filled()" type="submit" style="background-color:#03C320">Login</button>
+    </form>
+    <!-- <button (click)="wishList()" ion-button>Wishlist</button>
+    <button (click)="takeUserInfo()" ion-button>UserInfo</button>
+    <button (click)="accountsService.myTest()" ion-button>Test Sh</button> -->
+    <!-- <bu on-button block style="width:100%;background-color:#ffffff;color:#1234E2;border: 1px solid #1234E2;"><ion-icon name="logo-facebook"></ion-icon>  Facebook</button> -->
+  </ion-list>
 </ion-content>

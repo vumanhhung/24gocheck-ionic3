@@ -22,6 +22,9 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 })
 export class ProductManagementPage {
 
-  addProductPage: AddProductPage;
+  addProductPage: any;
 
+  constructor() {
+    this.addProductPage = AddProductPage;
+  }
 }

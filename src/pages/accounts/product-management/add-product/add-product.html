@@ -15,15 +15,45 @@
   
   <ion-content padding>
     <ion-item>
-      <p>{{imageURI}}</p>
-      <button ion-button color="secondary" (click)="getImage()">Get Image</button>
+      <img height="150px" width="150px" style="position: relative; left: 25%;" src="{{imageURI}}" (click)="alertSheetPictureOptions()"/>
     </ion-item>
-    <ion-item>
-      <h4>Image Preview</h4>
-      <img src="{{imageURI}}" *ngIf="imageURI" alt="Ionic File" width="300" />
-    </ion-item>
-    <ion-item>
-      <button ion-button (click)="uploadFile()">Upload</button>
-    </ion-item>
+    <form [formGroup]="addproductform" (ngSubmit)="addpro()" #registerForm="ngForm">
+      <ion-item >
+        <ion-input type="text" placeholder="Tên sản phẩm" formControlName="product_name"> </ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-input type="number" placeholder="Giá" formControlName="product_price"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-input type="number" placeholder="Số lượng" formControlName="product_quantity"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-input type="number" placeholder="Trọng lượng" formControlName="product_weight"></ion-input>
+      </ion-item>
+      <ion-item >
+          <ion-input type="text" placeholder="Thông tin chi tiết sản phẩm" formControlName="product_description"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-input type="text" placeholder="Tiêu đề mở rộng" formControlName="product_metatitle"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-input type="text" placeholder="Model" formControlName="product_model"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label >Khu vực</ion-label>
+      <ion-select formControlName="product_area">
+        <ion-option *ngFor="let area of area_arr" [value]="area.zone_id">{{area.name}}</ion-option>
+      </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label >Category</ion-label>
+        <ion-select formControlName="product_category">
+          <ion-option  *ngFor="let category of categogry_arr" [value]="category.category_id">{{category.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+      <button ion-button full [disabled]="!filled()" type="submit" style="background-color:#03C320">Add product</button>
+      </ion-item>
+    </form>
   </ion-content>
   

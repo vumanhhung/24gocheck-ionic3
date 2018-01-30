@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CategoriesProvider } from '../../providers/categories/categories';
 import {CategoryPage} from "../categories/category/category";
+import { AccountsProvider } from '../../providers/accounts/accounts';
 
 @Component({
   selector: 'page-home',
@@ -20,7 +21,8 @@ export class HomePage {
   constructor(
               public navCtrl: NavController,
               private shopService: ShopsProvider,
-              private categoryService: CategoriesProvider) {
+              private categoryService: CategoriesProvider,
+            public accountsService: AccountsProvider) {
     shopService.getShopList(this.currentPage)
       .subscribe(data => {
         this.shopList = data['shops'];
@@ -30,6 +32,9 @@ export class HomePage {
         .subscribe(data => {
           this.categoryList = data['categories'] || [];
         });
+
+
+
   }
 
   ionViewDidLoad() {

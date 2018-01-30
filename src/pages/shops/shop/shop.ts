@@ -41,7 +41,7 @@ export class ShopPage {
 
       this.shopDetails = this.navParams.data;
 
-      productService.getProductListByShopId(this.shopDetails['user_id'], 1)
+      this.productService.getProductListByShopId(this.shopDetails['user_id'], 1)
         .subscribe(data => {
           this.shopProducts = data['products'];
           console.log("product" + data);

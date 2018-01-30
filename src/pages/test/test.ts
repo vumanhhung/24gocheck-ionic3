@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductsProvider } from '../../providers/products/products';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the TestPage page.
@@ -16,19 +17,11 @@ import { ProductsProvider } from '../../providers/products/products';
 })
 export class TestPage {
 
-  currentPage: number;
-  searchQuery: string = '';
-  items: any[];
-  searchingName: string;
-  flagEnd: boolean;
+  
 
+  constructor(public navCtrl: NavController, public navParams: NavParams, public productService: ProductsProvider, public http: HttpClient) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public productService: ProductsProvider) {
-
-    this.currentPage = 1;
-    this.items = [];
-    this.searchingName = '';
-    this.flagEnd = false;
+    
   }
 
   ionViewDidLoad() {
@@ -36,46 +29,21 @@ export class TestPage {
     
   }
 
-
-  getItems(ev: any) {
-
-    this.currentPage = 1;
-    this.flagEnd = false;
-
-    let val = ev.target.value;
-
-    if(val === '' || val === null) {
-      this.items= [];
-    } else {
-      this.productService.searchProductByName(val, 1).subscribe(data => {
-        this.items = data['products'];
-      });
-    }
+  wishList() {
     
+    this.getWishlist().subscribe(data => {
+      console.log(JSON.stringify(data));
+    })
   }
 
-  doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
-    
-    if(this.flagEnd === false) {
-      setTimeout(() => {
-        this.currentPage ++;
-        this.productService.searchProductByName(this.searchingName,this.currentPage)
-          .subscribe(data => {
-            console.log('searching name: ', this.searchingName);
-            console.log('data product is: ', data['products']);
-            if(data['products'].length > 0) {
-              this.items = this.items.concat(data['products']) ;
-            } else {
-              this.flagEnd = true;
-            }
-          })
-  
-        console.log('Async operation has ended');
-        infiniteScroll.complete();
-      }, 500);
-    } else {
-      infiniteScroll.complete();
+
+  getWishlist() {
+    var data1 = '';
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
     }
+    return this.http.post('http://24gocheck.com/index.php?route=api2/wishlist', data1, config);
   }
 }
