@@ -215,7 +215,7 @@ export class SearchPage {
 
       this.addInfoWindow(marker, content);
       marker.setMap(this.map);
-      this.directionsDisplay.setMap(this.map);
+      this.nearBy();
 
     }, (err) => {
       console.log(err);
@@ -225,20 +225,6 @@ export class SearchPage {
 
   locate() {
     this.loadMap();
-  }
-
-  calculateAndDisplayRoute() {
-    this.directionsService.route({
-      origin: this.start,
-      destination: this.end,
-      travelMode: 'DRIVING'
-    }, (response, status) => {
-      if (status === 'OK') {
-        this.directionsDisplay.setDirections(response);
-      } else {
-        window.alert('Directions request failed due to ' + status);
-      }
-    });
   }
 
 

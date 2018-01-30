@@ -10,7 +10,6 @@
   <div padding>
     <ion-col padding col-12>
       <div #map id="map" style="height: 300px;"></div>
-      <button ion-button (click)="nearBy()"><ion-icon name="locate"></ion-icon>Nearby</button>
       <button ion-button (click)="locate()"><ion-icon name="locate"></ion-icon>Locate</button>
     </ion-col>  
     <ion-searchbar style="border-radius: 10px;" mode="ios" [(ngModel)]="searchingName" (ionInput)="getItems($event)"></ion-searchbar>
