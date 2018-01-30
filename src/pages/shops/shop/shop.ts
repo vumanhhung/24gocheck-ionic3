@@ -4,6 +4,7 @@ import { ShopsProvider } from './../../../providers/shops/shops';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { TranslateService } from '@ngx-translate/core';
 
 
 /**
@@ -29,30 +30,36 @@ export class ShopPage {
   product = {};
   shopProducts = [];
   productDetailsPage: any;
+  place: string;
+  phone: string;
+  cate: string;
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
+    public navCtrl: NavController,
+    public navParams: NavParams,
     private shopService: ShopsProvider,
     private productService: ProductsProvider,
-    public geolocation: Geolocation,) {
+    public geolocation: Geolocation,
+    public translate: TranslateService) {
 
-      this.productDetailsPage = ProductPage;
+    this.productDetailsPage = ProductPage;
+    this.place = translate.instant("shop_name");
+    this.phone = translate.instant("phone");
+    this.cate = translate.instant("category");
+    this.shopDetails = this.navParams.data;
 
-      this.shopDetails = this.navParams.data;
-
-      this.productService.getProductListByShopId(this.shopDetails['user_id'], 1)
-        .subscribe(data => {
-          this.shopProducts = data['products'];
-          console.log("product" + data);
-        });
+    productService.getProductListByShopId(this.shopDetails['user_id'], 1)
+      .subscribe(data => {
+        this.shopProducts = data['products'];
+        console.log("product" + data);
+      });
   }
 
   ionViewDidLoad() {
     this.loadMap();
   }
 
-  loadMap(){
+  loadMap() {
 
     let pos = new google.maps.LatLng(this.shopDetails['latitude'], this.shopDetails['longitude']);
 
@@ -61,113 +68,113 @@ export class ShopPage {
       zoom: 16,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: [
-        {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},
-        {elementType: 'labels.text.fill', stylers: [{color: '#523735'}]},
-        {elementType: 'labels.text.stroke', stylers: [{color: '#f5f1e6'}]},
+        { elementType: 'geometry', stylers: [{ color: '#ebe3cd' }] },
+        { elementType: 'labels.text.fill', stylers: [{ color: '#523735' }] },
+        { elementType: 'labels.text.stroke', stylers: [{ color: '#f5f1e6' }] },
         {
           featureType: 'administrative',
           elementType: 'geometry.stroke',
-          stylers: [{color: '#c9b2a6'}]
+          stylers: [{ color: '#c9b2a6' }]
         },
         {
           featureType: 'administrative.land_parcel',
           elementType: 'geometry.stroke',
-          stylers: [{color: '#dcd2be'}]
+          stylers: [{ color: '#dcd2be' }]
         },
         {
           featureType: 'administrative.land_parcel',
           elementType: 'labels.text.fill',
-          stylers: [{color: '#ae9e90'}]
+          stylers: [{ color: '#ae9e90' }]
         },
         {
           featureType: 'landscape.natural',
           elementType: 'geometry',
-          stylers: [{color: '#dfd2ae'}]
+          stylers: [{ color: '#dfd2ae' }]
         },
         {
           featureType: 'poi',
           elementType: 'geometry',
-          stylers: [{color: '#dfd2ae'}]
+          stylers: [{ color: '#dfd2ae' }]
         },
         {
           featureType: 'poi',
           elementType: 'labels.text.fill',
-          stylers: [{color: '#93817c'}]
+          stylers: [{ color: '#93817c' }]
         },
         {
           featureType: 'poi.park',
           elementType: 'geometry.fill',
-          stylers: [{color: '#a5b076'}]
+          stylers: [{ color: '#a5b076' }]
         },
         {
           featureType: 'poi.park',
           elementType: 'labels.text.fill',
-          stylers: [{color: '#447530'}]
+          stylers: [{ color: '#447530' }]
         },
         {
           featureType: 'road',
           elementType: 'geometry',
-          stylers: [{color: '#f5f1e6'}]
+          stylers: [{ color: '#f5f1e6' }]
         },
         {
           featureType: 'road.arterial',
           elementType: 'geometry',
-          stylers: [{color: '#fdfcf8'}]
+          stylers: [{ color: '#fdfcf8' }]
         },
         {
           featureType: 'road.highway',
           elementType: 'geometry',
-          stylers: [{color: '#f8c967'}]
+          stylers: [{ color: '#f8c967' }]
         },
         {
           featureType: 'road.highway',
           elementType: 'geometry.stroke',
-          stylers: [{color: '#e9bc62'}]
+          stylers: [{ color: '#e9bc62' }]
         },
         {
           featureType: 'road.highway.controlled_access',
           elementType: 'geometry',
-          stylers: [{color: '#e98d58'}]
+          stylers: [{ color: '#e98d58' }]
         },
         {
           featureType: 'road.highway.controlled_access',
           elementType: 'geometry.stroke',
-          stylers: [{color: '#db8555'}]
+          stylers: [{ color: '#db8555' }]
         },
         {
           featureType: 'road.local',
           elementType: 'labels.text.fill',
-          stylers: [{color: '#806b63'}]
+          stylers: [{ color: '#806b63' }]
         },
         {
           featureType: 'transit.line',
           elementType: 'geometry',
-          stylers: [{color: '#dfd2ae'}]
+          stylers: [{ color: '#dfd2ae' }]
         },
         {
           featureType: 'transit.line',
           elementType: 'labels.text.fill',
-          stylers: [{color: '#8f7d77'}]
+          stylers: [{ color: '#8f7d77' }]
         },
         {
           featureType: 'transit.line',
           elementType: 'labels.text.stroke',
-          stylers: [{color: '#ebe3cd'}]
+          stylers: [{ color: '#ebe3cd' }]
         },
         {
           featureType: 'transit.station',
           elementType: 'geometry',
-          stylers: [{color: '#dfd2ae'}]
+          stylers: [{ color: '#dfd2ae' }]
         },
         {
           featureType: 'water',
           elementType: 'geometry.fill',
-          stylers: [{color: '#b9d3c2'}]
+          stylers: [{ color: '#b9d3c2' }]
         },
         {
           featureType: 'water',
           elementType: 'labels.text.fill',
-          stylers: [{color: '#92998d'}]
+          stylers: [{ color: '#92998d' }]
         }
       ]
     }
@@ -183,10 +190,9 @@ export class ShopPage {
       icon: image,
     });
 
-    let content = 
-        '<div><strong>' + 'Place: ' + (this.shopDetails['company'] ? this.shopDetails['company'] : this.shopDetails['fullname']) + '</strong><br>' +
-        'Phone: ' + this.shopDetails['phone'] + '<br>' + 
-        'Address: ' + this.shopDetails['address'] + '</div>';         
+    let content = '<div><strong>' + this.place + ': ' + (locations[i]['company'] ? locations[i]['company'] : locations[i]['fullname']) + '</strong><br>' +
+      this.phone + ': ' + locations[i]['phone'] + '<br>' +
+      this.cate + ': ' + locations[i]['category_name'] + '</div>';
 
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
@@ -195,8 +201,8 @@ export class ShopPage {
 
   }
 
-  
-  addInfoWindow(marker, content){
+
+  addInfoWindow(marker, content) {
     let infoWindow = new google.maps.InfoWindow({
       content: content
     });

@@ -76,8 +76,16 @@ page-search {
 .searchbar-ios{
   .searchbar-input{
     background-color: #e6e6e6;
+    padding: 2px 28px 0 28px;
   }
 }
+
+.searchbar-ios{
+  .searchbar-search-icon{
+    left: 10px;
+    width: 20px;
+  }
+} 
 
 .searchbar-md{
   .searchbar-input{
@@ -103,6 +111,11 @@ page-search {
   .item-block:last-child{
     border: none;
   }
+}
+
+.item-ios{
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .item-ios{
@@ -146,3 +159,13 @@ ion-app.md [padding]{
   border-color: #03c320;
   opacity: 1;
 }
+
+.segment-ios{
+  .segment-button{
+    line-height: 2rem;
+    height: 2rem;
+    ion-icon{
+      line-height: 0;
+    }
+  }
+} 

@@ -35,7 +35,7 @@
       </li>
     </ul>
   </ion-scroll>
-  <h3 padding-left>Gian Hàng</h3>
+  <h3 padding-left>{{'home.shop' | translate}}</h3>
   <ion-list style="margin: 0 0 32px;background-color:#f7f7f7">
     <ion-grid>
       <ion-row>
@@ -48,11 +48,11 @@
                 <h2 class="title-product white-space">{{shop.company || shop.fullname}}</h2>
               </ion-title>
               <span>{{shop.adderss}}</span>
-              <a class="order-product" style="color: red;" href="#">Xem Chi Tiết</a>
+              <a class="order-product" style="color: red;" href="#">{{'home.view_detail' | translate}}</a>
             </ion-col>
             <ion-col col-4>
               <p>{{shop.product_count}}
-                <span style="color: red"> SP</span>
+                <span style="color: red"> {{'home.product'|translate}}</span>
               </p>
             </ion-col>
           </ion-row>

@@ -1,10 +1,9 @@
 <ion-tabs>
-  <ion-tab [root]="homeRoot" tabTitle="Home" tabIcon="ios-home-outline"></ion-tab>
-  <ion-tab [root]="searchRoot" tabTitle="Search" tabIcon="ios-search-outline"></ion-tab>
-  <ion-tab [root]="notificationRoot" tabTitle="Notification" tabIcon="ios-notifications-outline"></ion-tab>
-  <ion-tab [root]="cartRoot" tabTitle="Cart" tabIcon="ios-cart-outline"></ion-tab>
+  <ion-tab [root]="homeRoot" tabTitle="{{'home' | translate}} " tabIcon="ios-home-outline"></ion-tab>
+  <ion-tab [root]="searchRoot" tabTitle="{{'search' | translate}} " tabIcon="ios-search-outline"></ion-tab>
+  <ion-tab [root]="notificationRoot" tabTitle="{{'notification' | translate}} " tabIcon="ios-notifications-outline"></ion-tab>
+  <ion-tab [root]="cartRoot" tabTitle="{{'cart' | translate}} " tabIcon="ios-cart-outline"></ion-tab>
   <!-- <ion-tab [root]="mapRoot" tabTitle="Map" tabIcon="ios-map-outline"></ion-tab> -->
-  <ion-tab [show]="accountsService.isUserLoggedIn()" [root]="accountRoot" tabTitle="Account" tabIcon="ios-contact-outline"></ion-tab>
-  <!-- <ion-tab [root]="loginPage" tabTitle="Login" tabIcon="ios-contact-outline"></ion-tab> -->
-  <ion-tab [show]="!accountsService.isUserLoggedIn()" (ionSelect)="loginModal()" tabTitle="Login Modal" tabIcon="ios-contact-outline"></ion-tab>
+  <ion-tab [root]="accountRoot" tabTitle="{{'account' | translate}} " tabIcon="ios-contact-outline"></ion-tab>
+  <ion-tab [root]="loginPage" tabTitle="Login" tabIcon="ios-contact-outline"></ion-tab>
 </ion-tabs>
