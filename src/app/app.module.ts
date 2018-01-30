@@ -2,14 +2,15 @@ import { AddProductPage } from './../pages/accounts/product-management/add-produ
 import { TestPage } from './../pages/test/test';
 import { CartPage } from './../pages/cart/cart';
 import { ProductManagementPage } from './../pages/accounts/product-management/product-management';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserModule } from '@angular/platform-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Network } from '@ionic-native/network';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AccountsPage } from '../pages/accounts/accounts';
 import { FeedbackPage } from '../pages/accounts/feedback/feedback';
 import { ProfilesPage } from '../pages/accounts/profiles/profiles';
@@ -39,10 +40,10 @@ import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { LocationsProvider } from '../providers/locations/locations';
 import { CartPaymentInfoPage } from '../pages/cart/cart-payment-info/cart-payment-info';
-import {CartPaymentMethodPage} from '../pages/cart/cart-payment-method/cart-payment-method';
-import {MapPage} from "../pages/map/map";
-import {FileUploadOptions, FileTransfer, FileTransferObject} from "@ionic-native/file-transfer";
-import {Camera, CameraOptions} from "@ionic-native/camera";
+import { CartPaymentMethodPage } from '../pages/cart/cart-payment-method/cart-payment-method';
+import { MapPage } from "../pages/map/map";
+import { FileUploadOptions, FileTransfer, FileTransferObject } from "@ionic-native/file-transfer";
+import { Camera, CameraOptions } from "@ionic-native/camera";
 import { CartPaymentCheckoutPage } from '../pages/cart/cart-payment-checkout/cart-payment-checkout';
 
 
@@ -80,7 +81,14 @@ import { CartPaymentCheckoutPage } from '../pages/cart/cart-payment-checkout/car
   imports: [
     HttpClientModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (setTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -131,3 +139,7 @@ import { CartPaymentCheckoutPage } from '../pages/cart/cart-payment-checkout/car
   ]
 })
 export class AppModule {}
+
+export function setTranslateLoader(http: HttpClient){
+  return new TranslateHttpLoader(http, '../assets/i18n/','.json');
+}

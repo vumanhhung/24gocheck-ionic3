@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Search
+      {{'search' | translate}}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,17 +13,17 @@
       <button ion-button (click)="nearBy()"><ion-icon name="locate"></ion-icon>Nearby</button>
       <button ion-button (click)="locate()"><ion-icon name="locate"></ion-icon>Locate</button>
     </ion-col>  
-    <ion-searchbar style="border-radius: 10px;" mode="ios" [(ngModel)]="searchingName" (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-searchbar [placeholder]="'search.search_by_name'|translate" style="border-radius: 10px;" mode="ios" [(ngModel)]="searchingName" (ionInput)="getItems($event)"></ion-searchbar>
     <div padding-bottom="2px" style="margin-top: 10px;" *ngIf="items.length == 0">
       <ion-segment [(ngModel)]="searchBy">
         <ion-segment-button value="near">
-          Near By
+          <ion-icon name="ios-locate-outline" style="font-size: 1.5rem"> {{'near_by' | translate}}</ion-icon> 
         </ion-segment-button>
         <ion-segment-button value="category">
-          Category
+            <ion-icon name="ios-list-box-outline" style="font-size: 1.5rem"> {{'category' | translate}}</ion-icon>
         </ion-segment-button>
         <ion-segment-button value="city">
-          Cities
+            <ion-icon name="ios-globe-outline" style="font-size: 1.5rem"> {{'city' | translate}}</ion-icon>
         </ion-segment-button>
       </ion-segment>
     </div>
@@ -90,10 +90,10 @@
       
     </ion-list>
 
-    <ion-list *ngSwitchCase="'category'">
+    <ion-list *ngSwitchCase="'category'" padding>
 
-      <ion-item>
-        <ion-label>Category</ion-label>
+      <ion-item style="margin-left: 0; border: 2px solid lightgray; border-radius: 5px;">
+        <ion-label style="margin-left: 10px;">{{'category' | translate}}</ion-label>
         <ion-select [(ngModel)]="categoryId" (ionChange)="searchByCategory(categoryId)">
           <ion-option *ngFor="let cat of categoryList" [value]="cat.category_id">
             {{cat.name}}
