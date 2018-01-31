@@ -9,6 +9,7 @@ import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { Storage } from '@ionic/storage';
 import { AccountsPage } from '../accounts';
 import { AccountsProvider } from '../../../providers/accounts/accounts';
+import { RegisterPage } from '../register/register';
 
 
 /**
@@ -125,22 +126,8 @@ export class LoginPage {
     }
   }
 
-
-  
-
-  getWishlist() {
-    var data1 = '';
-    var config = {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-      }
-    }
-    return this.http.post('http://24gocheck.com/index.php?route=api2/wishlist', data1, config);
+  registerModal() {
+    let modal = this.modalCtrl.create(RegisterPage);
+    modal.present();
   }
-  
-
-  takeUserInfo() {
-    this.accountsService.getUserInfo();
-  }
-
 }

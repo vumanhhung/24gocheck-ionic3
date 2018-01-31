@@ -1,3 +1,4 @@
+import { CategoriesPage } from './../categories/categories';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, Platform } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
@@ -11,6 +12,8 @@ import { ProfilesPage } from '../accounts/profiles/profiles';
 import { GoogleMapsProvider } from '../../providers/google-maps/google-maps';
 import { LocationsProvider } from '../../providers/locations/locations';
 import { TranslateService } from '@ngx-translate/core';
+import { ZonesProvider } from '../../providers/zones/zones';
+
 
 
 declare var google;
@@ -47,6 +50,10 @@ export class SearchPage {
   place: string;
   phone: string;
   cate: string;
+  allZone: any;
+  productsByZoneId = [];
+  categoryPage: CategoriesPage;
+
 
   constructor(
     public navCtrl: NavController, 
@@ -56,7 +63,8 @@ export class SearchPage {
     public categoryService: CategoriesProvider,
     public platform: Platform,
     public locationProvider: LocationsProvider,
-    public translate : TranslateService
+    public translate : TranslateService,
+    public zonesProvider: ZonesProvider
     )
    {
 
@@ -71,11 +79,15 @@ export class SearchPage {
     this.phone = translate.instant("phone");
     this.cate = translate.instant("category");
 
-    this.categoryService.getCategoryList()
-        .subscribe(data => {
-          this.categoryList = data['categories'] || [];
+    this.locationProvider.load()
+        .then(data => {
+          this.categoryList = data['users'] || [];
           console.log(data);
         });
+
+    this.zonesProvider.getZones().subscribe(data => {
+      this.allZone = data['zones'];
+    })
 
   }
 
@@ -286,6 +298,15 @@ export class SearchPage {
       this.productByCategoryId = data['products'];
     });
   }
+
+  searchByZone(zone_id: number) {
+    console.log('ZOne is: '+ zone_id);
+    this.productService.getProductsByZoneId(zone_id, 1).subscribe(data => {
+      this.productsByZoneId = data['products'];
+    });
+  }
+
+
   getItems(ev: any) {
 
     this.currentPage = 1;
