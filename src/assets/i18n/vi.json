@@ -1,0 +1,38 @@
+{
+    "home" : "Trang chủ",
+    "search" : "Tìm kiếm",
+    "notification" : "Thông báo",
+    "cart" : "Giỏ hàng",
+    "account" : "Tài khoản",
+    "shop_name" : "Tên shop",
+    "phone" : "Điện thoại",
+    "category" : "Danh mục",
+    "city" : "Thành phố",
+    "near_by" : "Gần tôi",
+    "event" : "Sự kiện",
+    "own" : "Của bạn",
+    "submit" : "Nhập",
+    "promotion_code" : "Nhập mã khuyến mại",
+    "total" : "Tổng tiền",
+    "next" : "Tiếp",
+    "account_info" : "Thông tin tài khoản",
+    "lastname" : "Tên",
+    "fullname" : "Họ",
+    "email" : "Email",
+    "address" : "Địa chỉ",
+    "nation" : "Quốc gia",
+    "payment_method" : "Phương thức thanh toán",
+    "confirm" : "Xác nhận",
+    "checkout_order" : "Kiểm tra đơn hàng",
+
+    "home.shop" : "Gian hàng",
+    "home.view_detail" : "Xem chi tiết",
+    "home.product" : "SP",
+
+    "search.search_by_name" : "Tìm kiếm theo tên",
+    
+    "noti_none" : "Bạn không có thông báo nào",
+
+    "map.locate" : "Vị trí của tôi"   
+
+}

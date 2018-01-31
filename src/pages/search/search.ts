@@ -10,6 +10,7 @@ import { ProductPage } from '../products/product/product';
 import { ProfilesPage } from '../accounts/profiles/profiles';
 import { GoogleMapsProvider } from '../../providers/google-maps/google-maps';
 import { LocationsProvider } from '../../providers/locations/locations';
+import { TranslateService } from '@ngx-translate/core';
 
 
 declare var google;
@@ -43,6 +44,9 @@ export class SearchPage {
   searchingName: string;
   flagEnd: boolean;
   productDetail: any;
+  place: string;
+  phone: string;
+  cate: string;
 
   constructor(
     public navCtrl: NavController, 
@@ -52,6 +56,7 @@ export class SearchPage {
     public categoryService: CategoriesProvider,
     public platform: Platform,
     public locationProvider: LocationsProvider,
+    public translate : TranslateService
     )
    {
 
@@ -62,6 +67,9 @@ export class SearchPage {
     this.flagEnd = false;
     this.productDetail = ProductPage;
     this.categoryId = 1;
+    this.place = translate.instant("shop_name");
+    this.phone = translate.instant("phone");
+    this.cate = translate.instant("category");
 
     this.categoryService.getCategoryList()
         .subscribe(data => {
@@ -249,10 +257,10 @@ export class SearchPage {
           icon: image,
           map: this.map,
         });
-
-        let content = '<div><strong>' + 'Place: ' + (locations[i]['company'] ? locations[i]['company'] : locations[i]['fullname']) + '</strong><br>' +
-        'Phone: ' + locations[i]['phone'] + '<br>' + 
-        'Category: ' + locations[i]['category_name'] + '</div>';
+          
+        let content = '<div><strong>' + this.place + ': ' + (locations[i]['company'] ? locations[i]['company'] : locations[i]['fullname']) + '</strong><br>' +
+        this.phone + ': ' + locations[i]['phone'] + '<br>' + 
+        this.cate + ': ' + locations[i]['category_name'] + '</div>';
 
         this.addInfoWindow(marker, content);
       }

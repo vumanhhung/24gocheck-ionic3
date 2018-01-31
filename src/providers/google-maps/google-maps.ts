@@ -80,7 +80,7 @@ export class GoogleMapsProvider {
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         this.map = new google.maps.Map(this.mapElement, mapOptions);
-        this.addMarker(position.coords.latitude, position.coords.longitude, "Vị trí của tôi");
+        this.addMarker(position.coords.latitude, position.coords.longitude, "{{'map.locate'|translate}}");
         resolve(true);
       });
     });

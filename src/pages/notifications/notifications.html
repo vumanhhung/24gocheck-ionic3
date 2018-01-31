@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Notification
+      {{'notification'|translate}}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -11,10 +11,10 @@
     <div padding>
       <ion-segment [(ngModel)]="noti">
         <ion-segment-button value="event">
-          Event
+          {{'event'|translate}}
         </ion-segment-button>
         <ion-segment-button value="own">
-          Own
+          {{'own'|translate}}
         </ion-segment-button>
       </ion-segment>
     </div>
@@ -24,7 +24,7 @@
             <div style="margin: 20% 20% 0 20%">
               <img style="background: transparent; width: 150%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/bell.png"/>
             </div>
-            <p class="list-none">You don't have Notification</p>
+            <p class="list-none">{{'noti_none'|translate}}</p>
           </div>
       </ion-list>
 
@@ -33,7 +33,7 @@
           <div style="margin: 20% 20% 0 20%">
             <img style="background: transparent; width: 150%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/bell.png"/>
           </div>
-          <p class="list-none">You don't have Notification</p>
+          <p class="list-none">{{'noti_none'|translate}}</p>
         </div>
       </ion-list>
     </div>

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>cart-payment-checkout</ion-title>
+    <ion-title>{{'checkout_order'|translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,14 +15,14 @@
 
 <ion-content padding>
   <div>
-    <div class="label-border">Phương thức thanh toán</div>
+    <div class="label-border">{{'payment_method'|translate}}</div>
     <p style="font-size: 1em;padding-left: 10px;">Thanh toán khi nhận hàng</p><!-- Lấy từ bên thanh toán -->
   </div>
   <div>
-    <div class="label-border">Thông tin Khách hàng</div>
+    <div class="label-border">{{'account_info'|translate}}</div>
     <ion-list style="font-size: 14px;">
       <ion-item>
-        <span style="float: left;">Phone</span>
+        <span style="float: left;">{{'phone'|translate}}</span>
         <span style="float: right;">0978654321</span>
       </ion-item>
     </ion-list>
@@ -33,10 +33,10 @@
   <ion-navbar>
     <div style="float: left; margin-left: 5px;">
       <!--<label style="color: white">Bắt đầu mua hàng</label>-->
-      <span style="color: white;">Tổng tiền: 66.000 đ</span>
+      <span style="color: white;">{{'total'|translate}}: 66.000 đ</span>
     </div>
     <div style="float: right; margin-right: 5px;">
-      <a (click)="onPaymentMethod()" style="text-decoration: none;color: white">Xác nhận</a>
+      <a (click)="onPaymentMethod()" style="text-decoration: none;color: white">{{'confirm'|translate}}</a>
     </div>
   </ion-navbar>
 </ion-footer>
