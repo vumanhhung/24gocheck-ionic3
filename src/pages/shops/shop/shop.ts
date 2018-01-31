@@ -190,9 +190,10 @@ export class ShopPage {
       icon: image,
     });
 
-    let content = '<div><strong>' + this.place + ': ' + (locations[i]['company'] ? locations[i]['company'] : locations[i]['fullname']) + '</strong><br>' +
-      this.phone + ': ' + locations[i]['phone'] + '<br>' +
-      this.cate + ': ' + locations[i]['category_name'] + '</div>';
+    let content = 
+        '<div><strong>' + 'Place: ' + (this.shopDetails['company'] ? this.shopDetails['company'] : this.shopDetails['fullname']) + '</strong><br>' +
+        'Phone: ' + this.shopDetails['phone'] + '<br>' + 
+        'Address: ' + this.shopDetails['address'] + '</div>';
 
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
@@ -210,7 +211,6 @@ export class ShopPage {
       infoWindow.open(this.map, marker);
     });
   }
-
 
 
 }
