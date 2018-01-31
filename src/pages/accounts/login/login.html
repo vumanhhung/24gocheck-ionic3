@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Đăng Nhập</ion-title>
+    <ion-title>{{"login"|translate}}</ion-title>
     <ion-buttons end>
       <button ion-button (click)="closeModal()">Close</button>
     </ion-buttons>
@@ -20,16 +20,16 @@
   <ion-list >
     <form style="margin-bottom: 30px" [formGroup]="loginform" (ngSubmit)="login()" #registerForm="ngForm">
       <ion-item style="margin-bottom: 30px">
-        <ion-label floating>Email</ion-label>
+        <ion-label floating>{{"email"|translate}}</ion-label>
         <ion-input type="text" formControlName="username"></ion-input>
       </ion-item>
       <ion-item style="margin-bottom: 30px">
-        <ion-label floating>Password</ion-label>
+        <ion-label floating>{{"password"|translate}}</ion-label>
         <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
-      <button ion-button block style="width : 100%" [disabled]="!filled()" type="submit" style="background-color:#03C320">Login</button>
+      <button ion-button block style="width : 100%" [disabled]="!filled()" type="submit" style="background-color:#03C320">{{"login"|translate}}</button>
     </form>
-    <button ion-button block (click)="registerModal()" style="margin-bottom:30px;width:100%;background-color:#ffffff;color:#03C320;border: 1px solid #03C320">Register</button>
-    <button ion-button block style="width:100%;background-color:#ffffff;color:#1234E2;border: 1px solid #1234E2;"><ion-icon name="logo-facebook"></ion-icon>  Facebook</button>
+    <button ion-button block (click)="registerModal()" style="margin-bottom:30px;width:100%;background-color:#ffffff;color:#03C320;border: 1px solid #03C320">{{"register"|translate}}</button>
+    <button ion-button block style="width:100%;background-color:#ffffff;color:#1234E2;border: 1px solid #1234E2;"><ion-icon name="logo-facebook"></ion-icon>{{"facebook"|translate}}</button>
   </ion-list>
 </ion-content>
