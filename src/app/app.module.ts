@@ -48,7 +48,7 @@ import { Camera, CameraOptions } from "@ionic-native/camera";
 import { CartPaymentCheckoutPage } from '../pages/cart/cart-payment-checkout/cart-payment-checkout';
 import { NotificationsProvider } from '../providers/notifications/notifications';
 import { AccountsProvider } from '../providers/accounts/accounts';
-
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 
 @NgModule({
@@ -86,6 +86,7 @@ import { AccountsProvider } from '../providers/accounts/accounts';
     HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -141,7 +142,8 @@ import { AccountsProvider } from '../providers/accounts/accounts';
     FileTransferObject,
     Camera,
     NotificationsProvider,
-    AccountsProvider
+    AccountsProvider,
+    LaunchNavigator,
   ]
 })
 export class AppModule {}

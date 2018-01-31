@@ -5,6 +5,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { TranslateService } from '@ngx-translate/core';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 
 
 /**
@@ -25,6 +26,9 @@ export class ShopPage {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
 
+  directionsService = new google.maps.DirectionsService;
+  directionsDisplay = new google.maps.DirectionsRenderer;
+
   shopDetails = {};
   productId;
   product = {};
@@ -40,7 +44,8 @@ export class ShopPage {
     private shopService: ShopsProvider,
     private productService: ProductsProvider,
     public geolocation: Geolocation,
-    public translate: TranslateService) {
+    public translate: TranslateService,
+    private launchNavigator: LaunchNavigator) {
 
     this.productDetailsPage = ProductPage;
     this.place = translate.instant("shop_name");
@@ -59,7 +64,8 @@ export class ShopPage {
     this.loadMap();
   }
 
-  loadMap() {
+
+  loadMap(){
 
     let pos = new google.maps.LatLng(this.shopDetails['latitude'], this.shopDetails['longitude']);
 
@@ -203,7 +209,44 @@ export class ShopPage {
   }
 
 
-  addInfoWindow(marker, content) {
+  navigate() {
+    this.launchNavigator.navigate([this.shopDetails['latitude'], this.shopDetails['longitude']]);
+  }
+
+
+  calcRoute(start, end) {
+
+    let request = {
+      origin: start,
+      destination: end,
+      travelMode: google.maps.TravelMode.DRIVING
+    };
+
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      let mylatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+      let myitemlatlng = new google.maps.LatLng(this.shopDetails['latitude'], this.shopDetails['longitude']);
+      this.calcRoute(mylatlng, myitemlatlng);
+      this.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+      this.launchnavigator.navigate([this.shopDetails['latitude'], this.shopDetails['longitude']], {
+        start: [pos.coords.latitude, pos.coords.longitude]
+      });
+      // $scope.loading.hide();
+    }, function (error) {
+      alert('Unable to get location: ' + error.message);
+    });
+
+    this.directionsService.route(request, function (response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        this.directionsDisplay.setDirections(response);
+        this.directionsDisplay.setMap(this.map);
+      } else {
+        alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
+      }
+    });
+  }
+
+
+  addInfoWindow(marker, content){
     let infoWindow = new google.maps.InfoWindow({
       content: content
     });
@@ -211,6 +254,5 @@ export class ShopPage {
       infoWindow.open(this.map, marker);
     });
   }
-
 
 }
