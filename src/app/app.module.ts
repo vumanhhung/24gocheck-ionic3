@@ -49,6 +49,8 @@ import { CartPaymentCheckoutPage } from '../pages/cart/cart-payment-checkout/car
 import { NotificationsProvider } from '../providers/notifications/notifications';
 import { AccountsProvider } from '../providers/accounts/accounts';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { ZonesProvider } from '../providers/zones/zones';
+
 
 
 @NgModule({
@@ -144,6 +146,7 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
     NotificationsProvider,
     AccountsProvider,
     LaunchNavigator,
+    ZonesProvider
   ]
 })
 export class AppModule {}

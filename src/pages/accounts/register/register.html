@@ -8,11 +8,66 @@
 
   <ion-navbar>
     <ion-title>Đăng Ký</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list>
+    <form style="margin-bottom: 30px" [formGroup]="registerform" (ngSubmit)="dangky()" #registerForm="ngForm">
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password"  formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Re-enter password</ion-label>
+        <ion-input type="password" formControlName="repassword"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Firstname</ion-label>
+        <ion-input type="text" formControlName="firstname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Lastname</ion-label>
+        <ion-input type="text" formControlName="lastname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Phone</ion-label>
+        <ion-input type="number" formControlName="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Address</ion-label>
+        <ion-input type="text"  formControlName="address"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>City</ion-label>
+        <ion-input type="text"  formControlName="city"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Zipcode</ion-label>
+        <ion-input type="number"  formControlName="zipcode"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Nation</ion-label>
+        <ion-select formControlName="nation" (ionChange)="getallzone()" >
+          <ion-option *ngFor="let nationElement of nationarr" [value]="nationElement.country_id">{{nationElement.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Area</ion-label>
+        <ion-select formControlName="area" >
+          <ion-option *ngFor="let area of zonearr" [value]="area.zone_id">{{area.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <button ion-button block style="width : 100%" type="submit" [disabled]="!fullfill()" style="background-color:#03C320">Register</button>
+    </form>
+  </ion-list>
 </ion-content>

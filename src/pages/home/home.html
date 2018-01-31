@@ -23,7 +23,7 @@
     <ul class="row home-category-grid-icons" id="iconSlide">
       <li>
         <a style="min-height: 60px; margin-left: 0; margin-right: 0; text-decoration: none;" class="col" *ngFor="let category of categoryList"
-          [navPush]="categoryPage">
+          [navPush]="categoryPage" [navParams]="category">
           <div class="parent-background">
             <div class="background-opacity">
               <div class="cat-name">
