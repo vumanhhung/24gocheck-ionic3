@@ -121,12 +121,12 @@
       </ion-item>
 
 
-      <ion-item *ngFor="let p of productsByZoneId">
+      <ion-item *ngFor="let shop of shopsByZoneId">
         <ion-avatar item-start>
-            <img src="{{p.thumb}}">
+            <img src="{{shop.user_image}}">
         </ion-avatar>
-        <h2>{{ p.name }}</h2>
-        <p [innerHTML]="p.description"></p>
+        <h2>{{ shop.company || shop.email }}</h2>
+        <p [innerHTML]="shop.address"></p>
 
     </ion-item>
     </ion-list>

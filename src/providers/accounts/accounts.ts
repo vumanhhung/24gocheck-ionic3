@@ -14,7 +14,7 @@ export class AccountsProvider {
   private user_info = {};
   userLoggedIn: boolean;
 
-  constructor(private storage: Storage) {
+  constructor(private storage: Storage, public http: HttpClient) {
     console.log('Hello AccountsProvider Provider');
     this.getUserInfo();
     this.initializeUserLoggedIn();
@@ -68,12 +68,26 @@ export class AccountsProvider {
   }
 
   userLogout() {
-    console.log('Logout');
     this.userLoggedIn = false;
     this.storage.clear();
+    this.logoutAPI().subscribe(data => {
+      console.log('Loggedout');
+    });
   }
 
   myTest() {
     console.log('Testing');
+  }
+
+
+
+  logoutAPI() {
+    var requestBody = '';
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
+    }
+    return this.http.post('http://24gocheck.com/index.php?route=api2/user_logout', requestBody, config);
   }
 }
