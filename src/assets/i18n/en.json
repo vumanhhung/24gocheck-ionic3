@@ -72,12 +72,13 @@
     
     "noti_none" : "Your don't have notification",
 
-    "map.locate" : "My location",
+    "map.locate" : "My Location",
     
     "product_detail" : "Product Detail",
 
     "shop_info" : "Shop information",
 
     "language.vietnamese" : "Vietnamese",
-    "language.english" : "English"
+    "language.english" : "English",
+    "locate" : "Locate"
 }
