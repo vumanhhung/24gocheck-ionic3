@@ -15,7 +15,7 @@
 
 <ion-content>
   <ion-list *ngIf="accountsService.isUserLoggedIn()" >
-    <ion-item class="account-icon-view" [navPush]="profilePage" style="border-bottom: none;">
+    <ion-item class="account-icon-view" [navPush]="profilePage">
       <ion-icon name="contact" class="color-icon" item-start></ion-icon>
       <span>{{"account_info"|translate}}</span>
       <ion-icon class="acc-next" name="arrow-forward"></ion-icon>

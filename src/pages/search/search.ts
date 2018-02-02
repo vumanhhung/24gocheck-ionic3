@@ -1,3 +1,4 @@
+import { ShopPage } from './../shops/shop/shop';
 import { CategoriesPage } from './../categories/categories';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, Platform } from 'ionic-angular';
@@ -48,6 +49,7 @@ export class SearchPage {
   searchingName: string;
   flagEnd: boolean;
   productDetail: any;
+  shopDetail: any;
   place: string;
   phone: string;
   cate: string;
@@ -75,6 +77,7 @@ export class SearchPage {
     this.searchingName = '';
     this.flagEnd = false;
     this.productDetail = ProductPage;
+    this.shopDetail = ShopPage;
     this.categoryId = 1;
     this.place = translate.instant("shop_name");
     this.phone = translate.instant("phone");
