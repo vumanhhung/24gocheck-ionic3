@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { TestPage } from './../test/test';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -26,17 +27,17 @@ export class AccountsPage {
   productManagementPage: any;
   feedbackPage: any;
   favoritesPage: any;
-  
+  lang: string = "vi";
   testPage: any;
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public accountsService: AccountsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public accountsService: AccountsProvider,public translate : TranslateService) {
     this.profilePage = ProfilesPage;
     this.productManagementPage = ProductManagementPage;
     this.feedbackPage = FeedbackPage;
     this.favoritesPage = FavoritesPage;
-    
+    this.lang = translate.currentLang;
     this.testPage = TestPage;
   }
 
@@ -49,8 +50,7 @@ export class AccountsPage {
     this.navCtrl.parent.select(0);
   }
 
-  
-
-  
-
+  onChange(e){
+    this.translate.use(e);
+  }
 }

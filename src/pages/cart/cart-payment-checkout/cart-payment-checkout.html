@@ -16,16 +16,53 @@
 <ion-content padding>
   <div>
     <div class="label-border">{{'payment_method'|translate}}</div>
-    <p style="font-size: 1em;padding-left: 10px;">Thanh toán khi nhận hàng</p><!-- Lấy từ bên thanh toán -->
+    <p style="font-size: 1em;padding-left: 10px;">Thanh toán khi nhận hàng</p>
+    <!-- Lấy từ bên thanh toán -->
   </div>
   <div>
+    <!-- lấy từ bên account -->
     <div class="label-border">{{'account_info'|translate}}</div>
     <ion-list style="font-size: 14px;">
+      <ion-item>
+        <span style="float: left;">{{'fullname'|translate}}</span>
+        <span style="float: right;">Vũ Mạnh Hùng</span>
+      </ion-item>
       <ion-item>
         <span style="float: left;">{{'phone'|translate}}</span>
         <span style="float: right;">0978654321</span>
       </ion-item>
+      <ion-item>
+        <span style="float: left;">{{'email'|translate}}</span>
+        <span style="float: right;">abc@gmail.com</span>
+      </ion-item>
+      <ion-item>
+        <span style="float: left;">{{'address'|translate}}</span>
+        <span style="float: right;">Hoàng hoa thám</span>
+      </ion-item>
+      <ion-item>
+        <span style="float: left;">{{'city'|translate}}</span>
+        <span style="float: right;">Hà Nội</span>
+      </ion-item>
     </ion-list>
+  </div>
+  <div>
+    <ion-item>
+      <img class="cart-image" src="">
+      <div style="display: flex;">
+        <img src="assets/imgs/placeholder.png" style="width: 25%; height: 70px;" />
+        <div style="margin-left: 10px;">
+          <h2 class="cart-item-title">Tên sp</h2>
+          <div style="display: flex">
+            <span style="font-size: 1.1em">1 x</span>
+            <div style="padding-left: 15px;font-size: 1em;">
+              <span>65. 000 đ</span>
+              <span style="text-decoration: line-through;color:orange;">140.000 đ</span>
+            </div>
+          </div>
+          <p>65.000 đ</p> <!--tổng tiền của sp-->
+        </div>
+      </div>
+    </ion-item>
   </div>
 </ion-content>
 

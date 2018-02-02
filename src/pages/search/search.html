@@ -49,7 +49,7 @@
         <ul class="row home-category-grid-icons" id="iconSlide">
           <li>
             <a style="min-height: 60px; margin-left: 0; margin-right: 0; text-decoration: none;" class="col"
-             *ngFor="let category of categoryList"
+             *ngFor="let category of categoryListMap"
               [navPush]="categoryPage" [navParams]="category">
               <div class="parent-background">
                 <div class="background-opacity">
@@ -64,9 +64,9 @@
       </ion-scroll>
 
       <div class="list" *ngFor="let d of users">
-        <div style="display: flex; border: 1px solid #03c320; border-radius: 5px;margin: 15px;">
-          <a style="border-right: solid 1px lightgrey;width: 75%; overflow: hidden;
-                                 text-overflow: ellipsis; white-space: nowrap;padding-top: 10px;">
+        <div style="display: flex; border: 1px solid #03c320; border-radius: 5px;margin: 15px; text-decoration: none;">
+          <a [navPush]="productDetail" [navParams]="{product_id: d.product_id}" style="border-right: solid 1px lightgrey;width: 75%; overflow: hidden;
+                                 text-overflow: ellipsis; white-space: nowrap;padding-top: 10px; text-decoration: none;">
             <span>
               <img style="width: 8%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png" />
               <span>{{d.company || d.product_name}}</span>
@@ -102,7 +102,7 @@
         </ion-select>
       </ion-item>
 
-      <ion-item *ngFor="let p of productByCategoryId">
+      <ion-item [navPush]="productDetail" [navParams]="{product_id: p.product_id}" *ngFor="let p of productByCategoryId">
           <ion-avatar item-start>
               <img src="{{p.thumb}}">
           </ion-avatar>
@@ -114,7 +114,7 @@
 
     <ion-list *ngSwitchCase="'city'">
       <ion-item style="margin-left: 0; border: 2px solid lightgray; border-radius: 5px;">
-          <ion-label style="margin-left: 10px;">Select zone</ion-label>
+          <ion-label style="margin-left: 10px;">{{"city"|translate}}</ion-label>
           <ion-select [(ngModel)]="zoneId" (ionChange)="searchByZone(zoneId)">
             <ion-option *ngFor="let zone of allZone" [value]="zone.zone_id">{{zone.name}}</ion-option>
           </ion-select>

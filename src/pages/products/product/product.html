@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Chi Tiết Sản Phẩm</ion-title>
+    <ion-title>{{"product_detail"|translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,14 +16,14 @@
 <ion-content>
   <front-slider></front-slider>
   <ion-list>
-    <ion-list-header><h2 style="font-weight: bold">Áo Khoác Trần Bông Chính Hãng</h2></ion-list-header>
+    <ion-list-header><h2 style="font-weight: bold">{{productDetails.heading_title}}</h2></ion-list-header>
     <ion-item>
       <ion-icon name="pricetags" style="color:#ff758d" item-start></ion-icon>
-      <span>950.000 VND </span>
+      <span>{{productDetails.price}}</span>
     </ion-item>
     <ion-item>
       <ion-icon name="cart" style="color:#2ec95c" item-start></ion-icon>
-      <span>Còn Hàng</span>
+      <span>{{productDetails.stock}}</span>
     </ion-item>
     <!--<ion-item>-->
     <!--<ion-icon name="clipboard" style="color:#2ec95c" item-start></ion-icon>-->
@@ -31,22 +31,22 @@
     <!--</ion-item>-->
     <ion-grid>
       <ion-row >
-        <ion-col col-1 icon-only style="margin-left: -10px">
+        <ion-col col-1 icon-only style="margin-left: -10px;">
           <ion-icon name="clipboard" style="color:#2ec95c" item-start></ion-icon>
         </ion-col>
         <ion-col col-11>
-          <p class="info-product">Áo khoác với faux shearling nội thất, điều chỉnh mui xe và dài tay áo. Có đặc điểm chi tiết trên vai, một vá tương phản trên ngực và một lỗ thông hơi sau. Hai bên túi flap với ẩn snap nút và một túi bên trong. Điều chỉnh drawstrings. Chốt ở phía trước với một zip</p>
+          <p class="info-product" [innerHTML]="productDetails.description"></p>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col col-4>
-          <button ion-button class="btn-detail"><ion-icon name="call" style="color:white" item-start><span><a class="btn-span" href="tel:01695354659">Liên Hệ</a></span></ion-icon></button>
+          <button ion-button class="btn-detail"><ion-icon name="call" style="color:white" item-start><span><a class="btn-span" href="tel:01695354659">{{"contact"|translate}}</a></span></ion-icon></button>
         </ion-col>
         <ion-col col-4>
-          <button ion-button class="btn-detail" color="secondary"><ion-icon name="cart" style="color:white" item-start><span class="btn-span">Đặt Hàng</span></ion-icon></button>
+          <button ion-button class="btn-detail" color="secondary"><ion-icon name="cart" style="color:white" item-start><span class="btn-span">{{"order"|translate}}</span></ion-icon></button>
         </ion-col>
         <ion-col col-4>
-          <button ion-button class="btn-detail" color="danger"><ion-icon name="pin" style="color:white" item-start><span class="btn-span">Maps</span></ion-icon></button>
+          <button ion-button class="btn-detail" color="danger"><ion-icon name="pin" style="color:white" item-start><span class="btn-span">{{"map"|translate}}</span></ion-icon></button>
         </ion-col>
       </ion-row>
     </ion-grid>

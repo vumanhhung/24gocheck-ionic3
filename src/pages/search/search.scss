@@ -141,8 +141,6 @@ ion-app.ios [padding]{
 }
 
 
-
-
 ion-app.md [padding-bottom]{
   padding-bottom: 2px;
 }
@@ -160,7 +158,22 @@ ion-app.md [padding]{
   opacity: 1;
 }
 
+.segment-ios .segment-button.activated, .segment-ios .segment-button.segment-activated {
+  border-color: #03c320;
+  opacity: 1;
+}
+
 .segment-ios{
+  .segment-button{
+    line-height: 2rem;
+    height: 2rem;
+    ion-icon{
+      line-height: 0;
+    }
+  }
+} 
+
+.segment-md{
   .segment-button{
     line-height: 2rem;
     height: 2rem;

@@ -2,7 +2,7 @@
     <ion-navbar>
   
       <ion-title>
-        Gian Hàng
+        {{"home.shop"|translate}}
       </ion-title>
     </ion-navbar>
   </ion-header>
@@ -12,14 +12,14 @@
   
     <front-slider></front-slider>
     <ion-list>
-      <ion-list-header><h2 style="font-weight: bold">Thông Tin Gian Hàng</h2></ion-list-header>
+      <ion-list-header><h2 style="font-weight: bold">{{"shop_info"|translate}}</h2></ion-list-header>
       <ion-item>
         <ion-icon name="contact" style="color:#ff758d" item-start></ion-icon>
         <span>{{shopDetails.fullname}}</span>
       </ion-item>
       <ion-item>
         <ion-icon name="call" style="color:#2ec95c" item-start></ion-icon>
-        <span>{{shopDetails.product_count}}</span>
+        <span>{{shopDetails.phone}}</span>
       </ion-item>
       <ion-item>
         <ion-icon name="mail" style="color:#2ec95c" item-start></ion-icon>
@@ -32,27 +32,27 @@
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <button ion-button class="btn-detail"><ion-icon name="call" style="color:white" item-start><span><a class="btn-span" href="tel:01695354659">Liên Hệ</a></span></ion-icon></button>
+            <button ion-button class="btn-detail"><ion-icon name="call" style="color:white" item-start><span><a class="btn-span" href="tel:01695354659">{{"contact"|translate}}</a></span></ion-icon></button>
           </ion-col>
           <ion-col col-4>
-              <button ion-button class="btn-detail" color="danger" (click)="navigate()"><ion-icon name="pin" style="color:white" item-start><span class="btn-span">Navigate</span></ion-icon></button>
+              <button ion-button class="btn-detail" color="danger" (click)="navigate()"><ion-icon name="pin" style="color:white" item-start><span class="btn-span">{{"direction"|translate}}</span></ion-icon></button>
             </ion-col>
           <ion-col col-4>
-            <button ion-button class="btn-detail" color="secondary"><ion-icon name="cart" style="color:white" item-start><span class="btn-span">Đánh giá</span></ion-icon></button>
+            <button ion-button class="btn-detail" color="secondary"><ion-icon name="cart" style="color:white" item-start><span class="btn-span">{{"review"|translate}}</span></ion-icon></button>
           </ion-col>          
         </ion-row>
         <div padding>
           <div #map id="map" style="height: 300px;"></div>
         </div>
       </ion-grid>
-      <ion-list-header><h2 style="font-weight: bold">Sản Phẩm</h2></ion-list-header>
+      <ion-list-header><h2 style="font-weight: bold">{{"product"|translate}}</h2></ion-list-header>
       <ion-grid>
         <ion-row>
           <ion-col col-6 *ngFor="let product of shopProducts">
             <img [navPush]="productDetailsPage" [navParams]="product" src="{{product.thumb || '../../assets/imgs/bag.jpg'}}" height="150"/>
             <ion-title><h2 class="title-product">{{product.name}}</h2></ion-title>
             <span class="price-product">Price : {{product.price}}</span><hr>
-            <a class="order-product" href="#">Đặt Hàng {{product.product_id}}</a>
+            <a class="order-product" href="#">{{"order"|translate}} {{product.product_id}}</a>
           </ion-col>
           
         </ion-row>
