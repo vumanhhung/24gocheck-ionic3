@@ -10,13 +10,13 @@
   <div padding>
     <ion-col padding col-12>
       <div #map id="map" style="height: 300px;"></div>
-      <button ion-button (click)="locate()"><ion-icon name="locate"></ion-icon>Locate</button>
-    </ion-col>  
+      <!--<button ion-button (click)="locate()"><ion-icon name="locate"></ion-icon>Locate</button>-->
+    </ion-col>
     <ion-searchbar [placeholder]="'search.search_by_name'|translate" style="border-radius: 10px;" mode="ios" [(ngModel)]="searchingName" (ionInput)="getItems($event)"></ion-searchbar>
     <div padding-bottom="2px" style="margin-top: 10px;" *ngIf="items.length == 0">
       <ion-segment [(ngModel)]="searchBy">
         <ion-segment-button value="near">
-          <ion-icon name="ios-locate-outline" style="font-size: 1.5rem"> {{'near_by' | translate}}</ion-icon> 
+          <ion-icon name="ios-locate-outline" style="font-size: 1.5rem"> {{'near_by' | translate}}</ion-icon>
         </ion-segment-button>
         <ion-segment-button value="category">
             <ion-icon name="ios-list-box-outline" style="font-size: 1.5rem"> {{'category' | translate}}</ion-icon>
@@ -88,7 +88,7 @@
           </div>
         </div>
       </div>
-      
+
     </ion-list>
 
     <ion-list *ngSwitchCase="'category'" padding>

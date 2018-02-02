@@ -57,10 +57,10 @@ export class SearchPage {
 
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public geolocation: Geolocation,
     public productService: ProductsProvider,
-    public shopService: ShopsProvider, 
+    public shopService: ShopsProvider,
     public categoryService: CategoriesProvider,
     public platform: Platform,
     public locationProvider: LocationsProvider,
@@ -112,6 +112,9 @@ export class SearchPage {
       let mapOptions = {
         center: pos,
         zoom: 13,
+        scaleControl: false,
+        mapTypeControl: false,
+        streetViewControl: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         styles: [
           {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},
@@ -236,7 +239,7 @@ export class SearchPage {
         icon: image,
       });
 
-      let content = "<b>Vị trí của tôi</b>";          
+      let content = '"<b>Vị trí của tôi</b>"';
 
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
@@ -244,6 +247,10 @@ export class SearchPage {
       marker.setMap(this.map);
       this.nearBy();
 
+      let centerControlDiv = document.createElement('div');
+      let centerControl = this.centerControlFunction(centerControlDiv, this.map, pos);
+
+      this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv);
     }, (err) => {
       console.log(err);
     });
@@ -253,6 +260,8 @@ export class SearchPage {
   locate() {
     this.loadMap();
   }
+
+
 
 
   nearBy(){
@@ -266,7 +275,7 @@ export class SearchPage {
         scaledSize: new google.maps.Size(40, 40)
       };
 
-      for (let i = 0; i < locations.length; i++) {  
+      for (let i = 0; i < locations.length; i++) {
 
         let position = new google.maps.LatLng(parseFloat(locations[i]['latitude']), parseFloat(locations[i]['longitude']));
 
@@ -276,9 +285,9 @@ export class SearchPage {
           icon: image,
           map: this.map,
         });
-          
+
         let content = '<div><strong>' + this.place + ': ' + (locations[i]['company'] ? locations[i]['company'] : locations[i]['fullname']) + '</strong><br>' +
-        this.phone + ': ' + locations[i]['phone'] + '<br>' + 
+        this.phone + ': ' + locations[i]['phone'] + '<br>' +
         this.cate + ': ' + locations[i]['category_name'] + '</div>';
 
         this.addInfoWindow(marker, content);
@@ -294,7 +303,6 @@ export class SearchPage {
       infoWindow.open(this.map, marker);
     });
   }
-
 
 
 
@@ -328,10 +336,10 @@ export class SearchPage {
         this.items = data['products'];
       });
     }
-    
+
   }
   doInfinite(infiniteScroll) {
-    
+
     if(this.flagEnd === false) {
       setTimeout(() => {
         this.currentPage ++;
@@ -343,13 +351,54 @@ export class SearchPage {
               this.flagEnd = true;
             }
           })
-  
+
         console.log('Async operation has ended');
         infiniteScroll.complete();
       }, 500);
     } else {
       infiniteScroll.complete();
     }
+  }
+
+
+
+
+
+  centerControlFunction(controlDiv, map, pos) {
+
+    // Set CSS for the control border.
+    let controlUI = document.createElement('div');
+    controlUI.style.backgroundColor = '#fff';
+    controlUI.style.border = '2px solid #fff';
+    controlUI.style.borderRadius = '3px';
+    controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+    controlUI.style.cursor = 'pointer';
+    controlUI.style.marginBottom = '22px';
+
+    controlUI.style.position = 'absolute';
+    controlUI.style.top = '11px';
+    controlUI.style.left = '11px';
+    controlUI.style.width = '40px';
+    controlDiv.appendChild(controlUI);
+
+    // Set CSS for the control interior.
+    let controlText = document.createElement('div');
+    controlText.style.color = 'rgb(25,25,25)';
+    controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+    controlText.style.fontSize = '12px';
+    controlText.style.lineHeight = '22px';
+
+    controlText.style.paddingLeft = '4px';
+    controlText.style.paddingRight = '5px';
+    controlText.style.color = 'darkgray';
+    controlText.innerHTML = 'Vị trí';
+    controlUI.appendChild(controlText);
+
+    // Setup the click event listeners: simply set the map to Chicago.
+    controlUI.addEventListener('click', function() {
+        map.setCenter(pos);
+    });
+
   }
 
 }

@@ -73,6 +73,9 @@ export class ShopPage {
       center: pos,
       zoom: 16,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
+      scaleControl: false,
+      mapTypeControl: false,
+      streetViewControl: false,
       styles: [
         { elementType: 'geometry', stylers: [{ color: '#ebe3cd' }] },
         { elementType: 'labels.text.fill', stylers: [{ color: '#523735' }] },
