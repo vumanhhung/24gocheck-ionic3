@@ -11,8 +11,9 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   rootPage:any = TabsPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, translate: TranslateService) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public translate: TranslateService) {
     translate.setDefaultLang('vi');
+    translate.use("vi");
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -20,5 +21,8 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+  // changeLanguage(langauge) {
+  //   this.translate.use(langauge);
+  // }
 }
 

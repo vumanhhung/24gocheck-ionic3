@@ -152,5 +152,5 @@ import { ZonesProvider } from '../providers/zones/zones';
 export class AppModule {}
 
 export function setTranslateLoader(http: HttpClient){
-  return new TranslateHttpLoader(http, '../assets/i18n/','.json');
+  return new TranslateHttpLoader(http, 'assets/i18n/','.json');
 }

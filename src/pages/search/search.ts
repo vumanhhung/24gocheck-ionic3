@@ -42,6 +42,7 @@ export class SearchPage {
   productByCategoryId = [];
   catePage = 0;
   categoryList = [];
+  categoryListMap = [];
   searchQuery: string = '';
   items: any[];
   searchingName: string;
@@ -79,9 +80,15 @@ export class SearchPage {
     this.phone = translate.instant("phone");
     this.cate = translate.instant("category");
 
+    this.categoryService.getCategoryList()
+        .subscribe(data => {
+          this.categoryList = data['categories'] || [];
+          console.log(data);
+        });
+
     this.locationProvider.load()
         .then(data => {
-          this.categoryList = data['users'] || [];
+          this.categoryListMap = data['users'] || [];
           console.log(data);
         });
 

@@ -32,6 +32,7 @@
     "facebook" : "Facebook",
     "lastname" : "Họ",
     "firstname" : "Tên",
+    "fullname" : "Họ tên",
     "email" : "Email",
     "address" : "Địa chỉ",
     "nation" : "Quốc gia",
@@ -58,6 +59,7 @@
     "map" : "Map",
     "product" : "Sản phẩm",
     "review" : "Đánh giá",
+    "language" : "Ngôn ngữ",
 
     "your_address" : "Địa chỉ của bạn",
     "your_info" : "Thông tin cá nhân",
@@ -74,6 +76,10 @@
     
     "product_detail" : "Chi tiết sản phẩm",
 
-    "shop_info" : "Thông tin gian hàng"
+    "shop_info" : "Thông tin gian hàng",
+
+    "language.vietnamese" : "Tiếng Việt",
+    "language.english" : "Tiếng Anh"
+}
 
 }
