@@ -351,8 +351,6 @@ export class SearchPage {
               this.flagEnd = true;
             }
           })
-
-        console.log('Async operation has ended');
         infiniteScroll.complete();
       }, 500);
     } else {
