@@ -95,8 +95,8 @@ export class ProfilesPage {
     if(this.editform.valid){
       this.editInfo = 'firstname=' + this.editform.value.firstname + '&lastname=' + this.editform.value.lastname
         + '&telephone=' +  this.editform.value.phone + '&address_1=' + this.editform.value.address_1
-        + '&address_2=' + this.editform.value.address_2 + '&role=' + localStorage.getItem('role')
-        + '&customer_id=' + localStorage.getItem('customer_id');
+        + '&address_2=' + this.editform.value.address_2 + '&role=' + this.user_info['role']
+        + '&customer_id=' + this.user_info['user_id'];
 
       this.registerRequest(this.editInfo).subscribe(data => {
         this.response = data;

@@ -39,5 +39,12 @@ export class ShopsProvider {
     return this.http.post('http://24gocheck.com/index.php?route=api2/user_list', requestBody, this.config);
   }
 
+  getShopListByZoneId(zone_id: number, start: number) {
+    const limit = 10;
+    console.log('all shops are here' + start);
+    let requestBody = 'limit=' + limit + '&start=' + start + '&zone_id=' + zone_id;
+    return this.http.post('http://24gocheck.com/index.php?route=api2/shops',requestBody, this.config);
+  }
+
 
 }

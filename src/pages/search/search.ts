@@ -52,7 +52,7 @@ export class SearchPage {
   phone: string;
   cate: string;
   allZone: any;
-  productsByZoneId = [];
+  shopsByZoneId = [];
   categoryPage: CategoriesPage;
 
 
@@ -316,8 +316,8 @@ export class SearchPage {
 
   searchByZone(zone_id: number) {
     console.log('ZOne is: '+ zone_id);
-    this.productService.getProductsByZoneId(zone_id, 1).subscribe(data => {
-      this.productsByZoneId = data['products'];
+    this.shopService.getShopListByZoneId(zone_id, 1).subscribe(data => {
+      this.shopsByZoneId = data['shops'];
     });
   }
 
