@@ -120,11 +120,11 @@
       </ion-item>
 
 
-      <ion-item [navPush]="shopDetail" [navParams]="{user_id: shop.user_id}"  *ngFor="let shop of shopsByZoneId">
+      <ion-item [navPush]="shopDetail" [navParams]="shop"  *ngFor="let shop of shopsByZoneId">
         <ion-avatar item-start>
             <img src="{{shop.user_image}}">
         </ion-avatar>
-        <h2>{{ shop.company || shop.email }}</h2>
+        <h2>{{ shop.company || shop.fullname }}</h2>
         <p [innerHTML]="shop.address"></p>
 
     </ion-item>
