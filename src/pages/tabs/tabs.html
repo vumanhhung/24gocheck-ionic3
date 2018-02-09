@@ -4,7 +4,7 @@
   <ion-tab [root]="notificationRoot" tabTitle="{{'notification' | translate}} " tabIcon="ios-notifications-outline"></ion-tab>
   <ion-tab [root]="cartRoot" tabTitle="{{'cart' | translate}} " tabIcon="ios-cart-outline"></ion-tab>
   <!-- <ion-tab [root]="mapRoot" tabTitle="Map" tabIcon="ios-map-outline"></ion-tab> -->
-  <ion-tab [show]="accountsService.isUserLoggedIn()" [root]="accountRoot" tabTitle="Account" tabIcon="ios-contact-outline"></ion-tab>
+  <ion-tab [show]="accountsService.isUserLoggedIn()" [root]="accountRoot" tabTitle="{{'account'|translate}} " tabIcon="ios-contact-outline"></ion-tab>
   <!-- <ion-tab [root]="loginPage" tabTitle="Login" tabIcon="ios-contact-outline"></ion-tab> -->
-  <ion-tab [show]="!accountsService.isUserLoggedIn()" (ionSelect)="loginModal()" tabTitle="Account" tabIcon="ios-contact-outline"></ion-tab>
+  <ion-tab [show]="!accountsService.isUserLoggedIn()" (ionSelect)="loginModal()" tabTitle="{{'account'|translate}} " tabIcon="ios-contact-outline"></ion-tab>
 </ion-tabs>

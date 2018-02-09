@@ -63,9 +63,9 @@
       </ion-scroll>
 
       <div class="list" *ngFor="let d of users">
-        <div style="display: flex; border: 1px solid #03c320; border-radius: 5px;margin: 15px; text-decoration: none;">
+        <div style="display: flex; border: 1px solid #0185cf; border-radius: 5px;margin: 15px; text-decoration: none;">
           <a [navPush]="productDetail" [navParams]="{product_id: d.product_id}" style="border-right: solid 1px lightgrey;width: 75%; overflow: hidden;
-                                 text-overflow: ellipsis; white-space: nowrap;padding-top: 10px; text-decoration: none;">
+                                 text-overflow: ellipsis; white-space: nowrap;padding-top: 10px; text-decoration: none; color: black;">
             <span>
               <img style="width: 8%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/usersale.png" />
               <span>{{d.company || d.product_name}}</span>

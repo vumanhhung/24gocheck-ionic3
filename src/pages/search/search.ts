@@ -53,7 +53,8 @@ export class SearchPage {
   place: string;
   phone: string;
   cate: string;
-  allZone: any;
+  map_locate: string;
+  allZone: any;  
   shopsByZoneId = [];
   categoryPage: CategoriesPage;
 
@@ -82,6 +83,7 @@ export class SearchPage {
     this.place = translate.instant("shop_name");
     this.phone = translate.instant("phone");
     this.cate = translate.instant("category");
+    this.map_locate = translate.instant("locate");
 
     this.categoryService.getCategoryList()
         .subscribe(data => {
@@ -375,11 +377,11 @@ export class SearchPage {
     controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
     controlUI.style.cursor = 'pointer';
     controlUI.style.marginBottom = '22px';
-
+    controlUI.style.textAlign = 'center';
     controlUI.style.position = 'absolute';
     controlUI.style.top = '11px';
     controlUI.style.left = '11px';
-    controlUI.style.width = '40px';
+    controlUI.style.width = '50px';
     controlDiv.appendChild(controlUI);
 
     // Set CSS for the control interior.
@@ -392,7 +394,7 @@ export class SearchPage {
     controlText.style.paddingLeft = '4px';
     controlText.style.paddingRight = '5px';
     controlText.style.color = 'darkgray';
-    controlText.innerHTML = 'Vị trí';
+    controlText.innerHTML = this.map_locate;
     controlUI.appendChild(controlText);
 
     // Setup the click event listeners: simply set the map to Chicago.
