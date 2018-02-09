@@ -17,7 +17,7 @@ import { ProductsProvider } from '../../../providers/products/products';
 export class CategoryPage {
 
   categoryDetails = {};
-
+  categoryProducts = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public productsService: ProductsProvider) {
 
     this.categoryDetails = this.navParams.data;
@@ -25,6 +25,7 @@ export class CategoryPage {
     console.log('Category id is: '+this.categoryDetails['category_id']);
     this.productsService.getProductsByCategoryId(this.categoryDetails['category_id'], 1).subscribe(data => {
       console.log(JSON.stringify(data));
+      this.categoryProducts = data['products'];
     })
 
 
