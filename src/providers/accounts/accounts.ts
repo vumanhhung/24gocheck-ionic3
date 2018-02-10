@@ -26,11 +26,11 @@ export class AccountsProvider {
   }
 
   getUserInfo() {
-      this.storage.get('user_info').then((data) => {
-          this.user_info = data;
-      })
-      console.log('user information is: '+ JSON.stringify(this.user_info));
-      return this.user_info;
+    this.storage.get('user_info').then((data) => {
+        this.user_info = data;
+    })
+    console.log('user information is: '+ JSON.stringify(this.user_info));
+    return this.user_info;
   }
 
   isUserLoggedIn() {

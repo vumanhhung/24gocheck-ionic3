@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NotificationsProvider } from '../../providers/notifications/notifications';
 
 /**
  * Generated class for the NotificationsPage page.
@@ -16,11 +17,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class NotificationsPage {
 
   noti: string = "event";
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+userNotifications = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public notification: NotificationsProvider) {
+    this.userNotifications = notification.getUserNotifications();
+    console.log(this.userNotifications);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NotificationsPage');
   }
+
+  
 
 }

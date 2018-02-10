@@ -18,12 +18,15 @@ import { AlertController } from 'ionic-angular/components/alert/alert-controller
   templateUrl: 'test.html',
 })
 export class TestPage {
-
-  
+  paymentmethod: any;
+  abc: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public productService: ProductsProvider, public http: HttpClient,
     public alertCtrl: AlertController, private localNotifications: LocalNotifications) {
 
+      
+
+      
     
   }
 
@@ -32,24 +35,9 @@ export class TestPage {
     
   }
 
-  wishList() {
-    
-    this.getWishlist().subscribe(data => {
-      console.log(JSON.stringify(data));
-      alert(JSON.stringify(data));
-    })
-  }
 
 
-  getWishlist() {
-    var data1 = '';
-    var config = {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-      }
-    }
-    return this.http.post('http://24gocheck.com/index.php?route=api2/wishlist', data1, config);
-  }
+  
 
   test() {
     this.localNotifications.schedule({
