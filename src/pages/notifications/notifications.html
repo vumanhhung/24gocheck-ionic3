@@ -20,12 +20,17 @@
     </div>
     <div [ngSwitch]="noti">
       <ion-list *ngSwitchCase="'event'">
-          <div style="font-size: 16px;">
+          <div style="font-size: 16px;" >
             <div style="margin: 20% 20% 0 20%">
               <img style="background: transparent; width: 150%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/bell.png"/>
             </div>
             <p class="list-none">{{'noti_none'|translate}}</p>
           </div>
+
+          <ion-item *ngFor="let noti of userNotifications">
+            <h1>{{noti.message}}</h1>
+            <p>{{noti.time | date: 'dd/MM/yyyy H:mm'}}</p>
+          </ion-item>
       </ion-list>
 
       <ion-list *ngSwitchCase="'own'">

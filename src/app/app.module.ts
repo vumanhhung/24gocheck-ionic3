@@ -51,6 +51,7 @@ import { AccountsProvider } from '../providers/accounts/accounts';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { ZonesProvider } from '../providers/zones/zones';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { CartsProvider } from '../providers/carts/carts';
 
 
 @NgModule({
@@ -147,7 +148,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     AccountsProvider,
     LaunchNavigator,
     ZonesProvider,
-    LocalNotifications
+    LocalNotifications,
+    CartsProvider
   ]
 })
 export class AppModule {}

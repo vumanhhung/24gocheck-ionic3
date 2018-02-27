@@ -25,44 +25,46 @@
     <ion-list style="font-size: 14px;">
       <ion-item>
         <span style="float: left;">{{'fullname'|translate}}</span>
-        <span style="float: right;">Vũ Mạnh Hùng</span>
+        <span style="float: right;">{{info.lastname}} {{info.firstname}}</span>
       </ion-item>
       <ion-item>
         <span style="float: left;">{{'phone'|translate}}</span>
-        <span style="float: right;">0978654321</span>
+        <span style="float: right;">{{info.telephone}}</span>
       </ion-item>
       <ion-item>
         <span style="float: left;">{{'email'|translate}}</span>
-        <span style="float: right;">abc@gmail.com</span>
+        <span style="float: right;">{{info.email}}</span>
       </ion-item>
       <ion-item>
         <span style="float: left;">{{'address'|translate}}</span>
-        <span style="float: right;">Hoàng hoa thám</span>
+        <span style="float: right;">{{info.user_address.address_1}}</span>
       </ion-item>
       <ion-item>
         <span style="float: left;">{{'city'|translate}}</span>
-        <span style="float: right;">Hà Nội</span>
+        <span style="float: right;">{{info.user_address.city}}</span>
       </ion-item>
     </ion-list>
   </div>
   <div>
-    <ion-item>
-      <img class="cart-image" src="">
-      <div style="display: flex;">
-        <img src="assets/imgs/placeholder.png" style="width: 25%; height: 70px;" />
-        <div style="margin-left: 10px;">
-          <h2 class="cart-item-title">Tên sp</h2>
-          <div style="display: flex">
-            <span style="font-size: 1.1em">1 x</span>
-            <div style="padding-left: 15px;font-size: 1em;">
-              <span>65. 000 đ</span>
-              <span style="text-decoration: line-through;color:orange;">140.000 đ</span>
+    <ion-list>
+      <ion-item *ngFor="let product of cartProducts">
+        <img class="cart-image" src="">
+        <div style="display: flex;">
+          <img src="{{ product.thumb ||'assets/imgs/placeholder.png'}}" style="width: 25%; height: 70px;" />
+          <div style="margin-left: 10px;">
+            <h2 class="cart-item-title">{{product.name}}</h2>
+            <div style="display: flex">
+              <span style="font-size: 1.1em">{{product.quantity}} x</span>
+              <div style="padding-left: 15px;font-size: 1em;">
+                <span>{{product.price}}</span>
+                <!-- <span style="text-decoration: line-through;color:orange;">140.000 đ</span> -->
+              </div>
             </div>
+            <p>{{product.total}}</p> <!--tổng tiền của sp-->
           </div>
-          <p>65.000 đ</p> <!--tổng tiền của sp-->
         </div>
-      </div>
-    </ion-item>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
 
@@ -70,7 +72,7 @@
   <ion-navbar>
     <div style="float: left; margin-left: 5px;">
       <!--<label style="color: white">Bắt đầu mua hàng</label>-->
-      <span style="color: white;">{{'total'|translate}}: 66.000 đ</span>
+      <span style="color: white;">{{'total'|translate}}: {{totals}}</span>
     </div>
     <div style="float: right; margin-right: 5px;">
       <a (click)="onPaymentMethod()" style="text-decoration: none;color: white">{{'confirm'|translate}}</a>

@@ -14,35 +14,36 @@
 
 
 <ion-content>
+    <!-- <form [formGroup]="todo" (ngSubmit)="logForm()"> -->
   <ion-list style="margin-bottom: 30px">
     <ion-item>
       <ion-label floating>{{'lastname'|translate}}</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="info.lastname" ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>{{'firstname'|translate}}</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="info.firstname"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>{{'email'|translate}}</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="info.email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>{{'phone'|translate}}</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-input type="number" [(ngModel)]="info.telephone"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>{{'address'|translate}}</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="info.user_address.address_1"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>{{'city'|translate}}</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="info.user_address.city"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>{{'nation'|translate}}</ion-label>
-      <ion-select (ionChange)="getallzone()">
-        <ion-option *ngFor="let nationElement of nationarr" [value]="nationElement.country_id">{{nationElement.name}}</ion-option>
+      <ion-label floating>{{'area'|translate}}</ion-label>
+      <ion-select [(ngModel)]="info.user_address.zone_id">
+        <ion-option *ngFor="let zone of zones" [value]="zone.zone_id">{{zone.name}}</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
@@ -50,10 +51,7 @@
 
 <ion-footer style="font-size: 16px;">
   <ion-navbar>
-    <div style="float: left; margin-left: 5px;">
-      <!--<label style="color: white">Bắt đầu mua hàng</label>-->
-      <span style="color: white;">{{'total'|translate}}: 66.000 đ</span>
-    </div>
+    
     <div style="float: right; margin-right: 5px;">
       <a (click)="onPaymentMethod()" style="text-decoration: none;color: white">{{'next'|translate}}</a>
     </div>

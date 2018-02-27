@@ -16,14 +16,18 @@
 <ion-content padding-top>
   <div>
     <div class="label-border">{{"method"|translate}}</div>
-    <ion-list radio-group [(ngModel)]="payment">
-      <ion-item>
-        <ion-label>{{"ATM"|translate}}</ion-label>
-        <ion-radio value="ATM" checked></ion-radio>
-      </ion-item>
+    <ion-list radio-group [(ngModel)]="paymentAndShipping.payment_method" (ionChange)="paymentMethodChanged()">
+      <!-- <ion-item *ngFor="let method of paymentMethods">
+        <ion-label>{{method.title}}</ion-label>
+        <ion-radio value="method.code"></ion-radio>
+      </ion-item> -->
       <ion-item>
         <ion-label>{{"COD"|translate}}</ion-label>
-        <ion-radio value="COD" [disabled]="isDisabled"></ion-radio>
+        <ion-radio value="cod" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{"ATM"|translate}}</ion-label>
+        <ion-radio value="bank_transfer"></ion-radio>
       </ion-item>
     </ion-list>
   </div>
@@ -35,10 +39,7 @@
 
 <ion-footer style="font-size: 16px;">
   <ion-navbar>
-    <div style="float: left; margin-left: 5px;">
-      <!--<label style="color: white">Bắt đầu mua hàng</label>-->
-      <span style="color: white;">{{"total"|translate}}: 66.000 đ</span>
-    </div>
+    
     <div style="float: right; margin-right: 5px;">
       <a (click)="onMethodDone()" style="text-decoration: none;color: white">{{"next"|translate}}</a>
     </div>
