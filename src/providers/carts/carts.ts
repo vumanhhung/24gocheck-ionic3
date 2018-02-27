@@ -34,6 +34,12 @@ export class CartsProvider {
     return this.http.post('http://24gocheck.com/index.php?route=api2/cart/products', requestBody, this.config);
   }
 
+  removeCartItem(cart_id) {
+    let requestBody = 'key='+cart_id;
+
+    return this.http.post('http://24gocheck.com/index.php?route=api2/cart/remove', requestBody, this.config);
+  }
+
 
   setPersonalInfo(personal_info) {
     let requestBody = 'customer_id='+ personal_info.customer_id +
@@ -121,8 +127,8 @@ export class CartsProvider {
     return this.http.post('http://24gocheck.com/index.php?route=api2/shipping/methods', requestBody, this.config);
   }
 
-  addOrder() {
-    let requestBody = '';
+  addOrder(paymentAndShipping) {
+    let requestBody = 'payment_method='+paymentAndShipping.payment_method +'&comment=123';
 
     return this.http.post('http://24gocheck.com/index.php?route=api2/order/add', requestBody, this.config);
   }

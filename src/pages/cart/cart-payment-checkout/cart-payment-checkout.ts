@@ -32,4 +32,11 @@ export class CartPaymentCheckoutPage {
       this.totals = data['totals'][0]['text'];
     });
   }
+
+  confirmOrder() {
+    // alert(this.paymentAndShipping.payment_method);
+    this.cartsProvider.addOrder(this.paymentAndShipping).subscribe(data =>{
+      alert(JSON.stringify(data, undefined, 2));
+    });
+  }
 }

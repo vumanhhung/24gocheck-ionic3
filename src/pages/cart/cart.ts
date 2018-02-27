@@ -65,8 +65,10 @@ export class CartPage {
 
   private decrement(cart_id, quantity){
     let currentNumber = parseInt(quantity) - 1;
-    if(currentNumber <= 1){
-      currentNumber = 1;
+    if(currentNumber < 1){
+      this.cartsProvider.removeCartItem(cart_id).subscribe(data => {
+        
+      });
     }
     this.cartsProvider.updateCartItemQuantity(cart_id, currentNumber).subscribe((data) => {
       
@@ -81,4 +83,6 @@ export class CartPage {
     });
 
   }
+
+  
 }
