@@ -1,3 +1,4 @@
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductsProvider } from '../../providers/products/products';
@@ -21,7 +22,7 @@ export class TestPage {
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public productService: ProductsProvider, public http: HttpClient,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController, private localNotifications: LocalNotifications) {
 
     
   }
@@ -48,5 +49,13 @@ export class TestPage {
       }
     }
     return this.http.post('http://24gocheck.com/index.php?route=api2/wishlist', data1, config);
+  }
+
+  test() {
+    this.localNotifications.schedule({
+      id: 1,
+      text: 'Single ILocalNotification',
+      data: { secret: 'key' }
+    });
   }
 }

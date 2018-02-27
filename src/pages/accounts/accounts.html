@@ -15,7 +15,7 @@
 
 <ion-content>
   <ion-list *ngIf="accountsService.isUserLoggedIn()" >
-    <ion-item class="account-icon-view" [navPush]="profilePage" style="border-bottom: none;">
+    <ion-item class="account-icon-view" [navPush]="profilePage">
       <ion-icon name="contact" class="color-icon" item-start></ion-icon>
       <span>{{"account_info"|translate}}</span>
       <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
@@ -51,7 +51,7 @@
       <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
     </ion-item><hr>
     <ion-item>
-        <ion-label>{{"language"|translate}}</ion-label>
+        <ion-label style="color: black">{{"language"|translate}}</ion-label>
         <ion-select [(ngModel)]="lang" (ionChange)="onChange($event)">
           <ion-option value="vi">{{"language.vietnamese"|translate}}</ion-option>
           <ion-option value="en">{{"language.english"|translate}}</ion-option>

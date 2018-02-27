@@ -4,13 +4,13 @@ page-noti {
 
 .segment-md{
   .segment-button {
-    border-color: #03c320;
-    color: #03c320;
+    border-color: #0185cf;
+    color: #0185cf;
     line-height: 3rem;
     height: 3rem;
   }
   .segment-activated{
-    background-color: #03c320 !important;
+    background-color: #0185cf !important;
     color: white;
   }
 }
@@ -18,13 +18,13 @@ page-noti {
 
 .segment-ios{
   .segment-button {
-    border-color: #03c320;
-    color: #03c320;
+    border-color: #0185cf;
+    color: #0185cf;
     line-height: 3rem;
     height: 3rem;
   }
   .segment-activated{
-    background-color: #03c320 !important;
+    background-color: #0185cf !important;
     color: white;
   }
 }
@@ -34,7 +34,7 @@ page-noti {
   @media screen and (max-width: 370px) {
     font-size: 14px;
   }
-  color: #45e11b;
+  color: #0185cf;
   margin-left: 23%;
   margin-right: 23%;
 }

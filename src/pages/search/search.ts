@@ -1,3 +1,4 @@
+import { ShopPage } from './../shops/shop/shop';
 import { CategoriesPage } from './../categories/categories';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, Platform } from 'ionic-angular';
@@ -48,11 +49,13 @@ export class SearchPage {
   searchingName: string;
   flagEnd: boolean;
   productDetail: any;
+  shopDetail: any;
   place: string;
   phone: string;
   cate: string;
-  allZone: any;
-  productsByZoneId = [];
+  map_locate: string;
+  allZone: any;  
+  shopsByZoneId = [];
   categoryPage: CategoriesPage;
 
 
@@ -75,10 +78,12 @@ export class SearchPage {
     this.searchingName = '';
     this.flagEnd = false;
     this.productDetail = ProductPage;
+    this.shopDetail = ShopPage;
     this.categoryId = 1;
     this.place = translate.instant("shop_name");
     this.phone = translate.instant("phone");
     this.cate = translate.instant("category");
+    this.map_locate = translate.instant("locate");
 
     this.categoryService.getCategoryList()
         .subscribe(data => {
@@ -316,8 +321,8 @@ export class SearchPage {
 
   searchByZone(zone_id: number) {
     console.log('ZOne is: '+ zone_id);
-    this.productService.getProductsByZoneId(zone_id, 1).subscribe(data => {
-      this.productsByZoneId = data['products'];
+    this.shopService.getShopListByZoneId(zone_id, 1).subscribe(data => {
+      this.shopsByZoneId = data['shops'];
     });
   }
 
@@ -372,11 +377,11 @@ export class SearchPage {
     controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
     controlUI.style.cursor = 'pointer';
     controlUI.style.marginBottom = '22px';
-
+    controlUI.style.textAlign = 'center';
     controlUI.style.position = 'absolute';
     controlUI.style.top = '11px';
     controlUI.style.left = '11px';
-    controlUI.style.width = '40px';
+    controlUI.style.width = '50px';
     controlDiv.appendChild(controlUI);
 
     // Set CSS for the control interior.
@@ -389,7 +394,7 @@ export class SearchPage {
     controlText.style.paddingLeft = '4px';
     controlText.style.paddingRight = '5px';
     controlText.style.color = 'darkgray';
-    controlText.innerHTML = 'Vị trí';
+    controlText.innerHTML = this.map_locate;
     controlUI.appendChild(controlText);
 
     // Setup the click event listeners: simply set the map to Chicago.
