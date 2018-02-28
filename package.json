@@ -1,6 +1,6 @@
 {
-  "name": "Chophothong",
-  "version": "0.0.1",
+  "name": "24gocheck",
+  "version": "4.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
@@ -35,7 +35,7 @@
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^2.0.1",
     "cordova-android": "7.0.0",
-    "cordova-ios": "^4.5.4",
+    "cordova-ios": "4.5.4",
     "cordova-plugin-actionsheet": "^2.3.3",
     "cordova-plugin-badge": "^0.8.7",
     "cordova-plugin-camera": "^4.0.1",

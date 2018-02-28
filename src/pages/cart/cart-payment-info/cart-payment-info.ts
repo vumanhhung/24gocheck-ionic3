@@ -7,6 +7,7 @@ import { CartPaymentMethodPage } from '../cart-payment-method/cart-payment-metho
 import { CartsProvider } from '../../../providers/carts/carts';
 import { AccountsProvider } from '../../../providers/accounts/accounts';
 import 'rxjs/add/observable/forkJoin'
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 /**
  * Generated class for the CartPaymentInfoPage page.
@@ -22,6 +23,7 @@ import 'rxjs/add/observable/forkJoin'
 })
 export class CartPaymentInfoPage {
 
+  payment_infoForm: FormGroup;
   info = {
     
   };
@@ -30,8 +32,24 @@ export class CartPaymentInfoPage {
 
   personalInfo = 3;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController,
-    public cartsService: CartsProvider, public accountsProvider: AccountsProvider, public zonesProvider: ZonesProvider) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public loadingCtrl: LoadingController,
+    public cartsService: CartsProvider, 
+    public accountsProvider: AccountsProvider, 
+    public zonesProvider: ZonesProvider,
+    public formBuilder: FormBuilder) {
+
+      this.payment_infoForm = this.formBuilder.group({
+        email: ['', Validators.compose([Validators.required, Validators.email, Validators.maxLength(100), Validators.minLength(7)])],
+        password: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9]*'), Validators.maxLength(20), Validators.minLength(4) ])],
+        firstname: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]*'), Validators.maxLength(32)] )],
+        lastname: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]*'), Validators.maxLength(32)])],
+        phone: ['', Validators.compose([Validators.required, Validators.maxLength(32), Validators.minLength(2)])],
+        address: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s,]*'), Validators.maxLength(128), Validators.minLength(3)])],
+        city: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s,]*'), Validators.maxLength(128), Validators.minLength(2)])],
+        area: ['', Validators.compose([Validators.required])]
+      });
 
       this.zonesProvider.getZones().subscribe((data) => {
         this.zones = data['zones'];

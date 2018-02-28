@@ -19,7 +19,8 @@
     <ion-list-header><h2 style="font-weight: bold">{{productDetails.heading_title}}</h2></ion-list-header>
     <ion-item>
       <ion-icon name="pricetags" style="color:#ff758d" item-start></ion-icon>
-      <span>{{productDetails.price}}</span>
+      <span *ngIf="productDetails.price != '0 VND'">{{productDetails.price}}</span>
+      <span *ngIf="productDetails.price == '0 VND'">Liên hệ</span>
     </ion-item>
     <ion-item>
       <ion-icon name="cart" style="color:#2ec95c" item-start></ion-icon>
@@ -42,7 +43,7 @@
         <ion-col col-4>
           <button ion-button class="btn-detail"><ion-icon name="call" style="color:white" item-start><span><a class="btn-span" href="tel:01695354659">{{"contact"|translate}}</a></span></ion-icon></button>
         </ion-col>
-        <ion-col col-4>
+        <ion-col col-4 *ngIf="productDetails.price != '0 VND'" >
           <button ion-button class="btn-detail" color="secondary"><ion-icon name="cart" style="color:white" item-start><span class="btn-span" (click)="addToCart()">{{"order"|translate}}</span></ion-icon></button>
         </ion-col>
         <ion-col col-4>

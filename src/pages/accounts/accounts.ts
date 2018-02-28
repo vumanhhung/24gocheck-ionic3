@@ -1,5 +1,4 @@
 import { TranslateService } from '@ngx-translate/core';
-import { TestPage } from './../test/test';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfilesPage } from './profiles/profiles';
@@ -28,8 +27,6 @@ export class AccountsPage {
   feedbackPage: any;
   favoritesPage: any;
   lang: string = "vi";
-  testPage: any;
-
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public accountsService: AccountsProvider,public translate : TranslateService) {
@@ -38,7 +35,6 @@ export class AccountsPage {
     this.feedbackPage = FeedbackPage;
     this.favoritesPage = FavoritesPage;
     this.lang = translate.currentLang;
-    this.testPage = TestPage;
   }
 
   ionViewDidLoad() {
