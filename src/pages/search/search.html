@@ -109,6 +109,11 @@
           <p [innerHTML]="p.description"></p>
 
       </ion-item>
+
+
+      <ion-infinite-scroll (ionInfinite)="doInfiniteCategory($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
     </ion-list>
 
     <ion-list *ngSwitchCase="'city'">
@@ -127,7 +132,11 @@
         <h2>{{ shop.company || shop.fullname }}</h2>
         <p [innerHTML]="shop.address"></p>
 
-    </ion-item>
+      </ion-item>
+      
+      <ion-infinite-scroll (ionInfinite)="doInfiniteCity($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
     </ion-list>
   </div>
 

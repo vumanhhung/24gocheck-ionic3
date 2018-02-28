@@ -1,3 +1,4 @@
+import { LoadingController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CartPaymentCheckoutPage } from '../cart-payment-checkout/cart-payment-checkout';
@@ -20,7 +21,8 @@ export class CartPaymentMethodPage {
   info: any;
   
   paymentAndShipping: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public cartsProvider: CartsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public cartsProvider: CartsProvider,
+    public loadingCtrl: LoadingController) {
     this.paymentAndShipping = {payment_method: ''};
     this.getPaymentMethods();
     this.info = this.navParams.get('info');
@@ -37,9 +39,16 @@ export class CartPaymentMethodPage {
   
 
   paymentMethodChanged() {
+    let loading = this.loadingCtrl.create({
+      content: 'Đang tải...'
+    });
 
+    loading.present();
     this.cartsProvider.savePaymentMethod(this.paymentAndShipping).subscribe(data => {
       // alert(JSON.stringify(data, undefined, 2));
+      loading.dismiss();
+    }, e => {
+      loading.dismiss();
     });
 
     // alert('Changed');

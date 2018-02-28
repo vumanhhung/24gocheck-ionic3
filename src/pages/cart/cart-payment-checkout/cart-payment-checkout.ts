@@ -1,3 +1,4 @@
+import { CartPage } from './../cart';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CartsProvider } from '../../../providers/carts/carts';
@@ -36,7 +37,9 @@ export class CartPaymentCheckoutPage {
   confirmOrder() {
     // alert(this.paymentAndShipping.payment_method);
     this.cartsProvider.addOrder(this.paymentAndShipping).subscribe(data =>{
-      alert(JSON.stringify(data, undefined, 2));
+      // alert(JSON.stringify(data, undefined, 2));
+
+      this.navCtrl.push(CartPage);
     });
   }
 }
