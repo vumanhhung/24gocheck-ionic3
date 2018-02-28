@@ -9,13 +9,21 @@ export class LocationsProvider {
   constructor(public http: HttpClient) {
   }
 
+  config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+    }
+  }
+
   load() {
     if (this.data) {
       return Promise.resolve(this.data);
     }
     return new Promise(resolve => {
 
-      this.http.post('http://24gocheck.com/index.php?route=api2/user_list', '', {})
+      let body = 'latitude=' + 21.01186015979696 + '&longitude=' + 105.7113341;
+
+      this.http.post('http://24gocheck.com/index.php?route=api2/user_list', body, this.config)
         .subscribe(data => {
           this.data = data;
           resolve(this.data);
