@@ -1,3 +1,4 @@
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { Component } from '@angular/core';
 import { CartPaymentInfoPage } from './cart-payment-info/cart-payment-info';
 import { NavController } from 'ionic-angular/navigation/nav-controller';
@@ -24,11 +25,12 @@ export class CartPage {
   totals: number;
   private product_total: any;
 
-  constructor(public navCtrl: NavController, public cartsProvider: CartsProvider){
+  constructor(public navCtrl: NavController, public cartsProvider: CartsProvider, private viewCtrl: ViewController){
     
   }
 
   ionViewDidLoad() {
+    this.viewCtrl.showBackButton(false);
     this.cartsProvider.getCartProducts().subscribe(data => {
       this.cartProducts = data['products'];
       console.log('cart '+this.cartProducts);

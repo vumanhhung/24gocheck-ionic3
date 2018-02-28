@@ -58,6 +58,11 @@ export class SearchPage {
   shopsByZoneId = [];
   categoryPage: CategoriesPage;
 
+  currentCategoryPage: number;
+  currentCityPage: number;
+  flagCategoryEnd: boolean;
+  flagCityEnd: boolean;
+  zoneId: number;
 
   constructor(
     public navCtrl: NavController,
@@ -84,6 +89,10 @@ export class SearchPage {
     this.phone = translate.instant("phone");
     this.cate = translate.instant("category");
     this.map_locate = translate.instant("locate");
+    this.currentCategoryPage = 1;
+    this.flagCategoryEnd = false;
+    this.flagCityEnd = false;
+    this.zoneId = -1;
 
     this.categoryService.getCategoryList()
         .subscribe(data => {
@@ -313,6 +322,8 @@ export class SearchPage {
 
 
   searchByCategory(categoryId: number) {
+    this.flagCategoryEnd = false;
+    this.currentCategoryPage = 1;
     console.log(categoryId);
     this.productService.getProductsByCategoryId(categoryId, 1).subscribe(data => {
       this.productByCategoryId = data['products'];
@@ -320,6 +331,8 @@ export class SearchPage {
   }
 
   searchByZone(zone_id: number) {
+    this.flagCityEnd = false;
+    this.currentCityPage = 1;
     console.log('ZOne is: '+ zone_id);
     this.shopService.getShopListByZoneId(zone_id, 1).subscribe(data => {
       this.shopsByZoneId = data['shops'];
@@ -403,5 +416,44 @@ export class SearchPage {
     });
 
   }
+
+  doInfiniteCategory(infiniteScroll) {
+    if(this.flagCategoryEnd === false) {
+      setTimeout(() => {
+        this.currentCategoryPage++;
+        this.productService.getProductsByCategoryId(this.categoryId,this.currentCategoryPage)
+          .subscribe(data => {
+            if(data['products'].length > 0) {
+              this.productByCategoryId = this.productByCategoryId.concat(data['products']) ;
+            } else {
+              this.flagCategoryEnd = true;
+            }
+          })
+        infiniteScroll.complete();
+      }, 500);
+    } else {
+      infiniteScroll.complete();
+    }
+  }
+
+  doInfiniteCity(infiniteScroll) {
+    if(this.flagCityEnd === false) {
+      setTimeout(() => {
+        this.currentCityPage += 10;
+        this.shopService.getShopListByZoneId(this.zoneId,this.currentCityPage)
+          .subscribe(data => {
+            if(data['shops'].length > 0) {
+              this.shopsByZoneId = this.shopsByZoneId.concat(data['shops']) ;
+            } else {
+              this.flagCityEnd = true;
+            }
+          })
+        infiniteScroll.complete();
+      }, 500);
+    } else {
+      infiniteScroll.complete();
+    }
+  }
+
 
 }

@@ -47,11 +47,11 @@ export class CartPaymentInfoPage {
   }
 
   onPaymentMethod() {
-    // let loading = this.loadingCtrl.create({
-    //   content: 'Please wait...'
-    // });
+    let loading = this.loadingCtrl.create({
+      content: 'Đang tải...'
+    });
 
-    // loading.present();
+    loading.present();
 
     Observable.forkJoin([
       this.cartsService.setPersonalInfo(this.info),
@@ -59,12 +59,12 @@ export class CartPaymentInfoPage {
       this.cartsService.setPaymentAddress(this.info),
       this.cartsService.SetShippingAddress(this.info)
     ]).subscribe((response) => {
-      // loading.dismiss();
+      loading.dismiss();
       // alert('Success :)) '+ JSON.stringify(response));
       this.navCtrl.push(CartPaymentMethodPage, {info: this.info});
     });
   
-    
+    loading.dismiss();
     // this.navCtrl.push(CartPaymentMethodPage);
   }
 
