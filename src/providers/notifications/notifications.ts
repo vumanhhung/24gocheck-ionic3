@@ -35,10 +35,10 @@ export class NotificationsProvider {
       this.userNotifications = data || [];
     });
 
-    this.userNotifications.unshift({
-      message: 'Shika is here',
-      time: new Date()
-    });
+    // this.userNotifications.unshift({
+    //   message: 'Shika is here',
+    //   time: new Date()
+    // });
 
     return this.userNotifications;
   }

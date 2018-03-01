@@ -75,12 +75,6 @@ export class AccountsProvider {
     });
   }
 
-  myTest() {
-    console.log('Testing');
-  }
-
-
-
   logoutAPI() {
     var requestBody = '';
     var config = {

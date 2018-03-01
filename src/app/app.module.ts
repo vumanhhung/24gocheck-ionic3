@@ -1,6 +1,5 @@
 import { IonicStorageModule } from '@ionic/storage';
 import { AddProductPage } from './../pages/accounts/product-management/add-product/add-product';
-import { TestPage } from './../pages/test/test';
 import { CartPage } from './../pages/cart/cart';
 import { ProductManagementPage } from './../pages/accounts/product-management/product-management';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -20,7 +19,6 @@ import { CategoriesPage } from '../pages/categories/categories';
 import { HomePage } from '../pages/home/home';
 import { SearchPage } from '../pages/search/search';
 import { ShopsProvider } from '../providers/shops/shops';
-import { TestProvider } from '../providers/test/test';
 import { FrontSliderComponent } from './../components/front-slider/front-slider';
 import { FavoritesPage } from './../pages/accounts/favorites/favorites';
 import { LoginPage } from './../pages/accounts/login/login';
@@ -79,7 +77,6 @@ import { CartsProvider } from '../providers/carts/carts';
     NotificationsPage,
     ProductManagementPage,
     MapPage,
-    TestPage,
     AddProductPage,
     CartPaymentInfoPage,
     CartPaymentMethodPage,
@@ -122,7 +119,6 @@ import { CartsProvider } from '../providers/carts/carts';
     NotificationsPage,
     ProductManagementPage,
     MapPage,
-    TestPage,
     AddProductPage,
     CartPaymentInfoPage,
     CartPaymentMethodPage,
@@ -132,7 +128,6 @@ import { CartsProvider } from '../providers/carts/carts';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TestProvider,
     ShopsProvider,
     Geolocation,
     Network,
