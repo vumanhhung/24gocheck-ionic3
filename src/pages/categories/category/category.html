@@ -21,8 +21,8 @@
       <ion-col col-6 *ngFor="let product of categoryProducts">
         <img [navPush]="productDetailsPage" [navParams]="product" src="{{product.thumb || '../../assets/imgs/bag.jpg'}}" height="150"/>
         <ion-title><h2 class="title-product">{{product.name}}</h2></ion-title>
-        <span *ngIf="product.price != '0 VND'" class="price-product">Price : {{product.price}}</span>
-        <span *ngIf="product.price == '0 VND'" class="price-product">Price : Liên hệ</span>
+        <span *ngIf="product.price != '0 VND'" class="price-product">{{'price'|translate}} : {{product.price}}</span>
+        <span *ngIf="product.price == '0 VND'" class="price-product">{{'price'|translate}} : Liên hệ</span>
         <hr>
         <!-- <a class="order-product" href="#">Đặt Hàng</a> -->
       </ion-col>
