@@ -52,6 +52,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { CartsProvider } from '../providers/carts/carts';
 
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -80,7 +81,7 @@ import { CartsProvider } from '../providers/carts/carts';
     AddProductPage,
     CartPaymentInfoPage,
     CartPaymentMethodPage,
-    CartPaymentCheckoutPage
+    CartPaymentCheckoutPage,
   ],
   imports: [
     HttpClientModule,
@@ -122,7 +123,8 @@ import { CartsProvider } from '../providers/carts/carts';
     AddProductPage,
     CartPaymentInfoPage,
     CartPaymentMethodPage,
-    CartPaymentCheckoutPage
+    CartPaymentCheckoutPage,
+    
   ],
   providers: [
     StatusBar,
