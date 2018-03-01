@@ -19,25 +19,25 @@
     </ion-item>
     <form [formGroup]="addproductform" (ngSubmit)="addpro()" #registerForm="ngForm">
       <ion-item >
-        <ion-input type="text" placeholder="'product_name' | translate" formControlName="product_name"> </ion-input>
+        <ion-input type="text" placeholder="{{'product_name' | translate}}" formControlName="product_name"> </ion-input>
       </ion-item>
       <ion-item >
-        <ion-input type="number" placeholder="'price' | translate" formControlName="product_price"></ion-input>
+        <ion-input type="number" placeholder="{{'price' | translate}}" formControlName="product_price"></ion-input>
       </ion-item>
       <ion-item >
-        <ion-input type="number" placeholder="'quantity'|translate" formControlName="product_quantity"></ion-input>
+        <ion-input type="number" placeholder="{{'quantity'|translate}}" formControlName="product_quantity"></ion-input>
       </ion-item>
       <ion-item >
-        <ion-input type="number" placeholder="'weight'|translate" formControlName="product_weight"></ion-input>
+        <ion-input type="number" placeholder="{{'weight'|translate}}" formControlName="product_weight"></ion-input>
       </ion-item>
       <ion-item >
-          <ion-input type="text" placeholder="'product_content'|translate" formControlName="product_description"></ion-input>
+          <ion-input type="text" placeholder="{{'product_content'|translate}}" formControlName="product_description"></ion-input>
       </ion-item>
       <ion-item >
-        <ion-input type="text" placeholder="'expand_title'|translate" formControlName="product_metatitle"></ion-input>
+        <ion-input type="text" placeholder="{{'expand_title'|translate}}" formControlName="product_metatitle"></ion-input>
       </ion-item>
       <ion-item >
-        <ion-input type="text" placeholder="'model'|translate" formControlName="product_model"></ion-input>
+        <ion-input type="text" placeholder="{{'model'|translate}}" formControlName="product_model"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label >{{"area"|translate}}</ion-label>

@@ -40,16 +40,18 @@
       <span>{{"feedback"|translate}}</span>
       <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
     </ion-item><hr>
-    <ion-item class="account-icon-view">
+    <!-- <ion-item class="account-icon-view">
       <ion-icon name="help-circle" class="color-icon" item-start></ion-icon>
       <span>{{"tutorial"|translate}}</span>
       <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
-    </ion-item><hr>
-    <ion-item class="account-icon-view">
+    </ion-item><hr> -->
+
+    <ion-item class="account-icon-view" (click)="showAlert()">
       <ion-icon name="information-circle" class="color-icon" item-start></ion-icon>
       <span>{{"about_us"|translate}}</span>
       <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
     </ion-item><hr>
+
     <ion-item>
         <ion-label style="color: black">{{"language"|translate}}</ion-label>
         <ion-select [(ngModel)]="lang" (ionChange)="onChange($event)">
