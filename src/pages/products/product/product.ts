@@ -2,6 +2,7 @@ import { CartsProvider } from './../../../providers/carts/carts';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductsProvider } from '../../../providers/products/products';
+import { ProductMapPage } from './product-map/product-map';
 
 /**
  * Generated class for the ProductPage page.
@@ -19,8 +20,10 @@ export class ProductPage {
 
   productDetails = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private productService: ProductsProvider,
-    private cartService: CartsProvider) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private productService: ProductsProvider,
+              private cartService: CartsProvider) {
     
     productService.getProductById(navParams.get('product_id'))
       .subscribe(data => {
@@ -47,5 +50,12 @@ export class ProductPage {
       alert('Không tìm thấy sản phẩm');
     }
   }
+
+  openMap() {
+    this.navCtrl.push(ProductMapPage, {
+      product_detail: this.productDetails
+    });
+  }
+
 
 }
