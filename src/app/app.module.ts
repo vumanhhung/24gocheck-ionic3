@@ -50,6 +50,7 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { ZonesProvider } from '../providers/zones/zones';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { CartsProvider } from '../providers/carts/carts';
+import { ProductMapPage } from '../pages/products/product/product-map/product-map';
 
 
 
@@ -82,6 +83,7 @@ import { CartsProvider } from '../providers/carts/carts';
     CartPaymentInfoPage,
     CartPaymentMethodPage,
     CartPaymentCheckoutPage,
+    ProductMapPage
   ],
   imports: [
     HttpClientModule,
@@ -103,6 +105,7 @@ import { CartsProvider } from '../providers/carts/carts';
     ProductsPage,
     ProductListPage,
     ProductPage,
+    ProductMapPage,
     ShopsPage,
     ShopPage,
     ShopListPage,

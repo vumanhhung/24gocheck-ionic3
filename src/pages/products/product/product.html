@@ -46,7 +46,7 @@
         <ion-col col-4 *ngIf="productDetails.price != '0 VND'" >
           <button ion-button class="btn-detail" color="secondary"><ion-icon name="cart" style="color:white" item-start><span class="btn-span" (click)="addToCart()">{{"order"|translate}}</span></ion-icon></button>
         </ion-col>
-        <ion-col col-4>
+        <ion-col col-4 (click)="openMap()">
           <button ion-button class="btn-detail" color="danger"><ion-icon name="pin" style="color:white" item-start><span class="btn-span">{{"map"|translate}}</span></ion-icon></button>
         </ion-col>
       </ion-row>
