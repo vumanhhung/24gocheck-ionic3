@@ -21,10 +21,11 @@ export class CartPaymentCheckoutPage {
   paymentAndShipping: any;
   cartProducts: any;
   totals: any;
+  payment_method: string
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public cartsProvider: CartsProvider) {
     this.paymentAndShipping = this.navParams.get('paymentAndShipping');
-
+    this.payment_method = (this.paymentAndShipping.payment_method === 'cod') ? 'Thanh toán khi nhận hàng' : 'Thanh toán bằng thẻ';
     this.info = this.navParams.get('info');
 
     this.cartsProvider.getCartProducts().subscribe(data => {

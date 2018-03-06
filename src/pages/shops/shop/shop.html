@@ -31,7 +31,7 @@
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <button ion-button class="btn-detail"><ion-icon name="call" style="color:white" item-start><span><a class="btn-span" href="tel:01695354659">{{"contact"|translate}}</a></span></ion-icon></button>
+            <button ion-button class="btn-detail"><ion-icon name="call" style="color:white" item-start><span><a class="btn-span" href="tel:{{shopDetails.phone}}">{{"contact"|translate}}</a></span></ion-icon></button>
           </ion-col>
           <ion-col col-4>
               <button ion-button class="btn-detail" color="danger" (click)="navigate()"><ion-icon name="pin" style="color:white" item-start><span class="btn-span">{{"direction"|translate}}</span></ion-icon></button>

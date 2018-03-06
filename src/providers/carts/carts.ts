@@ -56,14 +56,14 @@ export class CartsProvider {
     let requestBody = 'customer_id='+ info.customer_id +
     '&firstname='+ info.firstname +
     '&lastname=' + info.lastname + 
-    '&company=' + info.user_address.company + 
-    '&address_1=' + info.user_address.address_1 +
-    '&address_2=' + info.user_address.address_2 +
-    '&city=' + info.user_address.city +
+    '&company=' + info.company + 
+    '&address_1=' + info.address_1 +
+    '&address_2=' + info.address_2 +
+    '&city=' + info.city +
     '&address_id=' + info.address_id +
-    '&postcode=' + info.user_address.postcode +
-    '&country_id=' + info.user_address.country_id +
-    '&zone_id=' + info.user_address.zone_id +
+    '&postcode=' + info.postcode +
+    '&country_id=' + info.country_id +
+    '&zone_id=' + info.zone_id +
     '&customer_group_id= 1'
 
     return this.http.post('http://24gocheck.com/index.php?route=api2/address/save', requestBody, this.config);
@@ -73,12 +73,12 @@ export class CartsProvider {
     let requestBody =
       'firstname='+ info.firstname +
       '&lastname=' + info.lastname + 
-      '&company=' + info.user_address.company + 
-      '&address_1=' + info.user_address.address_1 +
-      '&address_2=' + info.user_address.address_2 +
-      '&city=' + info.user_address.city +
-      '&country_id=' + info.user_address.country_id +
-      '&zone_id=' + info.user_address.zone_id;
+      '&company=' + info.company + 
+      '&address_1=' + info.address_1 +
+      '&address_2=' + info.address_2 +
+      '&city=' + info.city +
+      '&country_id=' + info.country_id +
+      '&zone_id=' + info.zone_id;
 
     return this.http.post('http://24gocheck.com/index.php?route=api2/shipping/address', requestBody, this.config);
   }
@@ -87,12 +87,12 @@ export class CartsProvider {
     let requestBody =
       'firstname='+ info.firstname +
       '&lastname=' + info.lastname + 
-      '&company=' + info.user_address.company + 
-      '&address_1=' + info.user_address.address_1 +
-      '&address_2=' + info.user_address.address_2 +
-      '&city=' + info.user_address.city +
-      '&country_id=' + info.user_address.country_id +
-      '&zone_id=' + info.user_address.zone_id;
+      '&company=' + info.company + 
+      '&address_1=' + info.address_1 +
+      '&address_2=' + info.address_2 +
+      '&city=' + info.city +
+      '&country_id=' + info.country_id +
+      '&zone_id=' + info.zone_id;
 
     return this.http.post('http://24gocheck.com/index.php?route=api2/payment/address', requestBody, this.config);
   }
