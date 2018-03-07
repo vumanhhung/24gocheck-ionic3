@@ -20,7 +20,7 @@ export class MapPage {
               public locations: LocationsProvider) {
   }
 
-  ionViewDidLoad(){
+  ionViewDidEnter(){
     this.loadMap();
   }
 
