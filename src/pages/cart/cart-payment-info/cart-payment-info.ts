@@ -29,8 +29,7 @@ export class CartPaymentInfoPage {
   };
 
   zones = [];
-
-  personalInfo = 3;
+  
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -93,7 +92,32 @@ export class CartPaymentInfoPage {
       loading.dismiss();
       // this.navCtrl.push(CartPaymentMethodPage);
     } else {
-      alert('Invalid Form');
+      let arr = [];
+      let errmsg: string;
+      arr[0] = {key: 'email', value: 'Email'};
+      arr[1] = {key: 'firstname', value: 'Tên'};
+      arr[2] = {key: 'lastname', value: 'Họ'};
+      arr[3] = {key: 'telephone', value: 'Số điện thoại'};
+      arr[4] = {key: 'address_1', value: 'Địa chỉ'};
+      arr[5] = {key: 'city', value: 'Thành phố'};
+      arr[6] = {key: 'zone_id', value: 'Khu vực'};
+
+      for(let i = arr.length -1; i > 0; i--) {
+        if(this.payment_infoForm.get(arr[i].key).hasError('pattern')){
+          errmsg = arr[i].value + ' không hợp lệ';
+        }
+        if(this.payment_infoForm.get(arr[i].key).hasError('required')){
+          errmsg = arr[i].value + ' không được để trống';
+        }
+        if(this.payment_infoForm.get(arr[i].key).hasError('maxlength')){
+          errmsg = arr[i].value + ' quá dài';
+        }
+        if(this.payment_infoForm.get(arr[i].key).hasError('minlength')){
+          errmsg = arr[i].value + ' quá ngắn';
+        }
+      }
+
+      alert(errmsg);
     }
     
   }

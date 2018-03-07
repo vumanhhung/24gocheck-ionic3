@@ -14,7 +14,11 @@
 
 
 <ion-content>
-  <front-slider></front-slider>
+  <ion-slides>
+    <ion-slide *ngFor="let image of productDetails.images">
+      <img src="{{image.popup}}"/>
+    </ion-slide>
+  </ion-slides>
   <ion-list>
     <ion-list-header><h2 style="font-weight: bold">{{productDetails.heading_title}}</h2></ion-list-header>
     <ion-item>
