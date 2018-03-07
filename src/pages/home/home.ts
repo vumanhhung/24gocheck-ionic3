@@ -52,7 +52,7 @@ export class HomePage {
           this.shopList = this.shopList.concat(data['shops']) ;
         })
       infiniteScroll.complete();
-    }, 500);
+    }, 300);
   }
 
 }

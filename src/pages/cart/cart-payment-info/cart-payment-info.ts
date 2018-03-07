@@ -40,15 +40,22 @@ export class CartPaymentInfoPage {
     public zonesProvider: ZonesProvider,
     public formBuilder: FormBuilder) {
 
+      this.info = accountsProvider.getUserInfo() || {lastname: '', firstname: '', email: '', telephone: '', user_address: {address_1: '', address_2: '', city: '', zone_id: 3776}};
+
       this.payment_infoForm = this.formBuilder.group({
-        email: ['', Validators.compose([Validators.required, Validators.email, Validators.maxLength(100), Validators.minLength(7)])],
-        password: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9]*'), Validators.maxLength(20), Validators.minLength(4) ])],
-        firstname: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]*'), Validators.maxLength(32)] )],
-        lastname: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]*'), Validators.maxLength(32)])],
-        phone: ['', Validators.compose([Validators.required, Validators.maxLength(32), Validators.minLength(2)])],
-        address: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s,]*'), Validators.maxLength(128), Validators.minLength(3)])],
-        city: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s,]*'), Validators.maxLength(128), Validators.minLength(2)])],
-        area: ['', Validators.compose([Validators.required])]
+        email: [this.info['email'], Validators.compose([Validators.required, Validators.email, Validators.maxLength(100), Validators.minLength(7)])],
+        firstname: [this.info['firstname'], Validators.compose([Validators.required, Validators.pattern('[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]*'), Validators.maxLength(32)] )],
+        lastname: [this.info['lastname'], Validators.compose([Validators.required, Validators.pattern('[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]*'), Validators.maxLength(32)])],
+        telephone: [this.info['telephone'], Validators.compose([Validators.required, Validators.maxLength(32), Validators.minLength(2)])],
+        address_1: [this.info['user_address']['address_1'], Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s,]*'), Validators.maxLength(128), Validators.minLength(3)])],
+        address_2: [this.info['user_address']['address_2'], Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s,]*'), Validators.maxLength(128), Validators.minLength(3)])],
+        city: [this.info['user_address']['city'], Validators.compose([Validators.required, Validators.pattern('[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s,]*'), Validators.maxLength(128), Validators.minLength(2)])],
+        zone_id: [this.info['user_address']['zone_id'], Validators.compose([Validators.required])],
+        customer_id: [this.info['customer_id']],
+        company: [this.info['user_address']['company']],
+        postcode: [this.info['user_address']['postcode']],
+        country_id: [this.info['user_address']['country_id']],
+        customer_group_id: [this.info['customer_group_id']],
       });
 
       this.zonesProvider.getZones().subscribe((data) => {
@@ -56,7 +63,7 @@ export class CartPaymentInfoPage {
       }, (e) => {
 
       });
-      this.info = accountsProvider.getUserInfo() || {lastname: '', firstname: '', email: '', telephone: '', user_address: {address_1: '', city: '' }};
+      
       
   }
 
@@ -65,25 +72,36 @@ export class CartPaymentInfoPage {
   }
 
   onPaymentMethod() {
-    let loading = this.loadingCtrl.create({
-      content: 'Đang tải...'
-    });
-
-    loading.present();
-
-    Observable.forkJoin([
-      this.cartsService.setPersonalInfo(this.info),
-      this.cartsService.setAddress(this.info),
-      this.cartsService.setPaymentAddress(this.info),
-      this.cartsService.SetShippingAddress(this.info)
-    ]).subscribe((response) => {
-      loading.dismiss();
-      // alert('Success :)) '+ JSON.stringify(response));
-      this.navCtrl.push(CartPaymentMethodPage, {info: this.info});
-    });
+    if(this.payment_infoForm.valid){
+      let loading = this.loadingCtrl.create({
+        content: 'Đang tải...'
+      });
   
-    loading.dismiss();
-    // this.navCtrl.push(CartPaymentMethodPage);
+      loading.present();
+  
+      Observable.forkJoin([
+        this.cartsService.setPersonalInfo(this.payment_infoForm.value),
+        this.cartsService.setAddress(this.payment_infoForm.value),
+        this.cartsService.setPaymentAddress(this.payment_infoForm.value),
+        this.cartsService.SetShippingAddress(this.payment_infoForm.value)
+      ]).subscribe((response) => {
+        loading.dismiss();
+        // alert('Success :)) '+ JSON.stringify(response));
+        this.navCtrl.push(CartPaymentMethodPage, {info: this.payment_infoForm.value});
+      });
+    
+      loading.dismiss();
+      // this.navCtrl.push(CartPaymentMethodPage);
+    } else {
+      alert('Invalid Form');
+    }
+    
   }
+
+
+  // onPaymentMethod() {
+  //   console.log('Form ', this.payment_infoForm);
+  //   this.navCtrl.push(CartPaymentMethodPage, {info: this.payment_infoForm.value});
+  // }
 
 }

@@ -14,27 +14,29 @@
 
 
 <ion-content padding-top>
-  <div>
-    <div class="label-border">{{"method"|translate}}</div>
-    <ion-list radio-group [(ngModel)]="paymentAndShipping.payment_method" (ionChange)="paymentMethodChanged()">
-      <!-- <ion-item *ngFor="let method of paymentMethods">
-        <ion-label>{{method.title}}</ion-label>
-        <ion-radio value="method.code"></ion-radio>
-      </ion-item> -->
-      <ion-item>
-        <ion-label>{{"COD"|translate}}</ion-label>
-        <ion-radio value="cod" checked></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>{{"ATM"|translate}}</ion-label>
-        <ion-radio value="bank_transfer"></ion-radio>
-      </ion-item>
-    </ion-list>
-  </div>
-  <div>
-    <div class="label-border">{{"note"|translate}}</div>
-    <ion-textarea [placeholder]="'note'|translate"></ion-textarea>
-  </div>
+  <form [formGroup]="payment_methodForm">
+    <div>
+      <div class="label-border">{{"method"|translate}}</div>
+      <ion-list radio-group formControlName="payment_method" >
+        <!-- <ion-item *ngFor="let method of paymentMethods">
+          <ion-label>{{method.title}}</ion-label>
+          <ion-radio value="method.code"></ion-radio>
+        </ion-item> -->
+        <ion-item>
+          <ion-label>{{"COD"|translate}}</ion-label>
+          <ion-radio value="cod" (ionSelect)="paymentMethodChanged()"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{"ATM"|translate}}</ion-label>
+          <ion-radio value="bank_transfer" (ionSelect)="paymentMethodChanged()"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div>
+      <div class="label-border">{{"note"|translate}}</div>
+      <ion-textarea formControlName="comment" [placeholder]="'note'|translate"></ion-textarea>
+    </div>
+  </form>
 </ion-content>
 
 <ion-footer style="font-size: 16px;">

@@ -14,39 +14,41 @@
 
 
 <ion-content>
-    <!-- <form [formGroup]="todo" (ngSubmit)="logForm()"> -->
-  <ion-list style="margin-bottom: 30px">
-    <ion-item>
-      <ion-label floating>{{'lastname'|translate}}</ion-label>
-      <ion-input type="text" [(ngModel)]="info.lastname" ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>{{'firstname'|translate}}</ion-label>
-      <ion-input type="text" [(ngModel)]="info.firstname"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>{{'email'|translate}}</ion-label>
-      <ion-input type="text" [(ngModel)]="info.email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>{{'phone'|translate}}</ion-label>
-      <ion-input type="number" [(ngModel)]="info.telephone"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>{{'address'|translate}}</ion-label>
-      <ion-input type="text" [(ngModel)]="info.user_address.address_1"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>{{'city'|translate}}</ion-label>
-      <ion-input type="text" [(ngModel)]="info.user_address.city"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>{{'area'|translate}}</ion-label>
-      <ion-select [(ngModel)]="info.user_address.zone_id">
-        <ion-option *ngFor="let zone of zones" [value]="zone.zone_id">{{zone.name}}</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+  <form [formGroup]="payment_infoForm" >
+    <ion-list style="margin-bottom: 30px">
+      <ion-item>
+        <ion-label floating>{{'lastname'|translate}}</ion-label>
+        <ion-input type="text" formControlName="lastname" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{'firstname'|translate}}</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="info.firstname"></ion-input> -->
+        <ion-input type="text" formControlName="firstname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{'email'|translate}}</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{'phone'|translate}}</ion-label>
+        <ion-input type="number" formControlName="telephone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{'address'|translate}}</ion-label>
+        <ion-input type="text" formControlName="address_1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{'city'|translate}}</ion-label>
+        <ion-input type="text" formControlName="city"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{'area'|translate}}</ion-label>
+        <ion-select formControlName="zone_id">
+          <ion-option *ngFor="let zone of zones" [value]="zone.zone_id">{{zone.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>
 
 <ion-footer style="font-size: 16px;">
