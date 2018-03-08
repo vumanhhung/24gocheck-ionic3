@@ -1,5 +1,5 @@
 {
-  "name": "24gocheck",
+  "name": "chophothong",
   "version": "4.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -41,7 +41,7 @@
     "cordova-plugin-crosswalk-webview": "^2.4.0",
     "cordova-plugin-device": "^1.1.4",
     "cordova-plugin-dialogs": "^2.0.1",
-    "cordova-plugin-file": "^5.0.0",
+    "cordova-plugin-file": "^4.0.1",
     "cordova-plugin-file-transfer": "^1.7.0",
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-googlemaps": "^2.1.1",
@@ -70,7 +70,9 @@
     "plugins": {
       "cordova-plugin-googlemaps": {
         "API_KEY_FOR_ANDROID": "AIzaSyClJWNAbBgjDbyTd_PYeZXZNjqBJj0hFSM",
-        "API_KEY_FOR_IOS": "AIzaSyBgqI_D9_WKFam48U5ptug0O5zNhv974eM"
+        "API_KEY_FOR_IOS": "AIzaSyBgqI_D9_WKFam48U5ptug0O5zNhv974eM",
+        "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
+        "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
       },
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
@@ -84,9 +86,11 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "uk.co.workingedge.phonegap.plugin.launchnavigator": {},
+      "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+        "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes"
+      },
       "cordova-plugin-local-notification": {},
-      "cordova-plugin-crosswalk-webview": {}
+      "cordova-plugin-file": {}
     },
     "platforms": [
       "android"

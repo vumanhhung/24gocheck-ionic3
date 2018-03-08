@@ -16,7 +16,7 @@
 <ion-content padding>
   <div>
     <div class="label-border">{{'payment_method'|translate}}</div>
-    <p style="font-size: 1em;padding-left: 10px;">Thanh toán khi nhận hàng</p>
+    <p style="font-size: 1em;padding-left: 10px;">{{ payment_method }}</p>
     <!-- Lấy từ bên thanh toán -->
   </div>
   <div>
@@ -37,11 +37,11 @@
       </ion-item>
       <ion-item>
         <span style="float: left;">{{'address'|translate}}</span>
-        <span style="float: right;">{{info.user_address.address_1}}</span>
+        <span style="float: right;">{{info.address_1}}</span>
       </ion-item>
       <ion-item>
         <span style="float: left;">{{'city'|translate}}</span>
-        <span style="float: right;">{{info.user_address.city}}</span>
+        <span style="float: right;">{{info.city}}</span>
       </ion-item>
     </ion-list>
   </div>

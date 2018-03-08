@@ -51,7 +51,7 @@ import { ZonesProvider } from '../providers/zones/zones';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { CartsProvider } from '../providers/carts/carts';
 import { UserProductListPage } from '../pages/accounts/product-management/user-product-list/user-product-list';
-
+import { ProductMapPage } from '../pages/products/product/product-map/product-map';
 
 @NgModule({
   declarations: [
@@ -83,6 +83,7 @@ import { UserProductListPage } from '../pages/accounts/product-management/user-p
     CartPaymentMethodPage,
     CartPaymentCheckoutPage,
     UserProductListPage,
+    ProductMapPage
   ],
   imports: [
     HttpClientModule,
@@ -104,6 +105,7 @@ import { UserProductListPage } from '../pages/accounts/product-management/user-p
     ProductsPage,
     ProductListPage,
     ProductPage,
+    ProductMapPage,
     ShopsPage,
     ShopPage,
     ShopListPage,

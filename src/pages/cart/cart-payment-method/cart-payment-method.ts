@@ -1,3 +1,4 @@
+import { FormBuilder, Validators } from '@angular/forms';
 import { LoadingController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -19,13 +20,23 @@ import { CartsProvider } from '../../../providers/carts/carts';
 export class CartPaymentMethodPage {
 
   info: any;
+  payment_methodForm: any;
   
   paymentAndShipping: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public cartsProvider: CartsProvider,
-    public loadingCtrl: LoadingController) {
-    this.paymentAndShipping = {payment_method: ''};
-    this.getPaymentMethods();
-    this.info = this.navParams.get('info');
+    public loadingCtrl: LoadingController,
+    public formBuilder: FormBuilder) {
+
+
+      // this.paymentAndShipping = {payment_method: ''};
+      this.getPaymentMethods();
+      this.info = this.navParams.get('info');
+
+      this.payment_methodForm = this.formBuilder.group({
+        comment: ['', Validators.compose([Validators.required, Validators.maxLength(100), Validators.minLength(7)])],
+        payment_method: ['', Validators.compose([Validators.required] )],
+      });
+
   }
 
   ionViewDidLoad() {
@@ -33,7 +44,15 @@ export class CartPaymentMethodPage {
   }
 
   onMethodDone() {
-    this.navCtrl.push(CartPaymentCheckoutPage,{info: this.info, paymentAndShipping: this.paymentAndShipping});
+
+    if(this.payment_methodForm.valid) {
+      console.log(this.payment_methodForm);
+      console.log(this.info);
+      
+      this.navCtrl.push(CartPaymentCheckoutPage,{info: this.info, paymentAndShipping: this.payment_methodForm.value});
+    }else {
+      alert('Pls fullfill')
+    }
   }
 
   
@@ -44,7 +63,7 @@ export class CartPaymentMethodPage {
     });
 
     loading.present();
-    this.cartsProvider.savePaymentMethod(this.paymentAndShipping).subscribe(data => {
+    this.cartsProvider.savePaymentMethod(this.payment_methodForm.value).subscribe(data => {
       // alert(JSON.stringify(data, undefined, 2));
       loading.dismiss();
     }, e => {

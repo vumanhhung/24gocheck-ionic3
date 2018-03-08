@@ -31,7 +31,7 @@
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <button ion-button class="btn-detail"><ion-icon name="call" style="color:white" item-start><span><a class="btn-span" href="tel:01695354659">{{"contact"|translate}}</a></span></ion-icon></button>
+            <button ion-button class="btn-detail"><ion-icon name="call" style="color:white" item-start><span><a class="btn-span" href="tel:{{shopDetails.phone}}">{{"contact"|translate}}</a></span></ion-icon></button>
           </ion-col>
           <ion-col col-4>
               <button ion-button class="btn-detail" color="danger" (click)="navigate()"><ion-icon name="pin" style="color:white" item-start><span class="btn-span">{{"direction"|translate}}</span></ion-icon></button>
@@ -50,8 +50,8 @@
           <ion-col col-6 *ngFor="let product of shopProducts">
             <img [navPush]="productDetailsPage" [navParams]="product" src="{{product.thumb || '../../assets/imgs/bag.jpg'}}" height="150"/>
             <ion-title><h2 class="title-product">{{product.name}}</h2></ion-title>
-            <span *ngIf="product.price != '0 VND'" class="price-product">Price : {{product.price}}</span>
-            <span *ngIf="product.price == '0 VND'" class="price-product">Price : Liên hệ</span>
+            <span *ngIf="product.price != '0 VND'" class="price-product">{{'price'|translate}} : {{product.price}}</span>
+            <span *ngIf="product.price == '0 VND'" class="price-product">{{'price'|translate}} : Liên hệ</span>
             <!-- <a class="order-product" href="#">Đặt Hàng</a> -->
           </ion-col>
 

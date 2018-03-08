@@ -24,7 +24,7 @@ export class ProductPage {
   shopDetailsPage: ShopPage;
   shopDetails = {};
   constructor(public navCtrl: NavController, public navParams: NavParams, private productService: ProductsProvider,
-    private cartService: CartsProvider, private shopService: ShopsProvider) {
+    private cartService: CartsProvider, private shopService: ShopsProvider)
     
     productService.getProductById(navParams.get('product_id'))
       .subscribe(data => {
