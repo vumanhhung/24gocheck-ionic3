@@ -51,7 +51,20 @@ export class CartPaymentMethodPage {
       
       this.navCtrl.push(CartPaymentCheckoutPage,{info: this.info, paymentAndShipping: this.payment_methodForm.value});
     }else {
-      alert('Pls fullfill')
+      let errmsg: string;
+     
+
+      if(this.payment_methodForm.get('payment_method').hasError('required')){
+        errmsg = 'Hình thức thanh toán không được bỏ trống';
+      }
+      if(this.payment_methodForm.get('comment').hasError('maxlength')){
+        errmsg = 'Ghi chú quá dài (giới hạn 100 kí tự)';
+      }
+      if(this.payment_methodForm.get('comment').hasError('minlength')){
+        errmsg = 'Ghi chú quá ngắn (tối thiểu 7 kí tự)';
+      }
+
+      alert(errmsg);
     }
   }
 

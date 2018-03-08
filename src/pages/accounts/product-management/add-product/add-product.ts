@@ -141,7 +141,7 @@ export class AddProductPage {
     var data1 = 'product_name=' + product_name + '&product_price=' + product_price + '&product_quantity=' + product_quantity
                 + '&product_weight=' + product_weight + '&product_description=' + product_description + '&product_meta_title=' + product_metatitle
                 + '&product_model=' + product_model + '&image=' + product_image + '&product_category=' + product_category + '&zone_id=' + product_zone
-                +  '&status=' + 1 + '&user_id=' + localStorage.getItem('user_id') + '&location=' + localStorage.getItem('address');
+                +  '&status=' + 1 + '&user_id=' + localStorage.getItem('user_id');
     var config = {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
