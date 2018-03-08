@@ -80,5 +80,7 @@
 
     "language.vietnamese" : "Vietnamese",
     "language.english" : "English",
-    "locate" : "Locate"
+    "locate" : "Locate",
+    "view_product_list_page" : "View Product List Page",
+    "rate" :"Rate"
 }

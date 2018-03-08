@@ -2,6 +2,8 @@ import { CartsProvider } from './../../../providers/carts/carts';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductsProvider } from '../../../providers/products/products';
+import { ShopPage } from '../../shops/shop/shop';
+import { ShopsProvider } from '../../../providers/shops/shops';
 
 /**
  * Generated class for the ProductPage page.
@@ -18,15 +20,23 @@ import { ProductsProvider } from '../../../providers/products/products';
 export class ProductPage {
 
   productDetails = {};
-
+  shopParam = {};
+  shopDetailsPage: ShopPage;
+  shopDetails = {};
   constructor(public navCtrl: NavController, public navParams: NavParams, private productService: ProductsProvider,
-    private cartService: CartsProvider) {
+    private cartService: CartsProvider, private shopService: ShopsProvider) {
     
     productService.getProductById(navParams.get('product_id'))
       .subscribe(data => {
         console.log('product data: ', data);
         this.productDetails = data;
+        this.shopParam={};
       });
+    shopService.getShopDetails(this.productDetails['separate_u_user_id'])
+    .subscribe(data=>{
+      this.shopDetails=data['shops'][0];
+      console.log('fail',this.shopDetails);
+    });
   }
 
   ionViewDidLoad() {
@@ -48,4 +58,8 @@ export class ProductPage {
     }
   }
 
+  public test(){
+    this.navCtrl.push(ShopPage,this.shopDetails);
+
+  }
 }

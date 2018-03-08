@@ -80,6 +80,8 @@
 
     "language.vietnamese" : "Tiếng Việt",
     "language.english" : "Tiếng Anh",
-    "locate" : "Vị trí"
+    "locate" : "Vị trí",
+    "view_product_list_page" : "Xem danh sách sản phẩm",
+    "rate":"Đánh Giá"
 }
 
