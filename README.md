@@ -28,24 +28,33 @@ thư mục gốc
 ├── ...
 ├── plugins
 ├── resources
-├── src #chủ yếu sẽ làm việc với folder này
+├── src # chủ yếu sẽ làm việc với folder này
     ├── app
         ├── ...
-    ├── assets #chứa các thư mục, file hình ảnh, i18n, icon, ...
+    ├── assets # chứa các thư mục, file hình ảnh, i18n, icon, ...
         ├── ...
     ├── components #
         ├── ...
     ├── pages
-        ├── accounts
-        ├── cart
-        ├── categories
-        ├── home
-        ├── map
-        ├── notifications
-        ├── products
-        ├── search
-        ├── shops
-        ├── tabs
+        ├── accounts ----------------------------------------------# hiển thị tùy chọn cho người dùng
+            ├── about-us ------------------------------------------# giới thiệu về công ty
+            ├── favorites -----------------------------------------# sản phẩm người dùng thêm vào mục yêu thích
+            ├── login ---------------------------------------------# trang đăng nhập
+            ├── product-management --------------------------------# trang quản lý sản phẩm
+            ├── profiles------------------------------------------ # trang thông tin cá nhân
+            ├── register ------------------------------------------# trang đăng ký
+        ├── cart --------------------------------------------------# hiển thị các sản phẩm trong giỏ hàng
+            ├── cart-payment-info ---------------------------------# điền thông tin cá nhân
+            ├── cart-payment-method -------------------------------# chọn hình thức thanh toán
+            ├── cart-payment-checkout -----------------------------# trang thanh toán
+        ├── categories --------------------------------------------# hiển thị danh mục
+        ├── home --------------------------------------------------# trang home
+        ├── map ---------------------------------------------------# trang map
+        ├── notifications -----------------------------------------# hiển thị danh sách thông báo
+        ├── products ----------------------------------------------# hiển thị danh sách/chi tiết sản phẩm
+        ├── search ------------------------------------------------# trang tìm kiếm gian hàng/sản phẩm
+        ├── shops -------------------------------------------------# hiển thị chi tiết gian hàng
+        ├── tabs --------------------------------------------------# tab
     ├── providers
         ├── ...
     ├── theme
