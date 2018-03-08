@@ -20,7 +20,6 @@ import { ShopsProvider } from '../../../providers/shops/shops';
 export class ProductPage {
 
   productDetails = {};
-  shopParam = {};
   shopDetailsPage: ShopPage;
   shopDetails = {};
   constructor(public navCtrl: NavController, public navParams: NavParams, private productService: ProductsProvider,
@@ -30,13 +29,13 @@ export class ProductPage {
       .subscribe(data => {
         console.log('product data: ', data);
         this.productDetails = data;
-        this.shopParam={};
+        shopService.getShopDetails(data['separate_u_user_id'])
+          .subscribe(data=>{
+            this.shopDetails=data['shops'][0];
+            console.log('fail',this.shopDetails);
+          });
       });
-    shopService.getShopDetails(this.productDetails['separate_u_user_id'])
-    .subscribe(data=>{
-      this.shopDetails=data['shops'][0];
-      console.log('fail',this.shopDetails);
-    });
+    
   }
 
   ionViewDidLoad() {
@@ -60,6 +59,5 @@ export class ProductPage {
 
   public test(){
     this.navCtrl.push(ShopPage,this.shopDetails);
-
   }
 }
