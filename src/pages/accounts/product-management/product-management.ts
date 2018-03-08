@@ -7,6 +7,7 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 import { Camera } from '@ionic-native/camera';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { UserProductListPage } from './user-product-list/user-product-list';
 
 /**
  * Generated class for the ProductManagementPage page.
@@ -23,8 +24,9 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 export class ProductManagementPage {
 
   addProductPage: any;
-
+  viewProductListPage :any;
   constructor() {
     this.addProductPage = AddProductPage;
+    this.viewProductListPage = UserProductListPage;
   }
 }

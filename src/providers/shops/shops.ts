@@ -27,10 +27,9 @@ export class ShopsProvider {
   }
 
 
-  getShopDetails(shop: any, start: number) {
-    const limit = 10;
-    let shop_id = shop.user_id;
-    let requestBody = 'search=&limit=' + limit + '&start=' + start + '&user_id=' + shop_id + '&order=DESC';
+  getShopDetails(user_id) {
+
+    let requestBody ='user_id=' + user_id;
     return this.http.post('http://24gocheck.com/index.php?route=api2/shops',requestBody, this.config);
   }
 

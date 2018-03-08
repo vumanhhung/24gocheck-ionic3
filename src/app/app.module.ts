@@ -50,9 +50,8 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { ZonesProvider } from '../providers/zones/zones';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { CartsProvider } from '../providers/carts/carts';
+import { UserProductListPage } from '../pages/accounts/product-management/user-product-list/user-product-list';
 import { ProductMapPage } from '../pages/products/product/product-map/product-map';
-
-
 
 @NgModule({
   declarations: [
@@ -83,6 +82,7 @@ import { ProductMapPage } from '../pages/products/product/product-map/product-ma
     CartPaymentInfoPage,
     CartPaymentMethodPage,
     CartPaymentCheckoutPage,
+    UserProductListPage,
     ProductMapPage
   ],
   imports: [
@@ -127,7 +127,7 @@ import { ProductMapPage } from '../pages/products/product/product-map/product-ma
     CartPaymentInfoPage,
     CartPaymentMethodPage,
     CartPaymentCheckoutPage,
-    
+    UserProductListPage,
   ],
   providers: [
     StatusBar,
