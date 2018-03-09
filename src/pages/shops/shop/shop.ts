@@ -53,6 +53,7 @@ export class ShopPage {
     this.cate = translate.instant("category");
     this.shopDetails = this.navParams.data;
 
+    // hiển thị thông tin gian hàng
     productService.getProductListByShopId(this.shopDetails['user_id'], 1)
       .subscribe(data => {
         this.shopProducts = data['products'];

@@ -38,7 +38,6 @@
     "cordova-plugin-actionsheet": "^2.3.3",
     "cordova-plugin-badge": "^0.8.7",
     "cordova-plugin-camera": "^4.0.1",
-    "cordova-plugin-crosswalk-webview": "^2.4.0",
     "cordova-plugin-device": "^1.1.4",
     "cordova-plugin-dialogs": "^2.0.1",
     "cordova-plugin-file": "^4.0.1",
@@ -85,12 +84,12 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {},
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {
         "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes"
       },
       "cordova-plugin-local-notification": {},
-      "cordova-plugin-file": {}
+      "cordova-plugin-file": {},
+      "cordova-plugin-ionic-webview": {}
     },
     "platforms": [
       "android"

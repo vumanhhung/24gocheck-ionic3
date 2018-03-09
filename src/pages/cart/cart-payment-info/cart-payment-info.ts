@@ -41,6 +41,7 @@ export class CartPaymentInfoPage {
 
       this.info = accountsProvider.getUserInfo() || {lastname: '', firstname: '', email: '', telephone: '', user_address: {address_1: '', address_2: '', city: '', zone_id: 3776}};
 
+      //Validate các trường trong form
       this.payment_infoForm = this.formBuilder.group({
         email: [this.info['email'], Validators.compose([Validators.required, Validators.email, Validators.maxLength(100), Validators.minLength(7)])],
         firstname: [this.info['firstname'], Validators.compose([Validators.required, Validators.pattern('[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]*'), Validators.maxLength(32)] )],
@@ -70,6 +71,11 @@ export class CartPaymentInfoPage {
     console.log('ionViewDidLoad payment info');
   }
 
+  /**
+   * kiểm tra xem form "payment_infoForm" có hợp lệ không
+   * ko hợp lệ => báo lỗi
+   * hợp lệ => chuyển sang trang CartPaymentMethod (hình thức thanh toán)
+   */
   onPaymentMethod() {
     if(this.payment_infoForm.valid){
       let loading = this.loadingCtrl.create({
@@ -85,12 +91,10 @@ export class CartPaymentInfoPage {
         this.cartsService.SetShippingAddress(this.payment_infoForm.value)
       ]).subscribe((response) => {
         loading.dismiss();
-        // alert('Success :)) '+ JSON.stringify(response));
         this.navCtrl.push(CartPaymentMethodPage, {info: this.payment_infoForm.value});
       });
     
       loading.dismiss();
-      // this.navCtrl.push(CartPaymentMethodPage);
     } else {
       let arr = [];
       let errmsg: string;
@@ -121,11 +125,5 @@ export class CartPaymentInfoPage {
     }
     
   }
-
-
-  // onPaymentMethod() {
-  //   console.log('Form ', this.payment_infoForm);
-  //   this.navCtrl.push(CartPaymentMethodPage, {info: this.payment_infoForm.value});
-  // }
 
 }

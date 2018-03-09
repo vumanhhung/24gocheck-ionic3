@@ -19,33 +19,33 @@ export class HomePage {
   categoryPage = CategoryPage;
 
   constructor(
-              public navCtrl: NavController,
-              private shopService: ShopsProvider,
-              private categoryService: CategoriesProvider,
-            public accountsService: AccountsProvider) {
-    shopService.getShopList(this.currentPage)
-      .subscribe(data => {
-        this.shopList = data['shops'];
-      });
+    public navCtrl: NavController,
+    private shopService: ShopsProvider,
+    private categoryService: CategoriesProvider,
+    public accountsService: AccountsProvider) {
 
+      //hiển thị danh sách gian hàng(aka user aka chủ gian hàng)
+      shopService.getShopList(this.currentPage)
+        .subscribe(data => {
+          this.shopList = data['shops'];
+        });
+
+      //hiển thị danh sách danh mục (aka category)
       this.categoryService.getCategoryList()
         .subscribe(data => {
           this.categoryList = data['categories'] || [];
         });
-
-
-
   }
 
   ionViewDidLoad() {
   }
 
+  /**
+   * khi người dùng kéo xuống đáy app
+   * load thêm 10 gian hàng (aka user) nữa
+   */
   doInfinite(infiniteScroll) {
     setTimeout(() => {
-      // for (let i = 0; i < 30; i++) {
-      //   this.items.push( this.items.length );
-      // }
-
       this.currentPage +=10;
       this.shopService.getShopList(this.currentPage)
         .subscribe(data => {

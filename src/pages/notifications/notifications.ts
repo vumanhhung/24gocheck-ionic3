@@ -17,7 +17,7 @@ import { NotificationsProvider } from '../../providers/notifications/notificatio
 export class NotificationsPage {
 
   noti: string = "event";
-userNotifications = [];
+  userNotifications = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public notification: NotificationsProvider) {
     this.userNotifications = notification.getUserNotifications();

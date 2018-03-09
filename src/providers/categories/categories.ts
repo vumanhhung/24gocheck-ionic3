@@ -19,6 +19,9 @@ export class CategoriesProvider {
     }
   }
 
+  /**
+   * lấy ra tất cả danh mục
+   */
   getCategoryList() {
 
     let requestBody = '';

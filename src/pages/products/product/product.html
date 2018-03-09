@@ -45,7 +45,7 @@
       </ion-row>
       <ion-row>
         <ion-col col-4>
-          <button ion-button class="btn-detail" color="primary" (click)="test()"><ion-icon name="contact" style="color:white" item-start><span><a class="btn-span">{{"home.shop"|translate}}</a></span></ion-icon></button>
+          <button ion-button class="btn-detail" color="primary" (click)="goToShop()"><ion-icon name="contact" style="color:white" item-start><span><a class="btn-span">{{"home.shop"|translate}}</a></span></ion-icon></button>
         </ion-col>
         <ion-col col-4 *ngIf="productDetails.price != '0 VND'" >
           <button ion-button class="btn-detail" color="danger"><ion-icon name="cart" style="color:white" item-start><span class="btn-span" (click)="addToCart()">{{"order"|translate}}</span></ion-icon></button>

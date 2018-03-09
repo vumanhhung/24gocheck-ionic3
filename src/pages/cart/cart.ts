@@ -31,6 +31,11 @@ export class CartPage {
 
   ionViewDidLoad() {
     this.viewCtrl.showBackButton(false);
+    this.loadCart();
+  }
+
+  
+  private loadCart() {
     this.cartsProvider.getCartProducts().subscribe(data => {
       this.cartProducts = data['products'];
       console.log('cart '+this.cartProducts);
@@ -39,32 +44,30 @@ export class CartPage {
   }
 
   onPaymentInfo() {
-    // if(this.cartProducts.length > 0 ){
-    //   this.navCtrl.push(CartPaymentInfoPage);
-    // } else {
-    //   console.log('Cant');
-    // }
-
     this.navCtrl.push(CartPaymentInfoPage);
   }
 
+  /**
+   * tăng số lượng của sản phẩm trong cart thêm 1 đơn vị
+   */
   private increment(cart_id, quantity){
 
     let currentNumber = parseInt(quantity) + 1;
 
     this.cartsProvider.updateCartItemQuantity(cart_id, currentNumber).subscribe((data) => {
-      
+
     }, (e) => {
 
     });
 
-    this.cartsProvider.getCartProducts().subscribe(data => {
-      this.cartProducts = data['products'];
-      console.log('cart '+this.cartProducts);
-      this.totals = data['totals'][0]['text'];
-    });
+    this.loadCart();
   }
 
+  /**
+   * giảm số lượng sản phẩm trong cart 1 đơn vị
+   * nếu số lượng của sản phẩm đó trong cart = 1 thì xóa luôn sản phẩm khỏi cart
+   */
+  
   private decrement(cart_id, quantity){
     let currentNumber = parseInt(quantity) - 1;
     if(currentNumber < 1){
@@ -78,12 +81,7 @@ export class CartPage {
 
     });
 
-    this.cartsProvider.getCartProducts().subscribe(data => {
-      this.cartProducts = data['products'];
-      console.log('cart '+this.cartProducts);
-      this.totals = data['totals'][0]['text'];
-    });
-
+    this.loadCart();
   }
 
   
