@@ -86,7 +86,6 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.1.1">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyClJWNAbBgjDbyTd_PYeZXZNjqBJj0hFSM" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyBgqI_D9_WKFam48U5ptug0O5zNhv974eM" />
@@ -104,6 +103,6 @@
         <variable name="LOCATION_USAGE_DESCRIPTION" value="This app requires access to your location for navigation purposes" />
     </plugin>
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <engine name="android" spec="7.0.0" />
-    <plugin name="cordova-plugin-crosswalk-webview" spec="^2.4.0" />
 </widget>

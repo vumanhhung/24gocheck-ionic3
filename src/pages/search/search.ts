@@ -322,7 +322,9 @@ export class SearchPage {
 
 
 
-
+  /**
+   * hiển thị danh sách sản phẩm theo category_id
+   */
   searchByCategory(categoryId: number) {
     this.flagCategoryEnd = false;
     this.currentCategoryPage = 1;
@@ -332,6 +334,10 @@ export class SearchPage {
     });
   }
 
+  /**
+   * hiển thị danh sách sản phẩm theo zone_id
+   * zone_id: id của thành phố
+   */
   searchByZone(zone_id: number) {
     this.flagCityEnd = false;
     this.currentCityPage = 1;
@@ -341,7 +347,9 @@ export class SearchPage {
     });
   }
 
-
+  /**
+   * hàm chạy khi người dùng thay đổi input (aka gõ chữ)
+   */
   getItems(ev: any) {
 
     this.currentPage = 1;
@@ -358,6 +366,12 @@ export class SearchPage {
     }
 
   }
+
+  /**
+   * (chỉ dành cho search theo tên)
+   * khi người dùng kéo xuống đáy app
+   * load thêm 10 sản phẩm nữa 
+   */
   doInfinite(infiniteScroll) {
 
     if(this.flagEnd === false) {
@@ -419,6 +433,11 @@ export class SearchPage {
 
   }
 
+  /**
+   * (chỉ dành cho search category)
+   * khi người dùng kéo xuống đáy app
+   * load thêm 10 sản phẩm nữa 
+   */
   doInfiniteCategory(infiniteScroll) {
     if(this.flagCategoryEnd === false) {
       setTimeout(() => {
@@ -438,6 +457,11 @@ export class SearchPage {
     }
   }
 
+  /**
+   * (chỉ dành cho search zone_id)
+   * khi người dùng kéo xuống đáy app
+   * load thêm 10 gian hàng (aka user) nữa 
+   */
   doInfiniteCity(infiniteScroll) {
     if(this.flagCityEnd === false) {
       setTimeout(() => {

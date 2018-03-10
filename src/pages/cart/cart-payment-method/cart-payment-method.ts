@@ -22,13 +22,11 @@ export class CartPaymentMethodPage {
   info: any;
   payment_methodForm: any;
   
-  paymentAndShipping: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public cartsProvider: CartsProvider,
     public loadingCtrl: LoadingController,
     public formBuilder: FormBuilder) {
 
 
-      // this.paymentAndShipping = {payment_method: ''};
       this.getPaymentMethods();
       this.info = this.navParams.get('info');
 
@@ -43,6 +41,11 @@ export class CartPaymentMethodPage {
     
   }
 
+  /**
+   * kiểm tra xem form "payment_methodForm" có hợp lệ không
+   * không họp lệ => thông báo lỗi
+   * hợp lệ => chuyển sang trang Checkout
+   */
   onMethodDone() {
 
     if(this.payment_methodForm.valid) {
@@ -68,8 +71,10 @@ export class CartPaymentMethodPage {
     }
   }
 
-  
-
+  /**
+   * chạy hàm này khi
+   * thay đổi hình thức thanh toán
+   */
   paymentMethodChanged() {
     let loading = this.loadingCtrl.create({
       content: 'Đang tải...'
@@ -77,15 +82,17 @@ export class CartPaymentMethodPage {
 
     loading.present();
     this.cartsProvider.savePaymentMethod(this.payment_methodForm.value).subscribe(data => {
-      // alert(JSON.stringify(data, undefined, 2));
       loading.dismiss();
     }, e => {
       loading.dismiss();
     });
-
-    // alert('Changed');
   }
 
+  /**
+   * không được bỏ hàm này
+   * load hình thức thanh toán
+   * lưu session
+   */
   getPaymentMethods() {
     this.cartsProvider.getPaymentMethods().subscribe(data => {
 

@@ -25,17 +25,20 @@ export class ProductPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private productService: ProductsProvider,
     private cartService: CartsProvider, private shopService: ShopsProvider) {
     
-    productService.getProductById(navParams.get('product_id'))
-      .subscribe(data => {
-        console.log('product data: ', data);
-        this.productDetails = data;
-        shopService.getShopDetails(data['separate_u_user_id'])
-          .subscribe(data=>{
-            this.shopDetails=data['shops'][0];
-            console.log('fail',this.shopDetails);
-          });
+      //hiển thị sản phẩm theo id
+      productService.getProductById(navParams.get('product_id'))
+        .subscribe(data => {
+          console.log('product data: ', data);
+          this.productDetails = data;
 
-      });
+          //hiển thị thông tin chủ gian hàng (aka user) theo id
+          shopService.getShopDetails(data['separate_u_user_id'])
+            .subscribe(data=>{
+              this.shopDetails=data['shops'][0];
+              console.log('fail',this.shopDetails);
+            });
+
+        });
     
   }
 
@@ -44,6 +47,9 @@ export class ProductPage {
     console.log('The id of product is '+ this.navParams.get('product_id'));
   }
 
+  /**
+   * thêm sản phẩm vào giỏ hàng
+   */
   public addToCart() {
     if(this.productDetails.hasOwnProperty('product_id')){
       this.cartService.addToCart(this.productDetails['product_id'], 1).subscribe(data => {
@@ -58,7 +64,10 @@ export class ProductPage {
     }
   }
 
-  public test(){
+  /**
+   * chuyển tới trang Shop (gian hàng)
+   */
+  public goToShop(){
     this.navCtrl.push(ShopPage,this.shopDetails);
   }
 }

@@ -28,6 +28,8 @@ export class CategoryPage {
     this.productDetailsPage = ProductPage;
 
     console.log('Category id is: '+this.categoryDetails['category_id']);
+
+    //hiển thị danh sách sản phẩm theo category_id
     this.productsService.getProductsByCategoryId(this.categoryDetails['category_id'], 1).subscribe(data => {
       console.log(JSON.stringify(data));
       this.categoryProducts = data['products'];

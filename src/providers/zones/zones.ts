@@ -20,6 +20,9 @@ export class ZonesProvider {
     }
   }
 
+  /**
+   * lấy danh sách thành phố của Việt Nam
+   */
   getZones() {
     const VIETNAM = 230;
     let country_id = VIETNAM;

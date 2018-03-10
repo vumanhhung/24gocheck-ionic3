@@ -20,11 +20,17 @@ export class AccountsProvider {
     this.initializeUserLoggedIn();
   }
 
+  /**
+   * lưu thông tin tài khoản
+   */
   setUserInfo(user_info) {
     this.storage.set('user_info', user_info);
     this.user_info = user_info;
   }
 
+  /**
+   * lấy và trả về thông tin tài khoản
+   */
   getUserInfo() {
     this.storage.get('user_info').then((data) => {
         this.user_info = data;
@@ -33,15 +39,23 @@ export class AccountsProvider {
     return this.user_info;
   }
 
+  /**
+   * kiểm tra người dùng đăng nhập chưa
+   */
   isUserLoggedIn() {
-    // console.log('Is user logged in');
     return this.userLoggedIn;
   }
 
+  /**
+   * thay đổi trang thái đăng nhập của người dùng
+   */
   setUserLoggedIn(userLoggedIn: boolean) {
     this.userLoggedIn = userLoggedIn;
   }
 
+  /**
+   * thiết lập thông tin người dùng
+   */
   initializeUserLoggedIn() {
     console.log('Init user login');
     this.storage.get('user_info').then((data) => {
@@ -55,8 +69,10 @@ export class AccountsProvider {
     })
   }
 
+  /**
+   * kiểm tra người dùng có phải là chủ gian hàng(id là 11 hoặc 18) ko
+   */
   isStallholder() {
-    let arr = [11, 18];
     if (this.user_info['role'] == 11 || this.user_info['role'] == 18 ) {
       // console.log('Chu gian hang');
       return true;
@@ -67,6 +83,9 @@ export class AccountsProvider {
     
   }
 
+  /**
+   * đăng xuất
+   */
   userLogout() {
     this.userLoggedIn = false;
     this.storage.clear();
@@ -75,6 +94,9 @@ export class AccountsProvider {
     });
   }
 
+  /**
+   * đăng xuất api
+   */
   logoutAPI() {
     var requestBody = '';
     var config = {

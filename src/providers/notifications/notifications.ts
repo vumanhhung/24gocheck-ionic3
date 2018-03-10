@@ -19,6 +19,10 @@ export class NotificationsProvider {
   }
 
 
+  /**
+   * tạo tin nhắn
+   * @param message (string) nội dung tin nhắn
+   */
   addUserNotification(message) {
     let today = new Date();
     
@@ -30,6 +34,9 @@ export class NotificationsProvider {
   }
 
 
+  /**
+   * hiển thị danh sách tin nhắn
+   */
   getUserNotifications() {
     this.storage.get('user_notifications').then((data) => {
       this.userNotifications = data || [];

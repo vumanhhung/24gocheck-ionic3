@@ -35,10 +35,11 @@ export class CartPaymentCheckoutPage {
     });
   }
 
+  /**
+   * xác nhận => chuyển về trang cart
+   */
   confirmOrder() {
-    // alert(this.paymentAndShipping.payment_method);
     this.cartsProvider.addOrder(this.paymentAndShipping).subscribe(data =>{
-      // alert(JSON.stringify(data, undefined, 2));
 
       this.navCtrl.push(CartPage);
     });

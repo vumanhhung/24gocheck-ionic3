@@ -19,26 +19,36 @@ export class ProductsProvider {
     }
   }
 
+  /**
+   * lấy danh sách sản phẩm theo id chủ gian hàng
+   * @param shop_id (number) id của chủ gian hàng (aka user)
+   * @param page (number) trang thứ mấy
+   */
   getProductListByShopId(shop_id: number, page: number) {
     const limit = 10;
 
     console.log('all shops are here' + page);
 
-
-
     let requestBody = 'search=&user_id='+ shop_id +'&limit=' + limit + '&page=' + page;
-    // let requestBody = 'search=&user_id='+ 739 +'limit=' + 1 + '&page=' + 1;
 
     return this.http.post('http://24gocheck.com/index.php?route=api2/product/search', requestBody, this.config);
   }
 
 
+  /**
+   * lấy sản phẩm theo id
+   * @param product_id (number) id sản phẩm
+   */
   getProductById(product_id: number) {
     let requestBody = 'product_id=' + product_id;
     return this.http.post('http://24gocheck.com/index.php?route=api2/product', requestBody, this.config);
   }
 
-
+  /**
+   * lấy danh sách sản phẩm theo tên
+   * @param name (string) tên sản phẩm
+   * @param page (number) trang thứ mấy
+   */
   searchProductByName(name: string, page: number) {
     const limit = 10;
 
@@ -48,6 +58,11 @@ export class ProductsProvider {
     return this.http.post('http://24gocheck.com/index.php?route=api2/product/search', requestBody, this.config);
   }
 
+  /**
+   * lấy danh sách sản phẩm theo category_id
+   * @param category_id (number) id của danh mục
+   * @param page (number) trang thứ mấy
+   */
   getProductsByCategoryId(category_id: number, page: number) {
     const limit = 10;
 
@@ -56,6 +71,11 @@ export class ProductsProvider {
     return this.http.post('http://24gocheck.com/index.php?route=api2/product/search', requestBody, this.config);
   }
 
+  /**
+   * lấy danh sách sản phẩm theo zone_id
+   * @param zone_id (number) id của thành phố
+   * @param page (number) trang thứ mấy
+   */
   getProductsByZoneId(zone_id: number, page: number) {
     const limit = 10;
 
