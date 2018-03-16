@@ -22,9 +22,10 @@
     "@angular/platform-browser-dynamic": "5.0.3",
     "@ionic-native/camera": "^4.5.2",
     "@ionic-native/core": "4.4.0",
+    "@ionic-native/fcm": "^4.5.3",
     "@ionic-native/file-transfer": "^4.5.2",
     "@ionic-native/geolocation": "^4.5.2",
-    "@ionic-native/google-maps": "^4.5.2",
+    "@ionic-native/google-maps": "^4.5.3",
     "@ionic-native/launch-navigator": "^4.5.3",
     "@ionic-native/local-notifications": "^4.5.3",
     "@ionic-native/network": "^4.5.2",
@@ -40,10 +41,11 @@
     "cordova-plugin-camera": "^4.0.1",
     "cordova-plugin-device": "^1.1.4",
     "cordova-plugin-dialogs": "^2.0.1",
+    "cordova-plugin-fcm": "^2.1.2",
     "cordova-plugin-file": "^4.0.1",
     "cordova-plugin-file-transfer": "^1.7.0",
     "cordova-plugin-geolocation": "^4.0.1",
-    "cordova-plugin-googlemaps": "^2.1.1",
+    "cordova-plugin-googlemaps": "^2.2.6",
     "cordova-plugin-ionic-webview": "^1.1.16",
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
     "cordova-plugin-network-information": "^2.0.1",
@@ -67,12 +69,6 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-googlemaps": {
-        "API_KEY_FOR_ANDROID": "AIzaSyClJWNAbBgjDbyTd_PYeZXZNjqBJj0hFSM",
-        "API_KEY_FOR_IOS": "AIzaSyBgqI_D9_WKFam48U5ptug0O5zNhv974eM",
-        "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
-        "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
-      },
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
       },
@@ -89,7 +85,14 @@
       },
       "cordova-plugin-local-notification": {},
       "cordova-plugin-file": {},
-      "cordova-plugin-ionic-webview": {}
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-fcm": {},
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyClJWNAbBgjDbyTd_PYeZXZNjqBJj0hFSM",
+        "API_KEY_FOR_IOS": "AIzaSyBgqI_D9_WKFam48U5ptug0O5zNhv974eM",
+        "PLAY_SERVICES_VERSION": "11.8.0",
+        "ANDROID_SUPPORT_V4_VERSION": "27.1.0"
+      }
     },
     "platforms": [
       "android"

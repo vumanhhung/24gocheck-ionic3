@@ -1,3 +1,4 @@
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LoadingController } from 'ionic-angular';
 import { Component } from '@angular/core';
@@ -24,7 +25,7 @@ export class CartPaymentMethodPage {
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public cartsProvider: CartsProvider,
     public loadingCtrl: LoadingController,
-    public formBuilder: FormBuilder) {
+    public formBuilder: FormBuilder, public viewCtrl: ViewController) {
 
 
       this.getPaymentMethods();
@@ -97,5 +98,9 @@ export class CartPaymentMethodPage {
     this.cartsProvider.getPaymentMethods().subscribe(data => {
 
     });
+  }
+
+  closeModal() {
+    this.viewCtrl.dismiss();
   }
 }

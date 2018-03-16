@@ -31,6 +31,8 @@ export class NotificationsProvider {
       message: message,
       time: today
     });
+
+    this.storage.set('user_notifications', this.userNotifications);
   }
 
 
