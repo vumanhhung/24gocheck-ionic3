@@ -82,5 +82,11 @@
     "language.english" : "English",
     "locate" : "Locate",
     "view_product_list_page" : "View Product List Page",
-    "rate" :"Rate"
+    "rate" :"Rate",
+
+    "create": "Create new",
+    "add" : "Add",
+    "edit" : "Edit",
+    "update" : "Update",
+    "delete" : "Delete"
 }

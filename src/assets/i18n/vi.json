@@ -82,6 +82,12 @@
     "language.english" : "Tiếng Anh",
     "locate" : "Vị trí",
     "view_product_list_page" : "Xem danh sách sản phẩm",
-    "rate":"Đánh Giá"
+    "rate":"Đánh Giá",
+
+    "create": "Tạo mới",
+    "add" : "Thêm",
+    "edit" : "Sửa",
+    "update" : "Cập nhật",
+    "delete" : "Xóa"
 }
 
