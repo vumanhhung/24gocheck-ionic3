@@ -1,3 +1,4 @@
+import { NavController } from 'ionic-angular/navigation/nav-controller';
 // import { CartPage } from './../cart/cart';
 import { Component } from '@angular/core';
 import { HomePage } from '../home/home';
@@ -23,12 +24,23 @@ export class TabsPage {
   accountRoot = AccountsPage;
   loginPage = LoginPage;
 
-  constructor(public modalCtrl: ModalController, public accountsService: AccountsProvider) {
+  constructor(public modalCtrl: ModalController, public accountsService: AccountsProvider, public navCtrl: NavController) {
 
   }
 
   loginModal() {
     let modal = this.modalCtrl.create(LoginPage);
+    modal.present();
+  }
+
+  goToCart() {
+    console.log('Yeah clicked');
+    let modal = this.modalCtrl.create(this.cartRoot);
+    modal.present();
+  }
+
+  goToSearch() {
+    let modal = this.modalCtrl.create(this.searchRoot);
     modal.present();
   }
 

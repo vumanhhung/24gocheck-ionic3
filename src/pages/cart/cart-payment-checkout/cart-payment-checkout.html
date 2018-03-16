@@ -8,6 +8,9 @@
 
   <ion-navbar>
     <ion-title>{{'checkout_order'|translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -76,6 +79,7 @@
     </div>
     <div style="float: right; margin-right: 5px;">
       <a (click)="confirmOrder()" style="text-decoration: none;color: white">{{'confirm'|translate}}</a>
+      <!-- <a (click)="showId()" style="text-decoration: none;color: white">Show id</a> -->
     </div>
   </ion-navbar>
 </ion-footer>

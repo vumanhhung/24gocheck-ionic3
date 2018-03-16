@@ -8,6 +8,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserModule } from '@angular/platform-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { FCM } from '@ionic-native/fcm';
 import { Network } from '@ionic-native/network';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -133,6 +134,7 @@ import { ProductMapPage } from '../pages/products/product/product-map/product-ma
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FCM,
     ShopsProvider,
     Geolocation,
     Network,

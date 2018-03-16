@@ -1,3 +1,4 @@
+import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { Observable } from 'rxjs/Observable';
 import { ZonesProvider } from './../../../providers/zones/zones';
 import { LoadingController } from 'ionic-angular';
@@ -37,7 +38,8 @@ export class CartPaymentInfoPage {
     public cartsService: CartsProvider, 
     public accountsProvider: AccountsProvider, 
     public zonesProvider: ZonesProvider,
-    public formBuilder: FormBuilder) {
+    public formBuilder: FormBuilder,
+    public viewCtrl: ViewController) {
 
       this.info = accountsProvider.getUserInfo() || {lastname: '', firstname: '', email: '', telephone: '', user_address: {address_1: '', address_2: '', city: '', zone_id: 3776}};
 
@@ -69,6 +71,10 @@ export class CartPaymentInfoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad payment info');
+  }
+
+  closeModal() {
+    this.viewCtrl.dismiss();
   }
 
   /**

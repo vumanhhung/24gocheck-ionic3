@@ -1,3 +1,4 @@
+import { FCM } from '@ionic-native/fcm';
 import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Img ,ModalController,AlertController } from 'ionic-angular';
@@ -30,7 +31,7 @@ export class AccountsPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public accountsService: AccountsProvider,public translate : TranslateService,
-    public alertCtrl: AlertController, public modalCtrl: ModalController) {
+    public alertCtrl: AlertController, public modalCtrl: ModalController, public fcm: FCM) {
       this.profilePage = ProfilesPage;
       this.productManagementPage = ProductManagementPage;
       this.feedbackPage = FeedbackPage;
@@ -46,6 +47,8 @@ export class AccountsPage {
 
   onUserLogout() {
     this.accountsService.userLogout();
+    let user_id = this.accountsService.getUserInfo()['user_id'];
+    this.fcm.unsubscribeFromTopic(`shop_id_${user_id}`);
     this.navCtrl.parent.select(0);
   }
 

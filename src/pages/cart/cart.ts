@@ -30,11 +30,16 @@ export class CartPage {
   }
 
   ionViewDidLoad() {
-    this.viewCtrl.showBackButton(false);
+    // this.viewCtrl.showBackButton(false);
     this.loadCart();
+    console.log('Hahahahahah shika');
   }
 
-  
+  closeModal() {
+    this.viewCtrl.dismiss();
+  }
+
+
   private loadCart() {
     this.cartsProvider.getCartProducts().subscribe(data => {
       this.cartProducts = data['products'];
