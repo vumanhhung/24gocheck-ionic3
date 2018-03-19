@@ -26,10 +26,6 @@
       <span *ngIf="productDetails.price != '0 VND'">{{productDetails.price}}</span>
       <span *ngIf="productDetails.price == '0 VND'">Liên hệ</span>
     </ion-item>
-    <div>
-      <img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/coin.png" style=" width: 24px; height: 24px;margin-right: 10px;">
-      <span>10</span>
-    </div>
     <ion-item>
       <ion-icon name="cart" style="color:#2ec95c" item-start></ion-icon>
       <span>{{productDetails.stock}}</span>
@@ -38,19 +34,11 @@
       <ion-icon name="clipboard" style="color:#2ec95c" item-start></ion-icon>
       <span [innerHTML]="productDetails.description"></span>
     </ion-item>
-    <!--<ion-item>-->
-    <!--<ion-icon name="clipboard" style="color:#2ec95c" item-start></ion-icon>-->
-    <!--<p>Áo khoác với faux shearling nội thất, điều chỉnh mui xe và dài tay áo. Có đặc điểm chi tiết trên vai, một vá tương phản trên ngực và một lỗ thông hơi sau. Hai bên túi flap với ẩn snap nút và một túi bên trong. Điều chỉnh drawstrings. Chốt ở phía trước với một zip</p>-->
-    <!--</ion-item>-->
+     <ion-item height="49px">
+      <img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/coin.png" style=" width: 24px; height: 24px;margin-right: 10px;">
+      <span style="margin-left:5%;">10</span>
+    </ion-item>
     <ion-grid style="padding-left:7px;">
-      <!-- <ion-row >
-        <ion-col col-1 icon-only style="margin-left:-10px;">
-          <ion-icon name="clipboard" style="color:#2ec95c" item-start></ion-icon>
-        </ion-col>
-        <ion-col col-11 style="padding-left:5px;">
-          <p class="info-product" [innerHTML]="productDetails.description"></p>
-        </ion-col>
-      </ion-row> -->
       <ion-row>
         <ion-col col-4>
           <button ion-button class="btn-detail" color="primary" (click)="goToShop()"><ion-icon name="contact" style="color:white" item-start><span><a class="btn-span">{{"home.shop"|translate}}</a></span></ion-icon></button>

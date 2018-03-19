@@ -1,0 +1,29 @@
+page-delivery-point {
+    .label-md[stacked]{
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: black;
+    }
+
+    .label-ios[stacked]{
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: black;
+    }
+
+    .color-icon{
+        color:#0185cf;
+      }
+
+    .button-confirm{
+        background: #0185cf;
+        border-radius: 20px;
+        font-size: 1.8rem;
+        margin-left: 15%;
+        margin-top: 5%;
+        height: 40px;
+        width: 70%;
+        color: white;
+        font-weight: bold;
+    }
+}

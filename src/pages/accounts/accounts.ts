@@ -8,6 +8,7 @@ import { FavoritesPage } from './favorites/favorites';
 import { AccountsProvider } from '../../providers/accounts/accounts';
 import { HomePage } from '../home/home';
 import { AboutUsPage } from './about-us/about-us';
+import { WalletPage } from './wallet/wallet';
 /**
  * Generated class for the AccountsPage page.
  *
@@ -26,6 +27,7 @@ export class AccountsPage {
   productManagementPage: any;
   feedbackPage: any;
   favoritesPage: any;
+  walletPage: any;
   lang: string = "vi";
 
 
@@ -36,6 +38,7 @@ export class AccountsPage {
       this.feedbackPage = FeedbackPage;
       this.favoritesPage = FavoritesPage;
       this.lang = translate.currentLang;
+      this.walletPage = WalletPage;
       // this.testPage = TestPage;
 
   }

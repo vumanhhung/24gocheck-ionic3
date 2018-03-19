@@ -88,6 +88,14 @@
     "add" : "Thêm",
     "edit" : "Sửa",
     "update" : "Cập nhật",
-    "delete" : "Xóa"
+    "delete" : "Xóa",
+
+    "wallet" : "Ví của tôi",
+    "add_point" : "Nạp điểm",
+    "deliver_point" : "Chuyển điểm",
+    "history_transaction" : "Giao dịch",
+    "point" : "điểm",
+    "point_info" : "Bạn hiện đang có",
+    "deliver_transaction" : "Giao dịch chuyển tiền"
 }
 

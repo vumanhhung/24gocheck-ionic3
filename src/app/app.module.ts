@@ -52,6 +52,10 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { CartsProvider } from '../providers/carts/carts';
 import { UserProductListPage } from '../pages/accounts/product-management/user-product-list/user-product-list';
 import { ProductMapPage } from '../pages/products/product/product-map/product-map';
+import { WalletPage } from '../pages/accounts/wallet/wallet';
+import { AddPointPage } from '../pages/accounts/wallet/add-point/add-point';
+import { DeliveryPointPage } from '../pages/accounts/wallet/delivery-point/delivery-point';
+import { HistoryTransactionPage } from '../pages/accounts/wallet/history-transaction/history-transaction';
 
 @NgModule({
   declarations: [
@@ -83,7 +87,11 @@ import { ProductMapPage } from '../pages/products/product/product-map/product-ma
     CartPaymentMethodPage,
     CartPaymentCheckoutPage,
     UserProductListPage,
-    ProductMapPage
+    ProductMapPage,
+    WalletPage,
+    AddPointPage,
+    DeliveryPointPage,
+    HistoryTransactionPage
   ],
   imports: [
     HttpClientModule,
@@ -128,6 +136,10 @@ import { ProductMapPage } from '../pages/products/product/product-map/product-ma
     CartPaymentMethodPage,
     CartPaymentCheckoutPage,
     UserProductListPage,
+    WalletPage,
+    AddPointPage,
+    DeliveryPointPage,
+    HistoryTransactionPage
   ],
   providers: [
     StatusBar,
