@@ -1,0 +1,32 @@
+<!--
+  Generated template for the WalletPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'wallet'|translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="background: #F7F2E0; height: 40px;display:flex;" >
+    <img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/coin.png" style="width: 12%; padding:5px;margin-left: 10px;">
+    <div style="margin-left:8%; color: #5882fa;padding: 5px;">{{"point_info" | translate}} <span style="font-size:24px;">1000</span> {{"point" | translate}}</div>
+  </div><br/>
+  <div style="background:#f2f2f2;height:100px;width: 100%;display: flex;">
+    <div style="border-right:1px solid #fff;height:100px;width: 33%;padding-top:10%;text-align: center;" [navPush]="addPointPage">
+        <a style="font-size: 17px;">{{"add_point" | translate}}</a>
+    </div>
+    <div style="border-right:1px solid #fff;height:100px;width: 34%;padding-top:10%;text-align: center;" [navPush]="deliveryPointPage">
+        <a style="font-size: 17px;">{{"deliver_point" | translate}}</a>
+    </div>
+    <div style="height:100px;width: 33%;padding-top:10%;text-align: center;" [navPush]="historyTransactionPage">
+        <a style="font-size: 17px;">{{"history_transaction" | translate}}</a>
+    </div>
+  </div>
+</ion-content>

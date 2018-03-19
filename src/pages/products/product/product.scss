@@ -1,5 +1,25 @@
 page-product {
 
+ion-label {
+    margin: 0;
+    display: block;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: inherit;
+    text-overflow: ellipsis;
+    white-space: inherit;
+}
+
+.item-md
+{
+  p{
+    color: black;
+    font-size: 1.6rem;
+  }
+}
 }
 .toolbar-title-ios{
   color: white !important;

@@ -82,5 +82,19 @@
     "language.english" : "English",
     "locate" : "Locate",
     "view_product_list_page" : "View Product List Page",
-    "rate" :"Rate"
+    "rate" :"Rate",
+
+    "create": "Create new",
+    "add" : "Add",
+    "edit" : "Edit",
+    "update" : "Update",
+    "delete" : "Delete",
+
+    "wallet" : "My Wallet",
+    "add_point" : "Add Point",
+    "deliver_point" : "Deliver Point",
+    "history_transaction" : "Transaction",
+    "point" : "point",
+    "point_info" : "",
+    "deliver_transaction" : "Giao dịch chuyển tiền"
 }

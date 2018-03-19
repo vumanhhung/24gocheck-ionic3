@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-item *ngFor="let product of cartProducts">
+ <!--  <ion-item *ngFor="let product of cartProducts">
     <img class="cart-image" src="">
     <div style="display: flex;">
       <img src="{{ product.thumb ||'assets/imgs/placeholder.png'}}" style="width: 25%; height: 70px;" />
@@ -22,16 +22,22 @@
             <ion-icon style="color: green;font-size: 1.2em; padding-left: 5px;" name="add-circle" (click)="increment(product.cart_id, product.quantity)"></ion-icon>
             <div style="padding-left: 15px;font-size: 1em;">
                 <span>{{product.price}}</span>
-                <!-- <span style="text-decoration: line-through;color:orange;">140.000 đ</span> -->
-            </div>
+                <span style="text-decoration: line-through;color:orange;">140.000 đ</span>       </div>
         </div>        
 
-        <p>{{product.total}}</p>        
+        <p>{{product.total}}</p>     
+        <div>
+          <img src="http://24gocheck.com/image/catalog/24gocheck%20Icons/coin.png" style=" width:8%;">
+          <span style="margin-left:5%;color:orange;">10</span>
+        </div>
+        <button style="border: none; background: none; font-size: 10px; color: gray;">
+          <ion-icon name="trash">
+          </ion-icon>
+          {{"delete"|translate}}
+        </button>    
       </div>
     </div>
-  </ion-item>
-
-  
+  </ion-item> -->
 </ion-content>
 
 <ion-footer>
