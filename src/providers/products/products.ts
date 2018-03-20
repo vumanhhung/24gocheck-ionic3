@@ -84,4 +84,9 @@ export class ProductsProvider {
     return this.http.post('http://24gocheck.com/index.php?route=api2/product/search', requestBody, this.config);
   }
 
+  addReview(product_id,reviewer_name,text){
+    const rating =1;
+    let requestBody = `product_id=${product_id}&name=${reviewer_name}&rating=${rating}&text=${text}`;
+    return this.http.post('http://24gocheck.com/index.php?route=api2/product/addreview', requestBody, this.config);
+  }
 }

@@ -96,5 +96,10 @@
     "history_transaction" : "Transaction",
     "point" : "point",
     "point_info" : "",
-    "deliver_transaction" : "Giao dịch chuyển tiền"
+    "deliver_transaction" : "Giao dịch chuyển tiền",
+    "rate" :"Rating Product",
+    "rating-product" : "Rating Product",
+    "user_product_list" : "user_product_list",
+    "purchase-History" : "Purchase History"
+
 }

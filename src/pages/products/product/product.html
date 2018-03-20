@@ -14,10 +14,11 @@
 
 
 <ion-content>
-  <ion-slides>
-    <ion-slide *ngFor="let image of productDetails.images">
-      <img src="{{image.popup}}"/>
-    </ion-slide>
+    <front-slider *ngIf="productDetails.images ==0"></front-slider>
+  <ion-slides *ngIf="productDetails.images !=0">
+      <ion-slide *ngFor="let image of productDetails.images">
+          <img src="{{image.popup}}"/>
+      </ion-slide>
   </ion-slides>
   <ion-list>
     <ion-list-header><h2 style="font-weight: bold">{{productDetails.heading_title}}</h2></ion-list-header>
@@ -47,7 +48,7 @@
           <button ion-button class="btn-detail" color="danger"><ion-icon name="cart" style="color:white" item-start><span class="btn-span" (click)="addToCart()">{{"order"|translate}}</span></ion-icon></button>
         </ion-col>
         <ion-col col-4>
-          <button ion-button class="btn-detail" color="secondary"><ion-icon name="star-half" style="color:white" item-start><span class="btn-span">{{"rate"|translate}}</span></ion-icon></button>
+          <button [navPush]="viewRatePage" [navParams]="{product_id: productDetails.product_id}" ion-button class="btn-detail" color="secondary"><ion-icon name="star-half" style="color:white" item-start><span class="btn-span">{{"rate"|translate}}</span></ion-icon></button>
         </ion-col>
       </ion-row>
     </ion-grid>
