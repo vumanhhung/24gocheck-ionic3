@@ -28,6 +28,16 @@ export class NotificationsPage {
     console.log('ionViewDidLoad NotificationsPage');
   }
 
+  // notiClick() {
+  //   console.log('CLicked noti');
+  //   this.notification.addUserNotification('Aomine from here');
+  //   this.userNotifications = this.notification.getUserNotifications();
+  // }
   
+  removeNotification(item) {
+    let index = this.userNotifications.indexOf(item);
+    this.userNotifications.splice(index, 1);
+    this.notification.setUserNofification(this.userNotifications);
+  }
 
 }

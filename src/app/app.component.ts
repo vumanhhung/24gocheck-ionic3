@@ -1,3 +1,4 @@
+import { CartsProvider } from './../providers/carts/carts';
 import { TabsPage } from './../pages/tabs/tabs';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
@@ -13,7 +14,7 @@ import { NotificationsProvider } from '../providers/notifications/notifications'
 export class MyApp {
   rootPage:any = TabsPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public translate: TranslateService, private fcm: FCM, private notification: NotificationsProvider) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public translate: TranslateService, private fcm: FCM, private notification: NotificationsProvider, private cartService: CartsProvider) {
     translate.setDefaultLang('vi');
     translate.use("vi");
     platform.ready().then(() => {
@@ -47,6 +48,9 @@ export class MyApp {
       }
 
 
+      
+      this.setProductCountFromCart();
+      this.notification.getUserNotifications();
 
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -57,5 +61,16 @@ export class MyApp {
   // changeLanguage(langauge) {
   //   this.translate.use(langauge);
   // }
+
+
+
+  setProductCountFromCart() {
+    this.cartService.getCartProducts().subscribe(data => {
+      // alert('Products cart number ' + data['products'].length);
+      localStorage.setItem('cart_count', data['products'].length);
+    });
+  }
+
+  
 }
 
