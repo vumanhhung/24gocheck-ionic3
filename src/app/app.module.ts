@@ -57,6 +57,9 @@ import { WalletPage } from '../pages/accounts/wallet/wallet';
 import { AddPointPage } from '../pages/accounts/wallet/add-point/add-point';
 import { DeliveryPointPage } from '../pages/accounts/wallet/delivery-point/delivery-point';
 import { HistoryTransactionPage } from '../pages/accounts/wallet/history-transaction/history-transaction';
+import { RatePage } from '../pages/products/rate/rate';
+import { PurchasePage } from '../pages/accounts/purchase/purchase';
+import { OrdersProvider } from '../providers/orders/orders';
 
 @NgModule({
   declarations: [
@@ -92,7 +95,9 @@ import { HistoryTransactionPage } from '../pages/accounts/wallet/history-transac
     WalletPage,
     AddPointPage,
     DeliveryPointPage,
-    HistoryTransactionPage
+    HistoryTransactionPage,
+    RatePage,
+    PurchasePage
   ],
   imports: [
     HttpClientModule,
@@ -137,10 +142,15 @@ import { HistoryTransactionPage } from '../pages/accounts/wallet/history-transac
     CartPaymentMethodPage,
     CartPaymentCheckoutPage,
     UserProductListPage,
+
     WalletPage,
     AddPointPage,
     DeliveryPointPage,
-    HistoryTransactionPage
+    HistoryTransactionPage,
+
+    RatePage,
+    PurchasePage
+
   ],
   providers: [
     StatusBar,
@@ -163,7 +173,8 @@ import { HistoryTransactionPage } from '../pages/accounts/wallet/history-transac
     LaunchNavigator,
     ZonesProvider,
     LocalNotifications,
-    CartsProvider
+    CartsProvider,
+    OrdersProvider
   ]
 })
 export class AppModule {}

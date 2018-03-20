@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductsProvider } from '../../../providers/products/products';
 import { ShopPage } from '../../shops/shop/shop';
 import { ShopsProvider } from '../../../providers/shops/shops';
-
+import { RatePage } from '../rate/rate';
 /**
  * Generated class for the ProductPage page.
  *
@@ -22,8 +22,11 @@ export class ProductPage {
   productDetails = {};
   shopDetailsPage: ShopPage;
   shopDetails = {};
+  viewRatePage :any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private productService: ProductsProvider,
     private cartService: CartsProvider, private shopService: ShopsProvider) {
+
+      this.viewRatePage = RatePage;
     
       //hiển thị sản phẩm theo id
       productService.getProductById(navParams.get('product_id'))

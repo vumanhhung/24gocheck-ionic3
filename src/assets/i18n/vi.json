@@ -96,6 +96,10 @@
     "history_transaction" : "Giao dịch",
     "point" : "điểm",
     "point_info" : "Bạn hiện đang có",
-    "deliver_transaction" : "Giao dịch chuyển tiền"
+    "deliver_transaction" : "Giao dịch chuyển tiền",
+    "rating-product" : "Đánh giá sản phẩm",
+    "user_product_list" : "Sản phẩm đã đăng",
+    "purchase-history" : "Lịch sử giao dịch"
+
 }
 

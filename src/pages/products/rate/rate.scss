@@ -1,0 +1,12 @@
+page-rate {
+ .rate-input{
+    border: 1px solid #a7a76c;
+    height: 40px;
+    margin: 0px;
+    padding-left: 10px;
+ }
+ .rate-input:first-child{
+     margin-top: 25px;
+     border-bottom: none;
+ }
+}

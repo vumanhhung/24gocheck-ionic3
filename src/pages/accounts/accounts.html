@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{'account' | translate}}</ion-title>
+    <ion-title center>{{'account' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -35,7 +35,7 @@
       <span>{{"favorite"|translate}}</span>
       <ion-icon class="acc-next" name="arrow-forward"></ion-icon>
     </ion-item><hr>
-    <ion-item class="account-icon-view">
+    <ion-item class="account-icon-view" [navPush]="purchasePage">
       <ion-icon name="clipboard" class="color-icon" item-start></ion-icon>
       <span>{{"transaction_history"|translate}}</span>
       <ion-icon class="acc-next" name="arrow-forward"></ion-icon>

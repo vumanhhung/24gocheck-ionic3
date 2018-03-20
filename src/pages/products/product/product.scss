@@ -1,5 +1,6 @@
 page-product {
 
+
 ion-label {
     margin: 0;
     display: block;
@@ -20,6 +21,11 @@ ion-label {
     font-size: 1.6rem;
   }
 }
+
+  ion-slides{
+    height: auto;
+  }
+
 }
 .toolbar-title-ios{
   color: white !important;
