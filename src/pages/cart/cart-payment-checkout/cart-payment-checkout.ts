@@ -30,7 +30,7 @@ export class CartPaymentCheckoutPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
     public cartsProvider: CartsProvider, 
-    public http: HttpClient, public viewCtrl: ViewController) {
+    public http: HttpClient, public viewCtrl: ViewController, public cartService: CartsProvider) {
       this.paymentAndShipping = this.navParams.get('paymentAndShipping');
       this.payment_method = (this.paymentAndShipping.payment_method === 'cod') ? 'Thanh toán khi nhận hàng' : 'Thanh toán bằng thẻ';
       this.info = this.navParams.get('info');
@@ -86,6 +86,11 @@ export class CartPaymentCheckoutPage {
           .subscribe();
 
       }
+
+      this.cartService.getCartProducts().subscribe(data => {
+        // alert('Products cart number ' + data['products'].length);
+        localStorage.setItem('count', data['products'].length);
+      });
 
       this.navCtrl.push(CartPage);
     });

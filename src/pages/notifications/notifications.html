@@ -26,11 +26,18 @@
             </div>
             <p class="list-none">{{'noti_none'|translate}}</p>
           </div>
-
-          <ion-item *ngFor="let noti of userNotifications">
+        <ion-item-sliding *ngFor="let noti of userNotifications">
+          <ion-item >
             <h1>{{noti.message}}</h1>
             <p>{{noti.time | date: 'dd/MM/yyyy H:mm'}}</p>
           </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="danger" (click)="removeNotification(noti)">
+              <ion-icon name="mail"></ion-icon>
+              Xóa
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
       </ion-list>
 
       <ion-list *ngSwitchCase="'own'">

@@ -33,6 +33,7 @@ export class NotificationsProvider {
     });
 
     this.storage.set('user_notifications', this.userNotifications);
+    console.log('Added '+ JSON.stringify(this.userNotifications));
   }
 
 
@@ -50,6 +51,14 @@ export class NotificationsProvider {
     // });
 
     return this.userNotifications;
+  }
+
+  getNotificationCount() {
+    return this.userNotifications.length;
+  }
+
+  setUserNofification(user_notifications) {
+    this.storage.set('user_notifications', user_notifications);
   }
 
 }

@@ -1,3 +1,5 @@
+import { NotificationsProvider } from './../../providers/notifications/notifications';
+import { CartsProvider } from './../../providers/carts/carts';
 import { NavController } from 'ionic-angular/navigation/nav-controller';
 // import { CartPage } from './../cart/cart';
 import { Component } from '@angular/core';
@@ -24,7 +26,7 @@ export class TabsPage {
   accountRoot = AccountsPage;
   loginPage = LoginPage;
 
-  constructor(public modalCtrl: ModalController, public accountsService: AccountsProvider, public navCtrl: NavController) {
+  constructor(public modalCtrl: ModalController, public accountsService: AccountsProvider, public navCtrl: NavController, public cart: CartsProvider, public notification: NotificationsProvider) {
 
   }
 
@@ -42,6 +44,22 @@ export class TabsPage {
   goToSearch() {
     let modal = this.modalCtrl.create(this.searchRoot);
     modal.present();
+  }
+
+  productCount() {
+    let count = 0;
+    // this.cart.getCartProducts().subscribe((data) => {
+    //   if(data['products']) {
+    //     count = data['products'].length();
+    //   }
+    // });
+    return localStorage.getItem('cart_count');
+
+    // return count;
+  }
+
+  notificationCount() {
+    return this.notification.getNotificationCount();
   }
 
 }
