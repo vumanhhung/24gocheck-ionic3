@@ -100,6 +100,6 @@
     "rate" :"Rating Product",
     "rating-product" : "Rating Product",
     "user_product_list" : "user_product_list",
-    "purchase-History" : "Purchase History"
-
+    "purchase-History" : "Purchase History",
+    "order-history-info" : "Order history info"
 }

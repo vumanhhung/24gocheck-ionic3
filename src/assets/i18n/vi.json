@@ -99,7 +99,8 @@
     "deliver_transaction" : "Giao dịch chuyển tiền",
     "rating-product" : "Đánh giá sản phẩm",
     "user_product_list" : "Sản phẩm đã đăng",
-    "purchase-history" : "Lịch sử giao dịch"
+    "purchase-history" : "Lịch sử giao dịch",
+    "order-history-info" : "Chi tiết đơn hàng"
 
 }
 

@@ -22,4 +22,9 @@ export class OrdersProvider {
     let requestBody = '';
     return this.http.post('http://24gocheck.com/index.php?route=api2/order_history', requestBody, this.config);
   }
+
+  getOrderHistoryInfo(order_id){
+    let requestBody = 'order_id='+order_id;
+    return this.http.post('http://24gocheck.com/index.php?route=api2/order_history', requestBody, this.config);
+  }
 }
