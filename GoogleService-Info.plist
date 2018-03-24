@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>142596221344-jhje9u047e5ibqe3jectik5tqio9ekso.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.142596221344-jhje9u047e5ibqe3jectik5tqio9ekso</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBkd6QhoUxa8U497mhFe7tHswoWO4SGtIo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>142596221344</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.erikchu.gocheck</string>
+	<key>PROJECT_ID</key>
+	<string>gocheck-f38be</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gocheck-f38be.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:142596221344:ios:4495e30195d563a3</string>
+	<key>DATABASE_URL</key>
+	<string>https://gocheck-f38be.firebaseio.com</string>
+</dict>
+</plist>
