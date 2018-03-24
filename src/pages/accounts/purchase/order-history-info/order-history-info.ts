@@ -17,6 +17,7 @@ import { OrdersProvider } from '../../../../providers/orders/orders';
 export class OrderHistoryInfoPage {
   order_id :any;
   productList = [];
+  order_history_details: {};
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -24,6 +25,8 @@ export class OrderHistoryInfoPage {
     
       this.order_id = this.navParams.get('id');
       this.orderService.getOrderHistoryInfo(this.order_id).subscribe(data =>{
+        this.order_history_details = data;
+        // alert("product order list "+ JSON.stringify(this.order_history_details));
         this.productList = data['products'] || [];
       });
   }
