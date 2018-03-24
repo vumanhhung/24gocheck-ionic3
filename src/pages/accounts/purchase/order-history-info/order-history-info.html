@@ -1,0 +1,87 @@
+<!--
+  Generated template for the PurchasePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title center>{{'order-history-info' | translate}}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content style="background: whitesmoke;">
+    <ion-grid class="grid-purchase">
+      <!-- <ion-row *ngFor="let order of orderList">
+        <ion-col col-12>
+          <div>
+            <ion-row>
+              <ion-item class="header-purchase">
+                  <span item-start class="name-shop">{{order.order_id}}</span>
+                  <p item-end>{{order.date_added}}</p>
+              </ion-item>
+              
+              <ion-col col-12 style="border-bottom: 1px solid silver;">
+                  <img col-4 class="product-img" src="http://24gocheck.com/image/cache/catalog/B%C3%9AT/photo_2017-11-18_08-38-22-500x500.jpg">
+                  <h1 col-8 class="name-product">Bút bi blititea</h1> 
+                  <span class="amount">Số lượng : 5</span><p class="price-x">150.000vnd</p>
+                  
+              </ion-col>
+  
+              <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
+                  <p item-start>{{order.products}} sản phẩm</p>
+                  <ion-avatar item-start><img style="width:auto;" src="assets/imgs/icon-small.png" alt=""></ion-avatar>
+                  <h3 item-start>Tổng:</h3> <a item-end class="price">{{order.total}}</a>
+              </ion-item>
+  
+              <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
+                <ion-icon item-start name="ios-paper-plane-outline"></ion-icon><p item-start>Đã giao hàng</p>
+                <p item-end>20/02/2018</p>
+            </ion-item>
+            <ion-item style="margin-left:0px">
+              <button item-start class="button" ion-button>Chi tiết đơn hàng</button>
+              <button item-end class="button" ion-button>Xem đánh giá Shop</button>
+            </ion-item>
+            </ion-row> -->
+  
+  
+  
+  
+            <ion-row >
+              <ion-col col-12>
+                <div>
+            <ion-row *ngIf="productList.length">
+              <ion-item class="header-purchase">
+                  <span item-start class="name-shop">Mã Đơn :{{order_history_details['order_id']}}</span>
+                  <!-- <p item-end>Đã giao hàng</p> -->
+              </ion-item>
+              
+              <ion-col *ngFor="let product of productList" col-12 style="border-bottom: 1px solid silver;">
+                  <img col-4 class="product-img" src="http://24gocheck.com/image/cache/catalog/B%C3%9AT/photo_2017-11-18_08-38-22-500x500.jpg">
+                  <h1 col-8 class="name-product">{{product.name}}</h1> 
+                  <span class="amount">Số lượng : {{product.quantity}}</span><p class="price-x">{{product.price}}</p>
+                  
+              </ion-col>
+
+              <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
+                <p item-start>{{productList.length}} sản phẩm</p>
+                <ion-avatar item-end><img style="width:auto;" src="assets/imgs/icon-small.png" alt=""></ion-avatar>
+                <h3 item-end>Tổng:</h3> <a item-end class="price">{{order_history_details['totals'][0]['text']}}</a>
+
+              </ion-item>
+              
+              <ion-item style="margin-left:0px">
+                <ion-icon item-start name="ios-paper-plane-outline"></ion-icon><p style="color: #ff7057;" item-start>Đã giao hàng</p>
+                <p item-end>{{order_history_details['date_added']}}</p>
+              </ion-item>
+            </ion-row>
+            
+          </div> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  
