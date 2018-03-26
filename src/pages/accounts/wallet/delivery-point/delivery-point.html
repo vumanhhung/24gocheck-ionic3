@@ -22,7 +22,9 @@
     <div style="border-bottom:1px solid #f2f2f2;">
       <ion-icon name="logo-usd" class="color-icon"></ion-icon>
       <span>Thông tin người hưởng</span>
-      <ion-input type="search" placeholder="Tài khoản hưởng" style="color: #0185cf;text-decoration: none;"></ion-input>
+      <!-- <ion-input type="search" placeholder="Tài khoản hưởng" style="color: #0185cf;text-decoration: none;"></ion-input> -->
+      <ion-searchbar placeholder="Tài khoản hưởng" autocomplete="on" style="color: #0185cf;text-decoration: none;" mode="ios" [(ngModel)]="receiverAccount" (ionInput)="checkAccountExist($event)" ></ion-searchbar>
+      <ion-input type="text" placeholder="{{receiverName}}" style="color: #0185cf;" disabled></ion-input>
     </div><br/>
     <div style="border-bottom:1px solid #f2f2f2;">
       <ion-icon name="medal" class="color-icon"></ion-icon>

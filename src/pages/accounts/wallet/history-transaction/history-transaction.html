@@ -14,5 +14,42 @@
 
 
 <ion-content padding>
+  <ion-grid class="grid-purchase">
+
+
+    <ion-row >
+      <ion-col col-12>
+        <div>
+          <ion-row>
+            <ion-item class="header-purchase">
+                <span item-start class="name-shop">Mã Đơn :12</span>
+                <p item-end style="color: #488aff;">Đã giao hàng</p>
+            </ion-item>
+      
+
+            <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
+                <p item-start>1 sản phẩm</p>
+                <ion-avatar item-end><img style="width:auto;" src="assets/imgs/icon-small.png" alt=""></ion-avatar>
+                <h3 item-end>Tổng:</h3> <a item-end class="price">500.000VND</a>
+
+            </ion-item>
+
+            <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
+              <ion-icon item-start name="ios-paper-plane-outline"></ion-icon><p item-start style="color: #ff7057;">Đã giao hàng</p>
+              <p item-end>20/02/2018</p>
+            </ion-item>
+
+            <ion-item style="margin-left:0px">
+              <button  [navPush]="viewOrderHistoryInfoPage" item-start class="button" ion-button>Chi tiết đơn hàng</button>
+              <button item-end class="button" ion-button>Xem đánh giá Shop</button>
+            </ion-item>
+          </ion-row>
+        </div> 
+      </ion-col>
+    </ion-row>
+
+
+    
+  </ion-grid>
 
 </ion-content>
