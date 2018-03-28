@@ -25,7 +25,7 @@
     <ion-item>
       <ion-icon name="pricetags" style="color:#ff758d" item-start></ion-icon>
       <span *ngIf="productDetails.price != '0 VND'">{{productDetails.price}}</span>
-      <span *ngIf="productDetails.price == '0 VND'">Liên hệ</span>
+      <span *ngIf="productDetails.price == '0 VND'">{{'contact'|translate}}</span>
     </ion-item>
     <ion-item>
       <ion-icon name="cart" style="color:#2ec95c" item-start></ion-icon>
