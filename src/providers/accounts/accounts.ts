@@ -106,4 +106,27 @@ export class AccountsProvider {
     }
     return this.http.post('http://24gocheck.com/index.php?route=api2/user_logout', requestBody, config);
   }
+
+  getReceiverInfo(email) {
+    var requestBody = `email=${email}`;
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
+    }
+
+    return this.http.post('http://24gocheck.com/index.php?route=api2/account_exist', requestBody, config);
+  }
+
+
+  getPointTransactionHistory(account_id) {
+    var requestBody = `account_id=${account_id}`;
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
+    }
+
+    return this.http.post('http://24gocheck.com/index.php?route=api2/point_transaction', requestBody, config);
+  }
 }
