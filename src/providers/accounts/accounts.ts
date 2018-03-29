@@ -129,4 +129,16 @@ export class AccountsProvider {
 
     return this.http.post('http://24gocheck.com/index.php?route=api2/point_transaction', requestBody, config);
   }
+
+
+  updatePoint(data) {
+    var requestBody = `trader_id=${data['trader_id']}&receiver_id=${data['receiver_id']}&point=${data['point']}&comment=${data['comment']}&status=${data['status']}`;
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
+    }
+
+    return this.http.post('http://24gocheck.com/index.php?route=api2/point_transaction/add', requestBody, config);
+  }
 }
