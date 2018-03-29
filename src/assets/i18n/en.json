@@ -104,5 +104,10 @@
     "purchase_history" : "Order History",
     "order_history_info" : "Order history info",
     "history_transaction_detail" : "History Transaction Detail",
+
+    "trader_info" : "Trader Accout",
+    "receiver_info" : "Receiver Account",
+    "point_info" : "Point",
+    "content" : "Content",
     "do_transaction" : "Submit"
 }

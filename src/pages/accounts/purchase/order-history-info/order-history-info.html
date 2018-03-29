@@ -66,21 +66,21 @@
               
               <ion-item *ngFor="let product of productList" style="border-bottom: 1px solid silver;">
                   <h1 col-8 class="name-product">{{product.name}}</h1> 
-                  <span class="amount">Số lượng : {{product.quantity}}</span>
+                  <span class="amount">{{'quantity'|translate}} : {{product.quantity}}</span>
                   <p class="price-x">{{product.price}}</p>
                   
               </ion-item>
 
               <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
-                <p item-start>{{productList.length}} sản phẩm</p>
+                <p item-start>{{productList.length}} {{'product'|translate}}</p>
                 <ion-avatar item-end><img style="width:auto;" src="assets/imgs/icon-small.png" alt=""></ion-avatar>
                 <h3 item-end>Tổng:</h3> <a item-end class="price">{{order_history_details['totals'][0]['text']}}</a>
 
               </ion-item>
 
               <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
-                <p style="font-size: 17px;color: #0185cf;">Địa Chỉ: <span [innerHTML]="order_history_details.shipping_address"></span></p>
-                <p style="font-size: 17px;color: #0185cf;">Thanh Toán: {{order_history_details['payment_method']}}</p>
+                <p style="font-size: 17px;color: #0185cf;">{{'address'|translate}}: <span [innerHTML]="order_history_details.shipping_address"></span></p>
+                <p style="font-size: 17px;color: #0185cf;">{{'payment_method'|translate}}: {{order_history_details['payment_method']}}</p>
               </ion-item>
 
               <ion-item style="margin-left:0px">

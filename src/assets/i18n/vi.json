@@ -104,9 +104,10 @@
     "order_history_info" : "Chi tiết đơn hàng",
     "history_transaction_detail" : "Chi tiết giao dịch",
 
-    "trader_info" : "Thông tin người chuyển",
-    "receiver_info" : "Thông tin người nhận",
+    "trader_info" : "Tài khoản chuyển",
+    "receiver_info" : "Tài khoản nhận",
     "point_info" : "Số điểm chuyển",
+    "content" : "Nội dung",
     "do_transaction" : "Thực hiện giao dịch"
 }
 
