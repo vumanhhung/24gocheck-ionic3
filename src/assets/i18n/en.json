@@ -93,13 +93,16 @@
     "wallet" : "My Wallet",
     "add_point" : "Add Point",
     "deliver_point" : "Deliver Point",
-    "history_transaction" : "Transaction",
+    "transaction" : "Transaction",
+    "history_transaction" : "History Point Transaction",
     "point" : "point",
     "point_info" : "",
-    "deliver_transaction" : "Giao dịch chuyển tiền",
+    "deliver_transaction" : "Deliver Transaction",
     "rate" :"Rating Product",
     "rating-product" : "Rating Product",
-    "user_product_list" : "user_product_list",
-    "purchase-History" : "Purchase History",
-    "order-history-info" : "Order history info"
+    "user_product_list" : "Uploaded Products",
+    "purchase_history" : "Order History",
+    "order_history_info" : "Order history info",
+    "history_transaction_detail" : "History Transaction Detail",
+    "do_transaction" : "Submit"
 }
