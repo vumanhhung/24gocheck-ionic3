@@ -94,14 +94,19 @@
     "add_point" : "Nạp điểm",
     "deliver_point" : "Chuyển điểm",
     "transaction" : "Giao dịch",
-    "history_transaction" : "Lịch sử giao dịch",
+    "history_transaction" : "Lịch sử giao dịch điểm",
     "point" : "điểm",
     "point_info" : "Bạn hiện đang có",
     "deliver_transaction" : "Giao dịch chuyển tiền",
     "rating-product" : "Đánh giá sản phẩm",
     "user_product_list" : "Sản phẩm đã đăng",
-    "purchase-history" : "Lịch sử giao dịch",
-    "order-history-info" : "Chi tiết đơn hàng"
+    "purchase_history" : "Lịch sử đơn hàng",
+    "order_history_info" : "Chi tiết đơn hàng",
+    "history_transaction_detail" : "Chi tiết giao dịch",
 
+    "trader_info" : "Thông tin người chuyển",
+    "receiver_info" : "Thông tin người nhận",
+    "point_info" : "Số điểm chuyển",
+    "do_transaction" : "Thực hiện giao dịch"
 }
 

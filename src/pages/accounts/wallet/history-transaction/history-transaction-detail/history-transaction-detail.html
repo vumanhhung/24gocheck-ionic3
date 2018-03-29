@@ -1,5 +1,5 @@
 <!--
-  Generated template for the DeliveryPointPage page.
+  Generated template for the HistoryTransactionDetailPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,10 +7,11 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{"deliver_transaction"|translate}}</ion-title>
+    <ion-title>{{'history_transaction_detail' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
+
 
 <ion-content padding>
   <ion-list style="font-size: 1.8rem;">
@@ -18,22 +19,26 @@
       <ion-icon name="card" class="color-icon"></ion-icon>
       <span>Thông tin người chuyển</span>
       <ion-input type="text" placeholder="Tài khoản chuyển" style="color: #0185cf;" disabled></ion-input>
-    </div><br/>
+    </div>
+    <br/>
     <div style="border-bottom:1px solid #f2f2f2;">
       <ion-icon name="logo-usd" class="color-icon"></ion-icon>
       <span>Thông tin người hưởng</span>
       <!-- <ion-input type="search" placeholder="Tài khoản hưởng" style="color: #0185cf;text-decoration: none;"></ion-input> -->
-      <ion-searchbar placeholder="Tài khoản hưởng" autocomplete="on" style="color: #0185cf;text-decoration: none;" mode="ios" [(ngModel)]="receiverAccount" (ionInput)="checkAccountExist($event)" ></ion-searchbar>
+      <ion-searchbar placeholder="Tài khoản hưởng" autocomplete="on" style="color: #0185cf;text-decoration: none;" mode="ios" [(ngModel)]="receiverAccount"
+        (ionInput)="checkAccountExist($event)"></ion-searchbar>
       <ion-input type="text" placeholder="{{receiverName}}" style="color: #0185cf;" disabled></ion-input>
-    </div><br/>
+    </div>
+    <br/>
     <div style="border-bottom:1px solid #f2f2f2;">
       <ion-icon name="medal" class="color-icon"></ion-icon>
       <span>Số điểm cần chuyển</span>
       <ion-input type="text" placeholder="Nhập số điểm" style="color: #0185cf;text-decoration: none;"></ion-input>
-    </div><br/>
+    </div>
+    <br/>
     <div style="border-bottom:1px solid #f2f2f2;">
       <ion-input type="text" placeholder="Nội dung" style="color: #0185cf;text-decoration: none;"></ion-input>
     </div>
-    <button class="button-confirm">{{"do_transaction"|translate}}</button>
+    <button class="button-confirm">Thực hiện giao dịch</button>
   </ion-list>
 </ion-content>

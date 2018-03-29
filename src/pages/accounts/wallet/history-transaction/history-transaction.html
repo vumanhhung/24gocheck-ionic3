@@ -7,20 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{"transaction"|translate}}</ion-title>
+    <ion-title>{{"history_transaction"|translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <div style="border-top: solid 1px #f2f2f2;border-bottom:solid 1px #f2f2f2;display: flex;height:60px;">
+  <div style="border-top: solid 1px #f2f2f2;border-bottom:solid 1px #f2f2f2;display: flex;height:60px;" *ngFor="let ht of historyTransaction" [navPush]="historyTransactionDetailPage">
     <div col-8>
-        <ion-label padding-top style="font-size:15px; color: gray;">20/02/2018</ion-label>
-        <span style="font-size:18px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">status</span>
+        <ion-label padding-top style="font-size:15px; color: gray;">{{ht.date | date:'dd/MM/yyyy HH:mm'}}</ion-label>
+        <span style="font-size:18px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">{{ht.comment}}</span>
     </div>
     <div col-4 style="text-align: right;">
-      <ion-label style="font-size:16px; color:chartreuse;padding-top:13%;">7000 đ</ion-label>
+      <ion-label style="font-size:16px; color:chartreuse;padding-top:13%;" *ngIf="customer_id == ht['receiver_id']">+ {{ht.point}}</ion-label>
+      <ion-label style="font-size:16px; color:red;padding-top:13%;" *ngIf="customer_id == ht['trader_id']">- {{ht.point}}</ion-label>
     </div>
   </div>
 </ion-content>
