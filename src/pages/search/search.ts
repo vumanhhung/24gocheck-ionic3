@@ -112,7 +112,7 @@ export class SearchPage {
 
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     setTimeout(()=> {
       this.loadMap();
     },1000);

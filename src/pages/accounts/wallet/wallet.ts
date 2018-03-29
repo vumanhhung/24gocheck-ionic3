@@ -21,7 +21,6 @@ export class WalletPage {
   deliveryPointPage: any;
   historyTransactionPage: any;
   customer_point: any;
-  
   constructor(public navCtrl: NavController, public navParams: NavParams, public accountService: AccountsProvider) {
     this.addPointPage = AddPointPage;
     this.deliveryPointPage = DeliveryPointPage;

@@ -18,6 +18,7 @@ import { RatePage } from '../rate/rate';
   templateUrl: 'product.html',
 })
 export class ProductPage {
+
   productDetails = {};
   shopDetailsPage: ShopPage;
   shopDetails = {};

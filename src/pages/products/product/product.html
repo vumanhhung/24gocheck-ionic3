@@ -25,7 +25,7 @@
     <ion-item>
       <ion-icon name="pricetags" style="color:#ff758d" item-start></ion-icon>
       <span *ngIf="productDetails.price != '0 VND'">{{productDetails.price}}</span>
-      <span *ngIf="productDetails.price == '0 VND'">{{'contact'|translate}}</span>
+      <span *ngIf="productDetails.price == '0 VND'">Liên hệ</span>
     </ion-item>
     <ion-item>
       <ion-icon name="cart" style="color:#2ec95c" item-start></ion-icon>
@@ -51,9 +51,6 @@
           <button [navPush]="viewRatePage" [navParams]="{product_id: productDetails.product_id}" ion-button class="btn-detail" color="secondary"><ion-icon name="star-half" style="color:white" item-start><span class="btn-span">{{"rate"|translate}}</span></ion-icon></button>
         </ion-col>
       </ion-row>
-      <!-- <div padding>
-          <div #map id="map" style="height: 300px;"></div>
-        </div> -->
     </ion-grid>
 
   </ion-list>

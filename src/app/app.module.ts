@@ -61,7 +61,6 @@ import { RatePage } from '../pages/products/rate/rate';
 import { PurchasePage } from '../pages/accounts/purchase/purchase';
 import { OrdersProvider } from '../providers/orders/orders';
 import { OrderHistoryInfoPage } from '../pages/accounts/purchase/order-history-info/order-history-info';
-import { HistoryTransactionDetailPage } from '../pages/accounts/wallet/history-transaction/history-transaction.module';
 
 @NgModule({
   declarations: [
@@ -100,8 +99,7 @@ import { HistoryTransactionDetailPage } from '../pages/accounts/wallet/history-t
     HistoryTransactionPage,
     RatePage,
     PurchasePage,
-    OrderHistoryInfoPage,
-    HistoryTransactionDetailPage
+    OrderHistoryInfoPage
   ],
   imports: [
     HttpClientModule,
@@ -152,8 +150,7 @@ import { HistoryTransactionDetailPage } from '../pages/accounts/wallet/history-t
     HistoryTransactionPage,
     RatePage,
     PurchasePage,
-    OrderHistoryInfoPage,
-    HistoryTransactionDetailPage
+    OrderHistoryInfoPage
   ],
   providers: [
     StatusBar,
