@@ -131,7 +131,7 @@ export class AccountsProvider {
   }
 
 
-  updatePoint(data) {
+  createTransaction(data) {
     var requestBody = `trader_id=${data['trader_id']}&receiver_id=${data['receiver_id']}&point=${data['point']}&comment=${data['comment']}&status=${data['status']}`;
     var config = {
       headers: {

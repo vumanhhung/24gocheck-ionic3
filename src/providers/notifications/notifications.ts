@@ -61,4 +61,37 @@ export class NotificationsProvider {
     this.storage.set('user_notifications', user_notifications);
   }
 
+
+  sendFCMNotification(content) {
+
+    let body = {
+      "notification":{
+        "title":content['title'],
+        "body": content['body'],
+        "sound":"default",
+        "click_action":"FCM_PLUGIN_ACTIVITY",
+        "icon":"fcm_push_icon"
+      },
+      "data":{
+        "type": content['type'],
+        "message": content['message'],
+      },
+        "to":"/topics/ " + content['topics'] ,
+        "priority":"high",
+        "restricted_package_name":""
+    }
+
+
+    var config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'key=AIzaSyA809s8XMHkh0OMDWaGJ3ecCAdGbAr0T1A'
+      }
+    }
+
+    this.http.post("https://fcm.googleapis.com/fcm/send",body, config)
+      .subscribe();
+
+  }
+
 }
