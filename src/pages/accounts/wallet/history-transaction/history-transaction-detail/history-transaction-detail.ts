@@ -16,15 +16,15 @@ import { AccountsProvider } from '../../../../../providers/accounts/accounts';
 })
 export class HistoryTransactionDetailPage {
   transaction_id: any;
-  transactionDetail = [];
+  transactionDetail = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public accountService: AccountsProvider) {
     this.transaction_id = this.navParams.get('id');
-      this.accountService.getPointTransactionDetail(this.transaction_id).subscribe(data =>{
-        this.transaction_id = data;
-        // alert("product order list "+ JSON.stringify(this.order_history_details));
-        this.transactionDetail = data['detail'] || [];
-      });
+    this.accountService.getPointTransactionDetail(this.transaction_id).subscribe(data => {
+      this.transaction_id = data;
+      alert("product order list "+ JSON.stringify(data));
+      this.transactionDetail = data['detail'] || {};
+    });
   }
 
   ionViewDidLoad() {

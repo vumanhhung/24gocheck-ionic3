@@ -9,30 +9,50 @@
   <ion-navbar>
     <ion-title>{{'history_transaction_detail' | translate}}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-  <ion-list style="font-size: 1.8rem;" *ngIf = "transactionDetail.length">
+  <ion-list style="font-size: 1.8rem;">
     <div style="border-bottom:1px solid #f2f2f2;">
-      <ion-icon name="card" class="color-icon"></ion-icon>
-      <span>{{'trader_info'|translate}}</span>
-      <ion-input type="text" placeholder="{{'trader_info'|translate}}" style="color: #0185cf;" disabled>{{transactionDetail['trader_firstname']}}{{transactionDetail['trader_lastname']}}</ion-input>
-    </div><br/>
-    <div style="border-bottom:1px solid #f2f2f2;">
-      <ion-icon name="logo-usd" class="color-icon"></ion-icon>
-      <span>{{'receiver_info'|translate}}</span>
-      <ion-input type="text" placeholder="{{receiverName}}" style="color: #0185cf;" disabled></ion-input>
-    </div><br/>
-    <div style="border-bottom:1px solid #f2f2f2;">
-      <ion-icon name="medal" class="color-icon"></ion-icon>
-      <span>{{'point'|translate}}</span>
-      <ion-input type="text" placeholder="{{'point'|translate}}" style="color: #0185cf;text-decoration: none;" disabled>{{transactionDetail.point}}</ion-input>
-    </div><br/>
-    <div style="border-bottom:1px solid #f2f2f2;">
-      <ion-input type="text" placeholder="{{'content'|translate}}" style="color: #0185cf;text-decoration: none;" disabled>{{transactionDetail.comment}}</ion-input>
+      <div style="color: #0185cf;font-size:20px;">
+        <ion-icon name="card" class="color-icon"></ion-icon>
+        <span>{{'transaction_date'|translate}}</span>
+      </div>
+      <span style="font-size:16px;">{{transactionDetail.date | date:'dd/MM/yyyy HH:mm'}}</span>
     </div>
-    <button class="button-confirm">{{transactionDetail.status}}</button>
+    <br/>
+    <div style="border-bottom:1px solid #f2f2f2;">
+      <div style="color: #0185cf;font-size:20px;">
+        <ion-icon name="card" class="color-icon"></ion-icon>
+        <span>{{'trader_info'|translate}}</span>
+      </div>
+      <span style="font-size:16px;">{{transactionDetail.trader_firstname}} {{transactionDetail.trader_lastname}}</span>
+    </div>
+    <br/>
+    <div style="border-bottom:1px solid #f2f2f2;">
+      <div style="color: #0185cf;font-size:20px;">
+        <ion-icon name="card" class="color-icon"></ion-icon>
+        <span>{{'receiver_info'|translate}}</span>
+      </div>
+      <span style="font-size:16px;">{{transactionDetail['receiver_firstname']}} {{transactionDetail.receiver_lastname}}</span>
+    </div>
+    <br/>
+    <div style="border-bottom:1px solid #f2f2f2;">
+      <div style="color: #0185cf;font-size:20px;">
+        <ion-icon name="card" class="color-icon"></ion-icon>
+        <span>{{'point_info'|translate}}</span>
+      </div>
+      <span style="font-size:16px;">{{transactionDetail.point}}</span>
+    </div>
+    <br/>
+    <div style="border-bottom:1px solid #f2f2f2;">
+      <div style="color: #0185cf;font-size:20px;">
+        <ion-icon name="card" class="color-icon"></ion-icon>
+        <span>{{'content'|translate}}</span>
+      </div>
+      <span style="font-size:16px;">{{transactionDetail.comment}}</span>
+    </div>
+    <br/>
   </ion-list>
 </ion-content>

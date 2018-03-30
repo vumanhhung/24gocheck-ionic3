@@ -52,6 +52,7 @@
     "method" : "Phương thức",
     "ATM" : "Thanh toán bằng thẻ ngân hàng",
     "COD" : "Thanh toán khi giao hàng",
+    "POINT" : "Thanh toán bằng điểm",
     "note" : "Ghi chú",
     "contact" : "Liên hệ",
     "order" : "Đặt hàng",
@@ -104,6 +105,7 @@
     "order_history_info" : "Chi tiết đơn hàng",
     "history_transaction_detail" : "Chi tiết giao dịch",
 
+    "transaction_date" : "Thời gian giao dịch",
     "trader_info" : "Tài khoản chuyển",
     "receiver_info" : "Tài khoản nhận",
     "point_info" : "Số điểm chuyển",
