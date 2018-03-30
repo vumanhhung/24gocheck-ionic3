@@ -67,10 +67,12 @@ export class LoginPage {
         this.accountsService.setUserInfo(data['customer_info']);
         this.accountsService.setUserLoggedIn(true);
         let user_id = data['customer_info']['user_id'];
+        let customer_id = data['customer_info']['customer_id'];
         if(user_id){
           this.fcm.subscribeToTopic(`shop_id_${user_id}`);
           // alert(`User Id is : ${user_id}`);
         }
+        this.fcm.subscribeToTopic(`customer_id_${customer_id}`);
         this.closeModal();
       }, error => {
         alert("invalid username or password")

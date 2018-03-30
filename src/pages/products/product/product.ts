@@ -60,6 +60,13 @@ export class ProductPage {
           localStorage.setItem('cart_count', data['products'].length);
         });
         console.log('Product has Id '+ this.productDetails['product_id']);
+
+        this.cartService.getCartProducts().subscribe(data => {
+          // alert('Products cart number ' + data['products'].length);
+          localStorage.setItem('cart_count', data['products'].length);
+        });
+
+
         alert('Đã thêm sản phẩm vào giỏ hàng');
       }, error => {
         alert('Lỗi không thêm được sản phẩm');
