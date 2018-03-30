@@ -52,6 +52,7 @@
     "method" : "Method",
     "ATM" : "Card Payment",
     "COD" : "Delivery and payment",
+    "POINT" : "Point Payment",
     "note" : "Notes",
     "contact" : "Contact",
     "order" : "Order",
@@ -105,6 +106,7 @@
     "order_history_info" : "Order history info",
     "history_transaction_detail" : "History Transaction Detail",
 
+    "transaction_date" : "Transaction Date",
     "trader_info" : "Trader Accout",
     "receiver_info" : "Receiver Account",
     "point_info" : "Point",
