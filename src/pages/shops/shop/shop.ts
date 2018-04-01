@@ -38,6 +38,9 @@ export class ShopPage {
   phone: string;
   cate: string;
 
+  flagEnd: boolean;
+  currentPage: number;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -53,8 +56,11 @@ export class ShopPage {
     this.cate = translate.instant("category");
     this.shopDetails = this.navParams.data;
 
+
+    this.flagEnd = false;
+    this.currentPage = 1;
     // hiển thị thông tin gian hàng
-    productService.getProductListByShopId(this.shopDetails['user_id'], 1)
+    productService.getProductListByShopId(this.shopDetails['user_id'], this.currentPage)
       .subscribe(data => {
         this.shopProducts = data['products'];
         console.log("product" + data);
@@ -257,6 +263,31 @@ export class ShopPage {
     google.maps.event.addListener(marker, 'click', () => {
       infoWindow.open(this.map, marker);
     });
+  }
+
+
+
+
+
+
+  doInfinite(infiniteScroll) {
+
+    if(this.flagEnd === false) {
+      setTimeout(() => {
+        this.currentPage ++;
+        this.productService.getProductListByShopId(this.shopDetails['user_id'],this.currentPage)
+          .subscribe(data => {
+            if(data['products'].length > 0) {
+              this.shopProducts = this.shopProducts.concat(data['products']) ;
+            } else {
+              this.flagEnd = true;
+            }
+          })
+        infiniteScroll.complete();
+      }, 500);
+    } else {
+      infiniteScroll.complete();
+    }
   }
 
 }

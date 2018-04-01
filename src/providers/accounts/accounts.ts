@@ -152,4 +152,17 @@ export class AccountsProvider {
 
     return this.http.post('http://24gocheck.com/index.php?route=api2/point_transaction/detail', requestBody, config);
   }
+
+
+
+  getAccountPoint() {
+    var requestBody = `customer_id=${this.user_info['customer_id']}`;
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
+    }
+
+    return this.http.post('http://24gocheck.com/index.php?route=api2/customer/point', requestBody, config);
+  }
 }

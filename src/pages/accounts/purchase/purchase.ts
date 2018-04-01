@@ -26,7 +26,7 @@ export class PurchasePage {
     this.viewOrderHistoryInfoPage = OrderHistoryInfoPage;
     this.orderService.getOrderHistory().subscribe(data => {
       this.orderList = data['orders'] || [];
-      console.log(JSON.stringify(data));
+      // console.log(JSON.stringify(data));
     }, error => {
 
     })

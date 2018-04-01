@@ -1,3 +1,5 @@
+import { HistoryTransactionPage } from './../pages/accounts/wallet/history-transaction/history-transaction';
+import { NotificationsPage } from './../pages/notifications/notifications';
 import { CartsProvider } from './../providers/carts/carts';
 import { TabsPage } from './../pages/tabs/tabs';
 import { Component } from '@angular/core';
@@ -27,10 +29,19 @@ export class MyApp {
             // alert('Token is '+ token);
         });
         fcm.onNotification().subscribe(data=>{
+
+          this.notification.addUserNotification(data.message, data.type);
+
           // alert('Outside '+ JSON.stringify(data));
           if(data.wasTapped){
             console.log("Received in background");
             // alert('Data was tapped '+JSON.stringify(data));
+            if(data['type'] == 'confirm_order') {
+              // this.navCtrl.push(NotificationsPage);
+            } else if (data['type'] == 'add_transaction') {
+              // this.navCtrl.push(HistoryTransactionPage);
+            }
+
           } else {
             console.log("Received in foreground");
             // alert('recieve in foreground '+ JSON.stringify(data));
@@ -38,7 +49,7 @@ export class MyApp {
           };
 
           
-          this.notification.addUserNotification(data.message);
+          
         });
         fcm.onTokenRefresh().subscribe(token=>{
           console.log(token);
@@ -49,7 +60,7 @@ export class MyApp {
 
 
       
-      this.setProductCountFromCart();
+      this.cartService.updateCartProductNumber();
       this.notification.getUserNotifications();
 
       // Okay, so the platform is ready and our plugins are available.
@@ -64,12 +75,7 @@ export class MyApp {
 
 
 
-  setProductCountFromCart() {
-    this.cartService.getCartProducts().subscribe(data => {
-      // alert('Products cart number ' + data['products'].length);
-      localStorage.setItem('cart_count', data['products'].length);
-    });
-  }
+  
 
   
 }

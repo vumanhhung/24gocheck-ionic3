@@ -22,7 +22,7 @@ export class HistoryTransactionDetailPage {
     this.transaction_id = this.navParams.get('id');
     this.accountService.getPointTransactionDetail(this.transaction_id).subscribe(data => {
       this.transaction_id = data;
-      alert("product order list "+ JSON.stringify(data));
+      // alert("product order list "+ JSON.stringify(data));
       this.transactionDetail = data['detail'] || {};
     });
   }
