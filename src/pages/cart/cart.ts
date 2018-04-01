@@ -86,8 +86,9 @@ export class CartPage {
 
   onDeleteCart(cart_id){
     this.cartsProvider.removeCartItem(cart_id).subscribe(data => {
-        
+      this.cartsProvider.updateCartProductNumber();
     });
   }
+
   
 }

@@ -27,4 +27,15 @@ export class OrdersProvider {
     let requestBody = 'order_id='+order_id;
     return this.http.post('http://24gocheck.com/index.php?route=api2/order_history/info', requestBody, this.config);
   }
+
+  getShopOrder(shop_id) {
+    let requestBody = 'shop_id='+shop_id;
+    return this.http.post('http://24gocheck.com/index.php?route=api2/shop_order', requestBody, this.config);
+  }
+
+  getShopOrderDetails(shop_id,order_id) {
+    let requestBody = `shop_id=${shop_id}&order_id=${order_id}`;
+    return this.http.post('http://24gocheck.com/index.php?route=api2/shop_order/details', requestBody, this.config);
+  }
+
 }

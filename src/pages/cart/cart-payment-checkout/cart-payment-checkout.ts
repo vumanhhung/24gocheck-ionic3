@@ -1,3 +1,4 @@
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { CartPage } from './../cart';
 import { Component } from '@angular/core';
@@ -30,7 +31,7 @@ export class CartPaymentCheckoutPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
     public cartsProvider: CartsProvider, 
-    public http: HttpClient, public viewCtrl: ViewController, public cartService: CartsProvider) {
+    public http: HttpClient, public viewCtrl: ViewController, public cartService: CartsProvider, public loadingCtrl: LoadingController) {
       this.paymentAndShipping = this.navParams.get('paymentAndShipping');
       this.payment_method = (this.paymentAndShipping.payment_method === 'cod') ? 'Thanh toán khi nhận hàng' : 'Thanh toán bằng thẻ';
       this.info = this.navParams.get('info');
@@ -54,8 +55,16 @@ export class CartPaymentCheckoutPage {
    * xác nhận => chuyển về trang cart
    */
   confirmOrder() {
-    this.cartsProvider.addOrder(this.paymentAndShipping).subscribe(data =>{
 
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  
+    loading.present();
+
+
+    this.cartsProvider.addOrder(this.paymentAndShipping).subscribe(data =>{
+      
       for (let id of this.shop_ids){
         let body = {
           "notification":{
@@ -63,11 +72,11 @@ export class CartPaymentCheckoutPage {
             "body":"Có người đặt sản phẩm chỗ bạn",
             "sound":"default",
             "click_action":"FCM_PLUGIN_ACTIVITY",
-            "icon":"fcm_push_icon"
+            "icon":"icon"
           },
           "data":{
-            "type": 'add_order',
-            "message": this.info['lastname'] + this.info['firstname'] + ' đã đặt mua sản phẩm cửa hàng của bạn',
+            "type": 'confirm_order',
+            "message": this.info['lastname'] + this.info['firstname'] + ' đã đặt mua sản phẩm cửa hàng của bạn'
           },
             "to":"/topics/shop_id_"+ id,
             "priority":"high",
@@ -87,12 +96,18 @@ export class CartPaymentCheckoutPage {
 
       }
 
-      this.cartService.getCartProducts().subscribe(data => {
-        // alert('Products cart number ' + data['products'].length);
-        localStorage.setItem('count', data['products'].length);
-      });
+      this.cartService.updateCartProductNumber();
 
-      this.navCtrl.push(CartPage);
+
+      loading.dismiss();
+      alert('Tạo đơn hàng thành công');
+    }, error => {
+      loading.dismiss();
+      
+      alert('Tạo đơn hàng không thành công');
     });
+
+    this.navCtrl.popAll();
+
   }
 }

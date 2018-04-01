@@ -22,6 +22,13 @@ export class CartsProvider {
   }
 
 
+  updateCartProductNumber() {
+    this.getCartProducts().subscribe(data => {
+      // alert('Products cart number ' + data['products'].length);
+      localStorage.setItem('cart_count', data['products'].length);
+    });
+  }
+
   /**
    * Thêm sản phẩm vào giỏ hàng
    * @param product_id (Number) id của sản phẩm

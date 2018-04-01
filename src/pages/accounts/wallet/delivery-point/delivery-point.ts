@@ -29,22 +29,31 @@ export class DeliveryPointPage {
   email: string;
   userFullName: string;
   transactionForm: FormGroup;
+  minValue = 50;
+  maxValue: number;
+  saturation: number;
+
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
     public accountService: AccountsProvider, 
     public formBuilder: FormBuilder,
-    public notification: NotificationsProvider) {
+    public notification: NotificationsProvider,
+    ) {
 
       this.user_info = this.accountService.getUserInfo();
       this.trader_id = this.user_info['customer_id'];
       this.email = this.user_info['email'];
       // alert('customer id is :' + this.trader_id);
 
-      this.userFullName = this.user_info['lastname'] + ' ' +this.user_info['firstname'];
+      this.userFullName =this.user_info['firstname'] + ' ' + this.user_info['lastname'];
 
+      this.accountService.getAccountPoint().subscribe(data => {
+        this.maxValue = data['point'];
+      });
 
       this.transactionForm = this.formBuilder.group({
-        point: [],
+        point: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(4)] )] ,
         comment: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]*'), Validators.maxLength(100)] )],
       });
   }
@@ -91,10 +100,12 @@ export class DeliveryPointPage {
       this.sendSuccessfullCreatedTransactionNotificationToTrader(transaction.trader_id, transaction.point);
       this.sendSuccessfullCreatedTransactionNotificationToReceiver(transaction.receiver_id, transaction.point);
       alert('Giao dịch thành công');
+      this.navCtrl.pop();
     }, error => {
       alert('Giao dịch không thành công');
     });
 
+    // console.log('TRans ',JSON.stringify(transaction));
     // alert('Transaction is '+ JSON.stringify(transaction));
   }
 

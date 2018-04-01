@@ -18,24 +18,21 @@
       <ion-row>
         <ion-col col-12>
           <div>
-            <ion-row *ngIf="productList.length">
-              <ion-item class="header-purchase">
-                  <span item-start class="name-shop">Mã Đơn :{{order_history_details['order_id']}}</span>
-              </ion-item>
+            <ion-row *ngIf="shopOrderList.length">
               
-              <ion-item *ngFor="let product of productList" style="border-bottom: 1px solid silver;">
+              <ion-item *ngFor="let product of shopOrderList" style="border-bottom: 1px solid silver;">
                   <h1 col-8 class="name-product">{{product.name}}</h1> 
                   <span class="amount">{{'quantity'|translate}} : {{product.quantity}}</span>
                   <p class="price-x">{{product.price}}</p>
                   
               </ion-item>
 
-              <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
-                <p item-start>{{productList.length}} {{'product'|translate}}</p>
+              <!-- <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
+                <p item-start>{{shopOrderList.length}} {{'product'|translate}}</p>
                 <ion-avatar item-end><img style="width:auto;" src="assets/imgs/icon-small.png" alt=""></ion-avatar>
-                <h3 item-end>Tổng:</h3> <a item-end class="price">{{order_history_details['totals'][0]['text']}}</a>
+                <h3 item-end>Tổng:</h3> <a item-end class="price">{{order_history_details['total_product']}}</a>
 
-              </ion-item>
+              </ion-item> -->
 
               <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
                 <p style="font-size: 17px;color: #0185cf;">{{'address'|translate}}: <span [innerHTML]="order_history_details.shipping_address"></span></p>
@@ -53,21 +50,3 @@
       </ion-row> 
     </ion-grid>
   </ion-content>
-  <!--
-  Generated template for the ViewOrderDetailPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>ViewOrderDetail</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>

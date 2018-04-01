@@ -23,12 +23,13 @@ export class NotificationsProvider {
    * tạo tin nhắn
    * @param message (string) nội dung tin nhắn
    */
-  addUserNotification(message) {
+  addUserNotification(message, type) {
     let today = new Date();
     
 
     this.userNotifications.unshift({
       message: message,
+      type: type,
       time: today
     });
 
@@ -70,13 +71,13 @@ export class NotificationsProvider {
         "body": content['body'],
         "sound":"default",
         "click_action":"FCM_PLUGIN_ACTIVITY",
-        "icon":"fcm_push_icon"
+        "icon":"icon"
       },
       "data":{
         "type": content['type'],
         "message": content['message'],
       },
-        "to":"/topics/ " + content['topics'] ,
+        "to":"/topics/" + content['topics'] ,
         "priority":"high",
         "restricted_package_name":""
     }

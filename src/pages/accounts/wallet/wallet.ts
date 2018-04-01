@@ -27,13 +27,29 @@ export class WalletPage {
     this.deliveryPointPage = DeliveryPointPage;
     this.historyTransactionPage = HistoryTransactionPage;
 
-    this.customer_point = accountService.getUserInfo()['point'];
+    
 
     // console.log('U info',accountService.getUserInfo());
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WalletPage');
+    this.accountService.getAccountPoint().subscribe(data => {
+      console.log('points is ', data['point']);
+      this.customer_point = data['point'];
+    });
+    
+  }
+
+  goToDeliveryPointPage() {
+    this.accountService.getAccountPoint().subscribe(data => {
+      let point = parseInt(data['point']);
+      if (point < 50){
+        alert('Số điểm của bạn không đủ để thực hiện giao dịch.\n Vui lòng Nạp thêm');
+      } else {
+        this.navCtrl.push(DeliveryPointPage);
+      }
+    })
   }
 
 }
