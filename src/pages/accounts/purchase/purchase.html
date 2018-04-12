@@ -15,7 +15,6 @@
 
 <ion-content style="background: whitesmoke;">
   <ion-grid class="grid-purchase" *ngIf="orderList.length">
-
     <ion-row *ngFor="let order of orderList">
       <ion-col col-12>
         <div>
@@ -23,7 +22,6 @@
             <ion-item class="header-purchase">
               <span item-start class="name-shop">Mã Đơn: {{order.order_id}}</span>
             </ion-item>
-
 
             <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
               <p item-start>{{order.products}} sản phẩm</p>
@@ -48,8 +46,6 @@
         </div>
       </ion-col>
     </ion-row>
-
-
 
     <!-- <ion-row >
       <ion-col col-12>
