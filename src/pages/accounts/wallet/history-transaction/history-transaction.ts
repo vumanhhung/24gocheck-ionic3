@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AccountsProvider } from '../../../../providers/accounts/accounts';
+import { HistoryTransactionDetailPage } from './history-transaction-detail/history-transaction-detail';
 
 /**
  * Generated class for the HistoryTransactionPage page.
@@ -14,8 +16,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'history-transaction.html',
 })
 export class HistoryTransactionPage {
+  historyTransactionDetailPage: any; 
+  historyTransaction=[];
+  customer_id: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public accountService: AccountsProvider) {
+    this.customer_id = accountService.getUserInfo()['customer_id'];
+    this.accountService.getPointTransactionHistory(this.customer_id).subscribe(data => {
+      this.historyTransaction = data['history'] || [];
+      console.log(JSON.stringify(data));
+    }, error => {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    })
+    this.historyTransactionDetailPage = HistoryTransactionDetailPage;
   }
 
   ionViewDidLoad() {

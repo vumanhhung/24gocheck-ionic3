@@ -1,3 +1,4 @@
+import { CartsProvider } from './../../../providers/carts/carts';
 import { FCM } from '@ionic-native/fcm';
 import { HomePage } from './../../home/home';
 import { HttpClient } from '@angular/common/http/';
@@ -42,7 +43,8 @@ export class LoginPage {
       public modalCtrl : ModalController,
       public storage: Storage,
       public accountsService: AccountsProvider,
-      public fcm: FCM ) {
+      public fcm: FCM,
+      public cartService: CartsProvider ) {
 
     this.loginform = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.email, Validators.maxLength(50), Validators.minLength(7)])],
@@ -67,10 +69,14 @@ export class LoginPage {
         this.accountsService.setUserInfo(data['customer_info']);
         this.accountsService.setUserLoggedIn(true);
         let user_id = data['customer_info']['user_id'];
+        let customer_id = data['customer_info']['customer_id'];
         if(user_id){
           this.fcm.subscribeToTopic(`shop_id_${user_id}`);
           // alert(`User Id is : ${user_id}`);
         }
+        this.fcm.subscribeToTopic(`customer_id_${customer_id}`);
+
+        this.cartService.updateCartProductNumber();
         this.closeModal();
       }, error => {
         alert("invalid username or password")

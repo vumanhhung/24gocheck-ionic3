@@ -18,7 +18,6 @@ import { RatePage } from '../rate/rate';
   templateUrl: 'product.html',
 })
 export class ProductPage {
-
   productDetails = {};
   shopDetailsPage: ShopPage;
   shopDetails = {};
@@ -56,11 +55,10 @@ export class ProductPage {
   public addToCart() {
     if(this.productDetails.hasOwnProperty('product_id')){
       this.cartService.addToCart(this.productDetails['product_id'], 1).subscribe(data => {
-        this.cartService.getCartProducts().subscribe(data => {
-          // alert('Products cart number ' + data['products'].length);
-          localStorage.setItem('cart_count', data['products'].length);
-        });
-        console.log('Product has Id '+ this.productDetails['product_id']);
+        
+        this.cartService.updateCartProductNumber();
+
+
         alert('Đã thêm sản phẩm vào giỏ hàng');
       }, error => {
         alert('Lỗi không thêm được sản phẩm');

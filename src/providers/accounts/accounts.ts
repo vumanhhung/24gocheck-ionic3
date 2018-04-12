@@ -106,4 +106,63 @@ export class AccountsProvider {
     }
     return this.http.post('http://24gocheck.com/index.php?route=api2/user_logout', requestBody, config);
   }
+
+  getReceiverInfo(email) {
+    var requestBody = `email=${email}`;
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
+    }
+
+    return this.http.post('http://24gocheck.com/index.php?route=api2/account_exist', requestBody, config);
+  }
+
+
+  getPointTransactionHistory(account_id) {
+    var requestBody = `account_id=${account_id}`;
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
+    }
+
+    return this.http.post('http://24gocheck.com/index.php?route=api2/point_transaction', requestBody, config);
+  }
+
+
+  createTransaction(data) {
+    var requestBody = `trader_id=${data['trader_id']}&receiver_id=${data['receiver_id']}&point=${data['point']}&comment=${data['comment']}&status=${data['status']}`;
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
+    }
+
+    return this.http.post('http://24gocheck.com/index.php?route=api2/point_transaction/add', requestBody, config);
+  }
+
+  getPointTransactionDetail(transaction_id) {
+    var requestBody = `transaction_id=${transaction_id}`;
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
+    }
+
+    return this.http.post('http://24gocheck.com/index.php?route=api2/point_transaction/detail', requestBody, config);
+  }
+
+
+
+  getAccountPoint() {
+    var requestBody = `customer_id=${this.user_info['customer_id']}`;
+    var config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+      }
+    }
+
+    return this.http.post('http://24gocheck.com/index.php?route=api2/customer/point', requestBody, config);
+  }
 }

@@ -62,4 +62,8 @@ export class TabsPage {
     return this.notification.getNotificationCount();
   }
 
+  goToNotification() {
+    let modal = this.modalCtrl.create(this.notificationRoot);
+    modal.present();
+  }
 }

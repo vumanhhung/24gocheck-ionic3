@@ -1,0 +1,50 @@
+<!--
+  Generated template for the PurchasePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title center>{{'purchase-history' | translate}}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content style="background: whitesmoke;">
+    <ion-grid class="grid-purchase" *ngIf="shopOrderList.length">
+  
+      <ion-row *ngFor="let order of shopOrderList">
+        <ion-col col-12>
+          <div>
+            <ion-row>
+              <ion-item class="header-purchase">
+                <span item-start class="name-shop">Mã Đơn: {{order.order_id}}</span>
+              </ion-item>
+  
+  
+              <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
+                <p item-start>Sản phẩm: {{order.name}}</p>
+              </ion-item>
+  
+              <ion-item style="border-bottom: 1px solid silver;margin-left:0px">
+                <ion-icon item-start name="ios-paper-plane-outline"></ion-icon>
+                <p item-end>{{order.date_added | date: 'dd/MM/yyyy HH:mm'}}</p>
+              </ion-item>
+  
+              <!-- <ion-item style="margin-left:0px">
+                <button [navParams]="{order_id: order.order_id}" [navPush]="viewOrderDetail" item-start class="button" ion-button>Chi tiết đơn hàng</button>
+                <button item-end class="button" ion-button>Xem đánh giá Shop</button>
+              </ion-item> -->
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <ion-grid *ngIf="shopOrderList.length == 0">
+      <h1>Không có đơn hàng nào</h1>
+    </ion-grid>
+  </ion-content>

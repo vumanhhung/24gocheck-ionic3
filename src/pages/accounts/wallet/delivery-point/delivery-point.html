@@ -13,25 +13,34 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list style="font-size: 1.8rem;">
-    <div style="border-bottom:1px solid #f2f2f2;">
-      <ion-icon name="card" class="color-icon"></ion-icon>
-      <span>Thông tin người chuyển</span>
-      <ion-input type="text" placeholder="Tài khoản chuyển" style="color: #0185cf;" disabled></ion-input>
-    </div><br/>
-    <div style="border-bottom:1px solid #f2f2f2;">
-      <ion-icon name="logo-usd" class="color-icon"></ion-icon>
-      <span>Thông tin người hưởng</span>
-      <ion-input type="search" placeholder="Tài khoản hưởng" style="color: #0185cf;text-decoration: none;"></ion-input>
-    </div><br/>
-    <div style="border-bottom:1px solid #f2f2f2;">
-      <ion-icon name="medal" class="color-icon"></ion-icon>
-      <span>Số điểm cần chuyển</span>
-      <ion-input type="text" placeholder="Nhập số điểm" style="color: #0185cf;text-decoration: none;"></ion-input>
-    </div><br/>
-    <div style="border-bottom:1px solid #f2f2f2;">
-      <ion-input type="text" placeholder="Nội dung" style="color: #0185cf;text-decoration: none;"></ion-input>
-    </div>
-    <button class="button-confirm">Thực hiện giao dịch</button>
-  </ion-list>
+  <form [formGroup]="transactionForm" >
+    <ion-list style="font-size: 1.8rem;">
+      <div style="border-bottom:1px solid #f2f2f2;">
+        <ion-icon name="card" class="color-icon"></ion-icon>
+        <span>{{'trader_info'|translate}}</span><br/>
+        <span style="color: #0185cf;">{{userFullName}}</span>
+      </div><br/>
+      <div style="border-bottom:1px solid #f2f2f2;">
+        <ion-icon name="logo-usd" class="color-icon"></ion-icon>
+        <span>{{'receiver_info'|translate}}</span>
+        <!-- <ion-input type="search" placeholder="Tài khoản hưởng" style="color: #0185cf;text-decoration: none;"></ion-input> -->
+        <ion-searchbar placeholder="{{'receiver_info'|translate}}" autocomplete="on" style="color: #0185cf;text-decoration: none;" mode="ios" (ionInput)="checkAccountExist($event)" ></ion-searchbar>
+        <br/>
+        <span style="color: #0185cf;" >{{receiverName}}</span>
+      </div><br/>
+      <div style="border-bottom:1px solid #f2f2f2;">
+        <ion-icon name="medal" class="color-icon"></ion-icon>
+        <span>{{'point'|translate}} {{transactionForm.value.point}}</span>
+        <!-- <ion-input type="number" pattern="[0-9]*" placeholder="{{'point'|translate}}" formControlName="point" style="color: #0185cf;text-decoration: none;"></ion-input> -->
+        <ion-range min="{{50}}" max="{{maxValue}}" formControlName="point" color="primary">
+          <ion-label range-left>50</ion-label>
+          <ion-label range-right>{{maxValue}}</ion-label>
+        </ion-range>
+      </div><br/>
+      <div style="border-bottom:1px solid #f2f2f2;">
+        <ion-input type="text" placeholder="{{'content'|translate}}" formControlName="comment" style="color: #0185cf;text-decoration: none;"></ion-input>
+      </div>
+      <button class="button-confirm" (click)="confirmTransfer()">{{"do_transaction"|translate}}</button>
+    </ion-list>
+  </form>
 </ion-content>

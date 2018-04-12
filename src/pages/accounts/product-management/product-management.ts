@@ -8,6 +8,7 @@ import { Camera } from '@ionic-native/camera';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { UserProductListPage } from './user-product-list/user-product-list';
+import { ViewOrderPage } from './view-order/view-order';
 
 /**
  * Generated class for the ProductManagementPage page.
@@ -25,8 +26,10 @@ export class ProductManagementPage {
 
   addProductPage: any;
   viewProductListPage :any;
+  viewOrderPage: any;
   constructor() {
     this.addProductPage = AddProductPage;
     this.viewProductListPage = UserProductListPage;
+    this.viewOrderPage = ViewOrderPage;
   }
 }

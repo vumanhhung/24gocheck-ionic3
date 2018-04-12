@@ -3,6 +3,9 @@
     <ion-title>
       {{'notification'|translate}}
     </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -20,7 +23,7 @@
     </div>
     <div [ngSwitch]="noti">
       <ion-list *ngSwitchCase="'event'">
-          <div style="font-size: 16px;" >
+          <div style="font-size: 16px;" *ngIf="userNotifications.length  === 0" >
             <div style="margin: 20% 20% 0 20%">
               <img style="background: transparent; width: 150%;" src="http://24gocheck.com/image/catalog/24gocheck%20Icons/bell.png"/>
             </div>
@@ -31,6 +34,19 @@
             <h1>{{noti.message}}</h1>
             <p>{{noti.time | date: 'dd/MM/yyyy H:mm'}}</p>
           </ion-item>
+          <ion-item-options side="left" *ngIf="noti['type'] == 'add_transaction' ">
+            <button ion-button color="primary" (click)="goToTransactionPage()">
+              <ion-icon name="mail"></ion-icon>
+              
+            </button>
+
+          </ion-item-options>
+          <ion-item-options side="left" *ngIf="noti['type'] == 'confirm_order' ">
+            <button ion-button color="secondary" (click)="goToOrderPage()">
+              <ion-icon name="mail"></ion-icon>
+              
+            </button>
+          </ion-item-options>
           <ion-item-options side="right">
             <button ion-button color="danger" (click)="removeNotification(noti)">
               <ion-icon name="mail"></ion-icon>

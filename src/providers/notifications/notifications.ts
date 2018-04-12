@@ -23,12 +23,13 @@ export class NotificationsProvider {
    * tạo tin nhắn
    * @param message (string) nội dung tin nhắn
    */
-  addUserNotification(message) {
+  addUserNotification(message, type) {
     let today = new Date();
     
 
     this.userNotifications.unshift({
       message: message,
+      type: type,
       time: today
     });
 
@@ -59,6 +60,39 @@ export class NotificationsProvider {
 
   setUserNofification(user_notifications) {
     this.storage.set('user_notifications', user_notifications);
+  }
+
+
+  sendFCMNotification(content) {
+
+    let body = {
+      "notification":{
+        "title":content['title'],
+        "body": content['body'],
+        "sound":"default",
+        "click_action":"FCM_PLUGIN_ACTIVITY",
+        "icon":"icon"
+      },
+      "data":{
+        "type": content['type'],
+        "message": content['message'],
+      },
+        "to":"/topics/" + content['topics'] ,
+        "priority":"high",
+        "restricted_package_name":""
+    }
+
+
+    var config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'key=AIzaSyA809s8XMHkh0OMDWaGJ3ecCAdGbAr0T1A'
+      }
+    }
+
+    this.http.post("https://fcm.googleapis.com/fcm/send",body, config)
+      .subscribe();
+
   }
 
 }
